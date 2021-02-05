@@ -1,5 +1,6 @@
 from scipy.stats import binom, bernoulli
 import numpy as np
+import pandas as pd
 import random
 
 rn = random.sample(set([0, 1, 2]), 2)
