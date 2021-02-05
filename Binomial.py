@@ -3,19 +3,32 @@ import numpy as np
 import pandas as pd
 import random
 
-rn = random.sample(set([0, 1, 2]), 2)
-rn1 = rn[0]
-rn2 = rn[1]
+#rn = random.sample(set([0, 1, 2]), 2)
+#rn1 = rn[0]
+#rn2 = rn[1]
 
 #team_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\team_data.csv")
 #team_data = pd.read_csv(r" ")
 
-team1 = team_data.loc[rn1, 'Country']
-team2 = team_data.loc[rn2, 'Country']
+#team1 = team_data.loc[rn1, 'Country']
+#team2 = team_data.loc[rn2, 'Country']
 
 # teams attack and defense rating
-a1, d1 = team_data.loc[rn1, 'Attack'], team_data.loc[rn1, 'Defence']
-a2, d2 = team_data.loc[rn2, 'Attack'], team_data.loc[rn2, 'Defence']
+#a1, d1 = team_data.loc[rn1, 'Attack'], team_data.loc[rn1, 'Defence']
+#a2, d2 = team_data.loc[rn2, 'Attack'], team_data.loc[rn2, 'Defence']
+
+print(team_data)
+
+team1 = team_data.loc[0, 'Country']
+team2 = team_data.loc[1, 'Country']
+team3 = team_data.loc[2, 'Country']
+team4 = team_data.loc[3, 'Country']
+
+# teams attack and defense rating
+a1, d1 = team_data.loc[0, 'Attack'], team_data.loc[0, 'Defence']
+a2, d2 = team_data.loc[1, 'Attack'], team_data.loc[1, 'Defence']
+a3, d3 = team_data.loc[2, 'Attack'], team_data.loc[2, 'Defence']
+a4, d4 = team_data.loc[3, 'Attack'], team_data.loc[3, 'Defence']
 
 # teams attack and defense rating
 a1, d1 = 1.2, 0.9
