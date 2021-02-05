@@ -30,10 +30,6 @@ a2, d2 = team_data.loc[1, 'Attack'], team_data.loc[1, 'Defence']
 a3, d3 = team_data.loc[2, 'Attack'], team_data.loc[2, 'Defence']
 a4, d4 = team_data.loc[3, 'Attack'], team_data.loc[3, 'Defence']
 
-# teams attack and defense rating
-a1, d1 = 1.2, 0.9
-a2, d2 = 0.8, 1.1
-
 # calculating the chance of each team scoring
 p1 = 0.014 * (a1 / d2)
 q1 = 1 - p1
