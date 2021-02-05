@@ -1,9 +1,20 @@
 from scipy.stats import binom, bernoulli
 import numpy as np
+import random
 
-# teams playing
-team1 = "Brazil"
-team2 = "Italy"
+rn = random.sample(set([0, 1, 2]), 2)
+rn1 = rn[0]
+rn2 = rn[1]
+
+#team_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\team_data.csv")
+#team_data = pd.read_csv(r" ")
+
+team1 = team_data.loc[rn1, 'Country']
+team2 = team_data.loc[rn2, 'Country']
+
+# teams attack and defense rating
+a1, d1 = team_data.loc[rn1, 'Attack'], team_data.loc[rn1, 'Defence']
+a2, d2 = team_data.loc[rn2, 'Attack'], team_data.loc[rn2, 'Defence']
 
 # teams attack and defense rating
 a1, d1 = 1.2, 0.9
