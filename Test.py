@@ -5,8 +5,8 @@ import random
 
 team_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\team_data.csv")
 
-for i,j in zip((0, 0, 0, 1, 1, 2), (1, 2, 3, 2, 3, 3)):
-     if i < j:
+for i,j in zip((0, 1, 0, 1, 0, 2), (2, 3, 3, 2, 1, 3)):
+     if i != j:
         team1 = team_data.loc[i, 'Country']
         team2 = team_data.loc[j, 'Country']
         
