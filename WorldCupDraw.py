@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 import random
 
-pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\PotTest.csv")
+#pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\PotTest.csv")
+#pot_data = pd.read_csv(r" ")
+
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
 pot1 = pot_data.iloc[:8, :]
