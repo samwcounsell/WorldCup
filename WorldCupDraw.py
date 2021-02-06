@@ -47,11 +47,9 @@ for group in [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]:
             a2, d2 = group.loc[j, 'Attack'], group.loc[j, 'Defence']
 
             p1 = 0.014 * (a1 / d2)
-            q1 = 1 - p1
+            
             p2 = 0.014 * (a2 / d1)
-            q2 = 1 - p2
-
-            quantile = np.arange(0.01, 1, 0.1)
+            
             Ber1 = bernoulli.rvs(p1, q1, size=90)
             Ber2 = bernoulli.rvs(p2, q2, size=90)
             goals1 = sum(Ber1)
