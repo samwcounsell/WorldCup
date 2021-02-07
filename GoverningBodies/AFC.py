@@ -89,6 +89,7 @@ for a in range(6):
 
     print("############")
 
+afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 afcpot_data = afcpot_data.reset_index()
 afcpot_data = afcpot_data.drop(['index'], axis=1)
 print(afcpot_data)
