@@ -161,17 +161,26 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
 
                 print(team1, goals1, " - ", goals2, team2)
 
+                group.loc[i, 'P'], group.loc[j, 'P'] = group.loc[i, 'P'] + 1, group.loc[j, 'P'] + 1
+                group.loc[i, 'GF'], group.loc[i, 'GA'] = group.loc[i, 'GF'] + goals1, group.loc[i, 'GA'] + goals2
+                group.loc[j, 'GF'], group.loc[j, 'GA'] = group.loc[j, 'GF'] + goals2, group.loc[j, 'GA'] + goals1
+                group.loc[i, 'GD'] = group.loc[i, 'GF'] - group.loc[i, 'GA']
+                group.loc[j, 'GD'] = group.loc[j, 'GF'] - group.loc[j, 'GA']
+
                 if goals1 > goals2:
                     winner = team1
                     group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 3
+                    group.loc[i, 'W'], group.loc[j, 'L'] = group.loc[i, 'W'] + 1, group.loc[j, 'L'] + 1
 
                 if goals1 < goals2:
                     winner = team2
                     group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 3
+                    group.loc[j, 'W'], group.loc[i, 'L'] = group.loc[j, 'W'] + 1, group.loc[i, 'L'] + 1
 
                 if goals1 == goals2:
                     group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 1
                     group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 1
+                    group.loc[i, 'D'], group.loc[j, 'D'] = group.loc[i, 'D'] + 1, group.loc[j, 'D'] + 1
 
                 # print(team1, "xG/m", format(p1, ".4f"), " xG/norm", format((p1 / 0.014), ".4f"), "xG_total",
                 # format((p1 * 90), ".4f"), "sd", format(((p1 * (1 - p1) * 90) ** 0.5), ".4f"))
