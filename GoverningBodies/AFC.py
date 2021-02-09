@@ -131,6 +131,9 @@ afcgroupH = afcpotbig.iloc[[7, 15, 23, 31, 39], :]
 afcgroupH = afcgroupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
 
 for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, afcgroupG, afcgroupH]:
+    print(group)
+    time.sleep(2)
+    print("############")
     for k in (1, 2):
         for i, j in zip((0, 0, 0, 0, 1, 1, 1, 2, 2, 3,), (1, 2, 3, 4, 2, 3, 4, 3, 4, 4)):
             if i != j:
@@ -158,3 +161,4 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
             time.sleep(0.3)
     time.sleep(1)
     print("################")
+
