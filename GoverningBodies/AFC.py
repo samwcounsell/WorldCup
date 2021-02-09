@@ -6,7 +6,7 @@ import random
 
 # imports the AFC nations csv and sorts it by world rank
 #afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")  # Sam file location
-afcpot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")  # Keane file location
+#afcpot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")  # Keane file location
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 
 # Round 1
