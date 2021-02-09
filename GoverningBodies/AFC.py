@@ -1,6 +1,7 @@
 from scipy.stats import binom, bernoulli
 import numpy as np
 import pandas as pd
+import time
 import random
 
 afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
@@ -22,19 +23,20 @@ for a in range(6):
     Ber2 = bernoulli.rvs(p2, size=90)
     goals1 = sum(Ber1)
     goals2 = sum(Ber2)
+    print(team1, goals1, " - ", goals2, team2)
 
     if goals1 > goals2:
         winner = team1
         df = afcround1.iloc[(2 * a):(2 * a + 1), :]
         afcpot_data = pd.concat([afcpot_data, df])
-        print(team1, goals1, " - ", goals2, team2)
+
     if goals1 < goals2:
         winner = team2
         df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
         afcpot_data = pd.concat([afcpot_data, df])
-        print(team1, goals1, " - ", goals2, team2)
 
     if goals1 == goals2:
+        time.sleep(1)
         Ber1 = bernoulli.rvs(p1, size=30)
         Ber2 = bernoulli.rvs(p2, size=30)
         goals1 = sum(Ber1) + goals1
@@ -44,14 +46,17 @@ for a in range(6):
             winner = team1
             df = afcround1.iloc[(2 * a):(2 * a + 1), :]
             afcpot_data = pd.concat([afcpot_data, df])
-            print(team1, goals1, " - ", goals2, team2)
+            print("ET:", team1, goals1, " - ", goals2, team2)
+
         if goals1 < goals2:
             winner = team2
             df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
             afcpot_data = pd.concat([afcpot_data, df])
-            print(team1, goals1, " - ", goals2, team2)
+            print("ET:", team1, goals1, " - ", goals2, team2)
 
         if goals1 == goals2:
+            print("ET:", team1, goals1, " - ", goals2, team2)
+            time.sleep(1)
             Ber1 = bernoulli.rvs(0.7, size=5)
             Ber2 = bernoulli.rvs(0.7, size=5)
             pen1 = sum(Ber1)
@@ -86,14 +91,13 @@ for a in range(6):
                             afcpot_data = pd.concat([afcpot_data, df])
                             print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                             break
-
+    time.sleep(1)
     print("############")
 
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 afcpot_data = afcpot_data.reset_index()
 afcpot_data = afcpot_data.drop(['index'], axis=1)
-print(afcpot_data)
-print("###########")
+#print(afcpot_data)
 
 afcpot1 = afcpot_data.iloc[:8, :]
 afcpot2 = afcpot_data.iloc[8:16, :]
@@ -151,5 +155,6 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
                 # format((p1 * 90), ".4f"), "sd", format(((p1 * (1 - p1) * 90) ** 0.5), ".4f"))
                 # print(team2, "xG/m", format(p2, ".4f"), " xG/norm", format((p2 / 0.014), ".4f"), "xG_total",
                 # format((p2 * 90), ".4f"), "sd", format(((p2 * (1 - p2) * 90) ** 0.5), ".4f"))
-
+            time.sleep(0.3)
+    time.sleep(1)
     print("################")
