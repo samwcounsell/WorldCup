@@ -213,7 +213,7 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
                 # format((p2 * 90), ".4f"), "sd", format(((p2 * (1 - p2) * 90) ** 0.5), ".4f"))
             time.sleep(0.3)
     time.sleep(1)
-    group = group.sort_values(by=['Pts'], ascending=False)
+    group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
     print(group)
