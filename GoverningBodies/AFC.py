@@ -391,7 +391,7 @@ afcpot_data = afcpot_data.iloc[16:, :]
 
 
 print("############  AFC ROUND 4  ############")
-for a in range(2):
+for a in range(1):
     team1 = afcround4.loc[(2 * a), 'Country']
     team2 = afcround4.loc[(2 * a + 1), 'Country']
     a1, d1 = afcround4.loc[(2 * a), 'Attack'], afcround4.loc[(2 * a), 'Defence']
