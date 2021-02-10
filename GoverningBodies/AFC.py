@@ -121,10 +121,8 @@ for a in range(6):
     time.sleep(1)
     print("############")
 
-uc = input("Do you wish to continue, 1 if yes, 0 if no: ")  # uc = user continue
+uc = input("Press enter to continue: ")  # uc = user continue
 
-if uc == 0:
-    sys.exit
 
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 afcpot_data = afcpot_data.reset_index()
@@ -219,8 +217,6 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
     group = group.drop(['index'], axis=1)
     print(group)
 
-    uc = input("Do you wish to continue, 1 if yes, 0 if no: ")  # uc = user continue
-    if uc == 0:
-        sys.exit
+    uc = input("Press enter to continue: ")  # uc = user continue
 
     print("################")
