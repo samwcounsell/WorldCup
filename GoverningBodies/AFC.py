@@ -5,7 +5,8 @@ import time
 import random
 import sys
 
-afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
+#afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
+#afcpot_data = pd.read_csv(r"")
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 
 afcround1 = afcpot_data.iloc[34:46]
