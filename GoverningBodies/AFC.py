@@ -166,52 +166,108 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
     time.sleep(2)
     print("############")
     for k in (1, 2):
-        for i, j in zip((0, 0, 0, 0, 1, 1, 1, 2, 2, 3,), (1, 2, 3, 4, 2, 3, 4, 3, 4, 4)):
-            if i != j:
-                team1 = group.loc[i, 'Country']
-                team2 = group.loc[j, 'Country']
-                a1, d1 = group.loc[i, 'Attack'], group.loc[i, 'Defence']
-                a2, d2 = group.loc[j, 'Attack'], group.loc[j, 'Defence']
-                if k == 1:  # the * 1.2 gives the home team and advantage
-                    p1 = 0.014 * (a1 / d2) * 1.2
-                    p2 = 0.014 * (a2 / d1)
-                if k == 2:  # the * 1.2 gives the home team and advantage
-                    p1 = 0.014 * (a1 / d2)
-                    p2 = 0.014 * (a2 / d1) * 1.2
+        d = 0
+        c = 1
+        b = 2
+        e = 3
+        f = 4
 
-                Ber1 = bernoulli.rvs(p1, size=90)
-                Ber2 = bernoulli.rvs(p2, size=90)
-                goals1 = sum(Ber1)
-                goals2 = sum(Ber2)
+        for m in range(5):
 
-                print(team1, goals1, " - ", goals2, team2)
+            time.sleep(0.8)
+            print("MATCHDAY", m + ((k - 1) * 5) + 1)
+            team1 = group.loc[b, 'Country']
+            team2 = group.loc[c, 'Country']
+            a1, d1 = group.loc[b, 'Attack'], group.loc[b, 'Defence']
+            a2, d2 = group.loc[c, 'Attack'], group.loc[c, 'Defence']
+            if k == 1:  # the * 1.2 gives the home team and advantage
+                p1 = 0.014 * (a1 / d2) * 1.2
+                p2 = 0.014 * (a2 / d1)
+            if k == 2:  # the * 1.2 gives the home team and advantage
+                p1 = 0.014 * (a1 / d2)
+                p2 = 0.014 * (a2 / d1) * 1.2
 
-                group.loc[i, 'P'], group.loc[j, 'P'] = group.loc[i, 'P'] + 1, group.loc[j, 'P'] + 1
-                group.loc[i, 'GF'], group.loc[i, 'GA'] = group.loc[i, 'GF'] + goals1, group.loc[i, 'GA'] + goals2
-                group.loc[j, 'GF'], group.loc[j, 'GA'] = group.loc[j, 'GF'] + goals2, group.loc[j, 'GA'] + goals1
-                group.loc[i, 'GD'] = group.loc[i, 'GF'] - group.loc[i, 'GA']
-                group.loc[j, 'GD'] = group.loc[j, 'GF'] - group.loc[j, 'GA']
+            Ber1 = bernoulli.rvs(p1, size=90)
+            Ber2 = bernoulli.rvs(p2, size=90)
+            goals1 = sum(Ber1)
+            goals2 = sum(Ber2)
 
-                if goals1 > goals2:
-                    winner = team1
-                    group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 3
-                    group.loc[i, 'W'], group.loc[j, 'L'] = group.loc[i, 'W'] + 1, group.loc[j, 'L'] + 1
+            print(team1, goals1, " - ", goals2, team2)
 
-                if goals1 < goals2:
-                    winner = team2
-                    group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 3
-                    group.loc[j, 'W'], group.loc[i, 'L'] = group.loc[j, 'W'] + 1, group.loc[i, 'L'] + 1
+            group.loc[b, 'P'], group.loc[c, 'P'] = group.loc[b, 'P'] + 1, group.loc[c, 'P'] + 1
+            group.loc[b, 'GF'], group.loc[b, 'GA'] = group.loc[c, 'GF'] + goals1, group.loc[b, 'GA'] + goals2
+            group.loc[c, 'GF'], group.loc[c, 'GA'] = group.loc[c, 'GF'] + goals2, group.loc[c, 'GA'] + goals1
+            group.loc[b, 'GD'] = group.loc[b, 'GF'] - group.loc[b, 'GA']
+            group.loc[c, 'GD'] = group.loc[c, 'GF'] - group.loc[c, 'GA']
 
-                if goals1 == goals2:
-                    group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 1
-                    group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 1
-                    group.loc[i, 'D'], group.loc[j, 'D'] = group.loc[i, 'D'] + 1, group.loc[j, 'D'] + 1
+            if goals1 > goals2:
+                winner = team1
+                group.loc[b, 'Pts'] = group.loc[b, 'Pts'] + 3
+                group.loc[b, 'W'], group.loc[c, 'L'] = group.loc[b, 'W'] + 1, group.loc[c, 'L'] + 1
 
-                # print(team1, "xG/m", format(p1, ".4f"), " xG/norm", format((p1 / 0.014), ".4f"), "xG_total",
-                # format((p1 * 90), ".4f"), "sd", format(((p1 * (1 - p1) * 90) ** 0.5), ".4f"))
-                # print(team2, "xG/m", format(p2, ".4f"), " xG/norm", format((p2 / 0.014), ".4f"), "xG_total",
-                # format((p2 * 90), ".4f"), "sd", format(((p2 * (1 - p2) * 90) ** 0.5), ".4f"))
-            time.sleep(0.3)
+            if goals1 < goals2:
+                winner = team2
+                group.loc[c, 'Pts'] = group.loc[c, 'Pts'] + 3
+                group.loc[c, 'W'], group.loc[b, 'L'] = group.loc[c, 'W'] + 1, group.loc[b, 'L'] + 1
+
+            if goals1 == goals2:
+                group.loc[b, 'Pts'] = group.loc[b, 'Pts'] + 1
+                group.loc[c, 'Pts'] = group.loc[c, 'Pts'] + 1
+                group.loc[b, 'D'], group.loc[c, 'D'] = group.loc[b, 'D'] + 1, group.loc[c, 'D'] + 1
+
+            #############
+
+            team1 = group.loc[e, 'Country']
+            team2 = group.loc[f, 'Country']
+            a1, d1 = group.loc[e, 'Attack'], group.loc[e, 'Defence']
+            a2, d2 = group.loc[f, 'Attack'], group.loc[f, 'Defence']
+            if k == 1:  # the * 1.2 gives the home team and advantage
+                p1 = 0.014 * (a1 / d2) * 1.2
+                p2 = 0.014 * (a2 / d1)
+            if k == 2:  # the * 1.2 gives the home team and advantage
+                p1 = 0.014 * (a1 / d2)
+                p2 = 0.014 * (a2 / d1) * 1.2
+
+            Ber1 = bernoulli.rvs(p1, size=90)
+            Ber2 = bernoulli.rvs(p2, size=90)
+            goals1 = sum(Ber1)
+            goals2 = sum(Ber2)
+
+            print(team1, goals1, " - ", goals2, team2)
+
+            group.loc[e, 'P'], group.loc[f, 'P'] = group.loc[e, 'P'] + 1, group.loc[f, 'P'] + 1
+            group.loc[e, 'GF'], group.loc[e, 'GA'] = group.loc[f, 'GF'] + goals1, group.loc[e, 'GA'] + goals2
+            group.loc[f, 'GF'], group.loc[f, 'GA'] = group.loc[f, 'GF'] + goals2, group.loc[f, 'GA'] + goals1
+            group.loc[e, 'GD'] = group.loc[e, 'GF'] - group.loc[e, 'GA']
+            group.loc[f, 'GD'] = group.loc[f, 'GF'] - group.loc[f, 'GA']
+
+            if goals1 > goals2:
+                winner = team1
+                group.loc[e, 'Pts'] = group.loc[e, 'Pts'] + 3
+                group.loc[e, 'W'], group.loc[f, 'L'] = group.loc[e, 'W'] + 1, group.loc[f, 'L'] + 1
+
+            if goals1 < goals2:
+                winner = team2
+                group.loc[f, 'Pts'] = group.loc[f, 'Pts'] + 3
+                group.loc[f, 'W'], group.loc[e, 'L'] = group.loc[f, 'W'] + 1, group.loc[e, 'L'] + 1
+
+            if goals1 == goals2:
+                group.loc[e, 'Pts'] = group.loc[e, 'Pts'] + 1
+                group.loc[f, 'Pts'] = group.loc[f, 'Pts'] + 1
+                group.loc[e, 'D'], group.loc[f, 'D'] = group.loc[e, 'D'] + 1, group.loc[f, 'D'] + 1
+
+            nd = c
+            nc = e
+            nb = d
+            ne = f
+            nf = b
+
+            d = nd
+            c = nc
+            b = nb
+            e = ne
+            f = nf
+            
     time.sleep(1)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
