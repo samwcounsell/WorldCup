@@ -6,7 +6,7 @@ import random
 import sys
 
 #afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
-#afcpot_data = pd.read_csv(r"")
+#afcpot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")  # Keane file location
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 
 afcround1 = afcpot_data.iloc[34:46]
@@ -217,7 +217,47 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
     print(group)
+    
+    afcround3 = group.iloc[0:2, :]
+    afcpot_data = pd.concat([afcpot_data, afcround3])
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
     print("################")
+    
+    
+afcpot_data = afcpot_data.iloc[40:, :]
+
+groupwinner = afcpot_data.loc[0, :]
+
+runnerup = afcpot_data.loc[1, :]
+runnerup = runnerup.sort_values(by=['Pts'], ascending = False)
+runnerup = runnerup.iloc[:4, :]
+
+round3big = pd.concat([groupwinner, runnerup])
+round3big = round3big.sort_values(by=['World_Rank'])
+
+afcpot1 = round3big.iloc[:2, :]
+afcpot2 = round3big.iloc[2:4, :]
+afcpot3 = round3big.iloc[4:6, :]
+afcpot4 = round3big.iloc[6:8, :]
+afcpot5 = round3big.iloc[8:10, :]
+afcpot6 = round3big.iloc[10:12, :]
+
+afcpot1 = afcpot1.sample(frac=1)
+afcpot2 = afcpot2.sample(frac=1)
+afcpot3 = afcpot3.sample(frac=1)
+afcpot4 = afcpot4.sample(frac=1)
+afcpot5 = afcpot5.sample(frac=1)
+afcpot6 = afcpot6.sample(frac=1)
+
+round3big = pd.concat([afcpot1, afcpot2, afcpot3, afcpot4, afcpot5, afcpot6])
+round3big[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
+
+afcgroupA = round3big.iloc[[0, 2, 4, 6, 8, 10], :]
+afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
+afcgroupB = round3big.iloc[[1, 3, 5, 7, 9, 11], :]
+afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
+
+print(afcgroupA)
+print(afcgroupB)
