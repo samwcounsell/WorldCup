@@ -315,5 +315,188 @@ afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
 afcgroupB = round3big.iloc[[1, 3, 5, 7, 9, 11], :]
 afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
 
-print(afcgroupA)
-print(afcgroupB)
+
+for group in [afcgroupA, afcgroupB]:
+    print("############  AFC ROUND 3  ############")
+    print(group)
+    #time.sleep(2)
+    print("############")
+    for k in (1, 2):
+        for i, j in zip((0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4), (1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5, 5)):
+            if i != j:
+                team1 = group.loc[i, 'Country']
+                team2 = group.loc[j, 'Country']
+                a1, d1 = group.loc[i, 'Attack'], group.loc[i, 'Defence']
+                a2, d2 = group.loc[j, 'Attack'], group.loc[j, 'Defence']
+                if k == 1:  # the * 1.2 gives the home team and advantage
+                    p1 = 0.014 * (a1 / d2) * 1.2
+                    p2 = 0.014 * (a2 / d1)
+                if k == 2:  # the * 1.2 gives the home team and advantage
+                    p1 = 0.014 * (a1 / d2)
+                    p2 = 0.014 * (a2 / d1) * 1.2
+
+                Ber1 = bernoulli.rvs(p1, size=90)
+                Ber2 = bernoulli.rvs(p2, size=90)
+                goals1 = sum(Ber1)
+                goals2 = sum(Ber2)
+
+                print(team1, goals1, " - ", goals2, team2)
+
+                group.loc[i, 'P'], group.loc[j, 'P'] = group.loc[i, 'P'] + 1, group.loc[j, 'P'] + 1
+                group.loc[i, 'GF'], group.loc[i, 'GA'] = group.loc[i, 'GF'] + goals1, group.loc[i, 'GA'] + goals2
+                group.loc[j, 'GF'], group.loc[j, 'GA'] = group.loc[j, 'GF'] + goals2, group.loc[j, 'GA'] + goals1
+                group.loc[i, 'GD'] = group.loc[i, 'GF'] - group.loc[i, 'GA']
+                group.loc[j, 'GD'] = group.loc[j, 'GF'] - group.loc[j, 'GA']
+
+                if goals1 > goals2:
+                    winner = team1
+                    group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 3
+                    group.loc[i, 'W'], group.loc[j, 'L'] = group.loc[i, 'W'] + 1, group.loc[j, 'L'] + 1
+
+                if goals1 < goals2:
+                    winner = team2
+                    group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 3
+                    group.loc[j, 'W'], group.loc[i, 'L'] = group.loc[j, 'W'] + 1, group.loc[i, 'L'] + 1
+
+                if goals1 == goals2:
+                    group.loc[i, 'Pts'] = group.loc[i, 'Pts'] + 1
+                    group.loc[j, 'Pts'] = group.loc[j, 'Pts'] + 1
+                    group.loc[i, 'D'], group.loc[j, 'D'] = group.loc[i, 'D'] + 1, group.loc[j, 'D'] + 1
+
+                # print(team1, "xG/m", format(p1, ".4f"), " xG/norm", format((p1 / 0.014), ".4f"), "xG_total",
+                # format((p1 * 90), ".4f"), "sd", format(((p1 * (1 - p1) * 90) ** 0.5), ".4f"))
+                # print(team2, "xG/m", format(p2, ".4f"), " xG/norm", format((p2 / 0.014), ".4f"), "xG_total",
+                # format((p2 * 90), ".4f"), "sd", format(((p2 * (1 - p2) * 90) ** 0.5), ".4f"))
+            #time.sleep(0.3)
+    #time.sleep(1)
+    group = group.sort_values(by=['Pts'], ascending = False)
+    group = group.reset_index()
+    group = group.drop(['index'], axis=1)
+    print("############  AFC ROUND 3  ############")
+    print(group)
+
+    afcround4 = group.iloc[2:3, :]
+    afcpot_data = pd.concat([afcpot_data, afcround4])
+
+
+    uc = input("Do you wish to continue, 1 if yes, 0 if no: ")  # uc = user continue
+    if uc == 0:
+        sys.exit
+
+
+afcround4 = afcpot_data.iloc[16:, :]
+afcround4 = afcround4.sample(frac=1)
+afcround4 = afcround4.set_index([pd.Index([0, 1]), ])
+afcpot_data = afcpot_data.iloc[16:, :]
+
+
+print("############  AFC ROUND 4  ############")
+for a in range(2):
+    team1 = afcround4.loc[(2 * a), 'Country']
+    team2 = afcround4.loc[(2 * a + 1), 'Country']
+    a1, d1 = afcround4.loc[(2 * a), 'Attack'], afcround4.loc[(2 * a), 'Defence']
+    a2, d2 = afcround4.loc[(2 * a), 'Attack'], afcround4.loc[(2 * a), 'Defence']
+    for leg in (1, 2):
+        if leg == 1:
+            p1 = 0.014 * (a1 / d2)
+            p2 = 0.014 * (a2 / d1) * 0.8
+            Ber1 = bernoulli.rvs(p1, size=90)
+            Ber2 = bernoulli.rvs(p2, size=90)
+            hgoals1 = sum(Ber1)
+            agoals2 = sum(Ber2)
+            print(team1, hgoals1, " - ", agoals2, team2)
+            time.sleep(1)
+
+        if leg == 2:
+            p1 = 0.014 * (a1 / d2) * 0.8
+            p2 = 0.014 * (a2 / d1)
+            Ber1 = bernoulli.rvs(p1, size=90)
+            Ber2 = bernoulli.rvs(p2, size=90)
+            agoals1 = sum(Ber1)
+            hgoals2 = sum(Ber2)
+            goals1 = hgoals1 + agoals1
+            goals2 = hgoals2 + agoals2
+            print(team1, agoals1, "[", goals1, "]", " - ", "[", goals2, "]", hgoals2, team2)
+
+    if goals1 > goals2:
+        winner = team1
+        df = afcround4.iloc[(2 * a):(2 * a + 1), :]
+        afcpot_data = pd.concat([afcpot_data, df])
+
+    if goals1 < goals2:
+        winner = team2
+        df = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+        afcpot_data = pd.concat([afcpot_data, df])
+
+    if goals1 == goals2:
+        if agoals1 > agoals2:
+            winner = team1
+            df = afcround4.iloc[(2 * a):(2 * a + 1), :]
+            afcpot_data = pd.concat([afcpot_data, df])
+
+        if agoals2 > agoals1:
+            winner = team2
+            df = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+            afcpot_data = pd.concat([afcpot_data, df])
+
+        if agoals1 == agoals2:
+            time.sleep(1)
+            Ber1 = bernoulli.rvs(p1, size=30)
+            Ber2 = bernoulli.rvs(p2, size=30)
+            goals1 = sum(Ber1) + goals1
+            goals2 = sum(Ber2) + goals2
+
+            if goals1 > goals2:
+                winner = team1
+                df = afcround1.iloc[(2 * a):(2 * a + 1), :]
+                afcpot_data = pd.concat([afcpot_data, df])
+                print("ET:", team1, goals1, " - ", goals2, team2)
+
+            if goals1 < goals2:
+                winner = team2
+                df = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                afcpot_data = pd.concat([afcpot_data, df])
+                print("ET:", team1, goals1, " - ", goals2, team2)
+
+            if goals1 == goals2:
+                print("ET:", team1, goals1, " - ", goals2, team2)
+                time.sleep(1)
+                Ber1 = bernoulli.rvs(0.7, size=5)
+                Ber2 = bernoulli.rvs(0.7, size=5)
+                pen1 = sum(Ber1)
+                pen2 = sum(Ber2)
+
+                if pen1 > pen2:
+                    winner = team1
+                    df = afcround4.iloc[(2 * a):(2 * a + 1), :]
+                    afcpot_data = pd.concat([afcpot_data, df])
+                    print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
+                if pen1 < pen2:
+                    winner = team2
+                    df = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                    afcpot_data = pd.concat([afcpot_data, df])
+                    print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
+                if pen1 == pen2:
+                    for b in range(100):
+                        Ber1 = bernoulli.rvs(0.7, size=1)
+                        Ber2 = bernoulli.rvs(0.7, size=1)
+                        pen1 = sum(Ber1) + pen1
+                        pen2 = sum(Ber2) + pen2
+                        if pen1 != pen2:
+                            if pen1 > pen2:
+                                winner = team1
+                                df = afcround4.iloc[(2 * a):(2 * a + 1), :]
+                                afcpot_data = pd.concat([afcpot_data, df])
+                                print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
+                                break
+                            if pen1 < pen2:
+                                winner = team2
+                                df = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                                afcpot_data = pd.concat([afcpot_data, df])
+                                print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
+                                break
+
+    time.sleep(1)
+    print("############")
+
+uc = input("Press enter to continue: ")  # uc = user continue
