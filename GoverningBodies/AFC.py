@@ -18,8 +18,8 @@ pot_data = pot_data.iloc[:34, :]
 print("\nWELCOME TO AFC WORLD CUP QUALIFYING\n")
 print("ROUND 1\n")
 
-x = 6
-pot_data = TLKO(x, round1, pot_data)
+a = 6
+pot_data = TLKO(a, round1, pot_data)
 
 uc = input("Press enter to continue: ")  # uc = user continue
 
