@@ -195,7 +195,7 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
             print(team1, goals1, " - ", goals2, team2)
 
             group.loc[b, 'P'], group.loc[c, 'P'] = group.loc[b, 'P'] + 1, group.loc[c, 'P'] + 1
-            group.loc[b, 'GF'], group.loc[b, 'GA'] = group.loc[c, 'GF'] + goals1, group.loc[b, 'GA'] + goals2
+            group.loc[b, 'GF'], group.loc[b, 'GA'] = group.loc[b, 'GF'] + goals1, group.loc[b, 'GA'] + goals2
             group.loc[c, 'GF'], group.loc[c, 'GA'] = group.loc[c, 'GF'] + goals2, group.loc[c, 'GA'] + goals1
             group.loc[b, 'GD'] = group.loc[b, 'GF'] - group.loc[b, 'GA']
             group.loc[c, 'GD'] = group.loc[c, 'GF'] - group.loc[c, 'GA']
@@ -236,7 +236,7 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
             print(team1, goals1, " - ", goals2, team2)
 
             group.loc[e, 'P'], group.loc[f, 'P'] = group.loc[e, 'P'] + 1, group.loc[f, 'P'] + 1
-            group.loc[e, 'GF'], group.loc[e, 'GA'] = group.loc[f, 'GF'] + goals1, group.loc[e, 'GA'] + goals2
+            group.loc[e, 'GF'], group.loc[e, 'GA'] = group.loc[e, 'GF'] + goals1, group.loc[e, 'GA'] + goals2
             group.loc[f, 'GF'], group.loc[f, 'GA'] = group.loc[f, 'GF'] + goals2, group.loc[f, 'GA'] + goals1
             group.loc[e, 'GD'] = group.loc[e, 'GF'] - group.loc[e, 'GA']
             group.loc[f, 'GD'] = group.loc[f, 'GF'] - group.loc[f, 'GA']
