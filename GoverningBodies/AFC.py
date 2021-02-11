@@ -216,7 +216,7 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
 
                 if goals1 > goals2:
                     group.loc[t1, 'Pts'] = group.loc[t1, 'Pts'] + 3
-                    group.loc[t1, 'W'], group.loc[t2, 'L'] = group.loc[t1, 'W'] + 1, group.loc[t1, 'L'] + 1
+                    group.loc[t1, 'W'], group.loc[t2, 'L'] = group.loc[t1, 'W'] + 1, group.loc[t2, 'L'] + 1
 
                 if goals1 < goals2:
                     group.loc[t2, 'Pts'] = group.loc[t2, 'Pts'] + 3
