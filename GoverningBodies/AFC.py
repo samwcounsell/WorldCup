@@ -5,24 +5,24 @@ import time
 import random
 import sys
 
-afcpot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
-#afcpot_data = pd.read_csv(r"")
-afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
+pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
+# pot_data = pd.read_csv(r"")
+pot_data = pot_data.sort_values(by=['World_Rank'])
 
-afcround1 = afcpot_data.iloc[34:46]
-afcround1 = afcround1.sample(frac=1)
-afcround1 = afcround1.set_index([pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ])
-afcpot_data = afcpot_data.iloc[:34, :]
+round1 = pot_data.iloc[34:46]
+round1 = round1.sample(frac=1)
+round1 = round1.set_index([pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ])
+pot_data = pot_data.iloc[:34, :]
 
 print("\nWELCOME TO AFC WORLD CUP QUALIFYING\n")
 print("ROUND 1\n")
 
 for a in range(6):
     print("MATCH", a + 1)
-    team1 = afcround1.loc[(2 * a), 'Country']
-    team2 = afcround1.loc[(2 * a + 1), 'Country']
-    a1, d1 = afcround1.loc[(2 * a), 'Attack'], afcround1.loc[(2 * a), 'Defence']
-    a2, d2 = afcround1.loc[(2 * a), 'Attack'], afcround1.loc[(2 * a), 'Defence']
+    team1 = round1.loc[(2 * a), 'Country']
+    team2 = round1.loc[(2 * a + 1), 'Country']
+    a1, d1 = round1.loc[(2 * a), 'Attack'], round1.loc[(2 * a), 'Defence']
+    a2, d2 = round1.loc[(2 * a), 'Attack'], round1.loc[(2 * a), 'Defence']
     for leg in (1, 2):
         if leg == 1:
             p1 = 0.014 * (a1 / d2)
@@ -47,24 +47,24 @@ for a in range(6):
 
     if goals1 > goals2:
         winner = team1
-        df = afcround1.iloc[(2 * a):(2 * a + 1), :]
-        afcpot_data = pd.concat([afcpot_data, df])
+        df = round1.iloc[(2 * a):(2 * a + 1), :]
+        pot_data = pd.concat([pot_data, df])
 
     if goals1 < goals2:
         winner = team2
-        df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
-        afcpot_data = pd.concat([afcpot_data, df])
+        df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
+        pot_data = pd.concat([pot_data, df])
 
     if goals1 == goals2:
         if agoals1 > agoals2:
             winner = team1
-            df = afcround1.iloc[(2 * a):(2 * a + 1), :]
-            afcpot_data = pd.concat([afcpot_data, df])
+            df = round1.iloc[(2 * a):(2 * a + 1), :]
+            pot_data = pd.concat([pot_data, df])
 
         if agoals2 > agoals1:
             winner = team2
-            df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
-            afcpot_data = pd.concat([afcpot_data, df])
+            df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
+            pot_data = pd.concat([pot_data, df])
 
         if agoals1 == agoals2:
             time.sleep(0.7)
@@ -75,14 +75,14 @@ for a in range(6):
 
             if goals1 > goals2:
                 winner = team1
-                df = afcround1.iloc[(2 * a):(2 * a + 1), :]
-                afcpot_data = pd.concat([afcpot_data, df])
+                df = round1.iloc[(2 * a):(2 * a + 1), :]
+                pot_data = pd.concat([pot_data, df])
                 print("ET:", team1, goals1, " - ", goals2, team2)
 
             if goals1 < goals2:
                 winner = team2
-                df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
-                afcpot_data = pd.concat([afcpot_data, df])
+                df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
+                pot_data = pd.concat([pot_data, df])
                 print("ET:", team1, goals1, " - ", goals2, team2)
 
             if goals1 == goals2:
@@ -95,13 +95,13 @@ for a in range(6):
 
                 if pen1 > pen2:
                     winner = team1
-                    df = afcround1.iloc[(2 * a):(2 * a + 1), :]
-                    afcpot_data = pd.concat([afcpot_data, df])
+                    df = round1.iloc[(2 * a):(2 * a + 1), :]
+                    pot_data = pd.concat([pot_data, df])
                     print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                 if pen1 < pen2:
                     winner = team2
-                    df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
-                    afcpot_data = pd.concat([afcpot_data, df])
+                    df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
+                    pot_data = pd.concat([pot_data, df])
                     print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                 if pen1 == pen2:
                     for b in range(100):
@@ -112,14 +112,14 @@ for a in range(6):
                         if pen1 != pen2:
                             if pen1 > pen2:
                                 winner = team1
-                                df = afcround1.iloc[(2 * a):(2 * a + 1), :]
-                                afcpot_data = pd.concat([afcpot_data, df])
+                                df = round1.iloc[(2 * a):(2 * a + 1), :]
+                                pot_data = pd.concat([pot_data, df])
                                 print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                 break
                             if pen1 < pen2:
                                 winner = team2
-                                df = afcround1.iloc[(2 * a + 1):(2 * a + 2), :]
-                                afcpot_data = pd.concat([afcpot_data, df])
+                                df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
+                                pot_data = pd.concat([pot_data, df])
                                 print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                 break
 
@@ -128,53 +128,52 @@ for a in range(6):
 
 uc = input("Press enter to continue: ")  # uc = user continue
 
+pot_data = pot_data.sort_values(by=['World_Rank'])
+pot_data = pot_data.reset_index()
+pot_data = pot_data.drop(['index'], axis=1)
 
-afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
-afcpot_data = afcpot_data.reset_index()
-afcpot_data = afcpot_data.drop(['index'], axis=1)
+pot1 = pot_data.iloc[:8, :]
+pot2 = pot_data.iloc[8:16, :]
+pot3 = pot_data.iloc[16:24, :]
+pot4 = pot_data.iloc[24:32, :]
+pot5 = pot_data.iloc[32:40, :]
 
-afcpot1 = afcpot_data.iloc[:8, :]
-afcpot2 = afcpot_data.iloc[8:16, :]
-afcpot3 = afcpot_data.iloc[16:24, :]
-afcpot4 = afcpot_data.iloc[24:32, :]
-afcpot5 = afcpot_data.iloc[32:40, :]
+pot1 = pot1.sample(frac=1)
+pot2 = pot2.sample(frac=1)
+pot3 = pot3.sample(frac=1)
+pot4 = pot4.sample(frac=1)
+pot5 = pot5.sample(frac=1)
 
-afcpot1 = afcpot1.sample(frac=1)
-afcpot2 = afcpot2.sample(frac=1)
-afcpot3 = afcpot3.sample(frac=1)
-afcpot4 = afcpot4.sample(frac=1)
-afcpot5 = afcpot5.sample(frac=1)
+potbig = pd.concat([pot1, pot2, pot3, pot4, pot5])
 
-afcpotbig = pd.concat([afcpot1, afcpot2, afcpot3, afcpot4, afcpot5])
-
-afcgroupA = afcpotbig.iloc[[0, 8, 16, 24, 32], :]
-afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupA.name = 'GROUP A'
-afcgroupB = afcpotbig.iloc[[1, 9, 17, 25, 33], :]
-afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupB.name = 'GROUP B'
-afcgroupC = afcpotbig.iloc[[2, 10, 18, 26, 34], :]
-afcgroupC = afcgroupC.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupC.name = 'GROUP C'
-afcgroupD = afcpotbig.iloc[[3, 11, 19, 27, 35], :]
-afcgroupD = afcgroupD.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupD.name = 'GROUP D'
-afcgroupE = afcpotbig.iloc[[4, 12, 20, 28, 36], :]
-afcgroupE = afcgroupE.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupE.name = 'GROUP E'
-afcgroupF = afcpotbig.iloc[[5, 13, 21, 29, 37], :]
-afcgroupF = afcgroupF.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupF.name = 'GROUP F'
-afcgroupG = afcpotbig.iloc[[6, 14, 22, 30, 38], :]
-afcgroupG = afcgroupG.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupG.name = 'GROUP G'
-afcgroupH = afcpotbig.iloc[[7, 15, 23, 31, 39], :]
-afcgroupH = afcgroupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupH.name = 'GROUP H'
+groupA = potbig.iloc[[0, 8, 16, 24, 32], :]
+groupA = groupA.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupA.name = 'GROUP A'
+groupB = potbig.iloc[[1, 9, 17, 25, 33], :]
+groupB = groupB.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupB.name = 'GROUP B'
+groupC = potbig.iloc[[2, 10, 18, 26, 34], :]
+groupC = groupC.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupC.name = 'GROUP C'
+groupD = potbig.iloc[[3, 11, 19, 27, 35], :]
+groupD = groupD.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupD.name = 'GROUP D'
+groupE = potbig.iloc[[4, 12, 20, 28, 36], :]
+groupE = groupE.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupE.name = 'GROUP E'
+groupF = potbig.iloc[[5, 13, 21, 29, 37], :]
+groupF = groupF.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupF.name = 'GROUP F'
+groupG = potbig.iloc[[6, 14, 22, 30, 38], :]
+groupG = groupG.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupG.name = 'GROUP G'
+groupH = potbig.iloc[[7, 15, 23, 31, 39], :]
+groupH = groupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+groupH.name = 'GROUP H'
 
 print("\nROUND 2\n")
 
-for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, afcgroupG, afcgroupH]:
+for group in [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]:
     print(group.name, "\n")
     print(group)
     time.sleep(1)
@@ -241,15 +240,14 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
 
             time.sleep(0.3)
 
-
     time.sleep(1)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
     print("\n", group, "\n")
 
-    afcround3 = group.iloc[0:2, :]
-    afcpot_data = pd.concat([afcpot_data, afcround3])
+    round3 = group.iloc[0:2, :]
+    pot_data = pd.concat([pot_data, round3])
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
@@ -257,43 +255,43 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
 
 ####### ROUND 3 ONWARDS BEWARE ############
 
-afcpot_data = afcpot_data.iloc[40:, :]
+pot_data = pot_data.iloc[40:, :]
 
-groupwinner = afcpot_data.loc[0, :]
+groupwinner = pot_data.loc[0, :]
 
-runnerup = afcpot_data.loc[1, :]
+runnerup = pot_data.loc[1, :]
 runnerup = runnerup.sort_values(by=['Pts'], ascending=False)
 runnerup = runnerup.iloc[:4, :]
 
 round3big = pd.concat([groupwinner, runnerup])
 round3big = round3big.sort_values(by=['World_Rank'])
 
-afcpot1 = round3big.iloc[:2, :]
-afcpot2 = round3big.iloc[2:4, :]
-afcpot3 = round3big.iloc[4:6, :]
-afcpot4 = round3big.iloc[6:8, :]
-afcpot5 = round3big.iloc[8:10, :]
-afcpot6 = round3big.iloc[10:12, :]
+pot1 = round3big.iloc[:2, :]
+pot2 = round3big.iloc[2:4, :]
+pot3 = round3big.iloc[4:6, :]
+pot4 = round3big.iloc[6:8, :]
+pot5 = round3big.iloc[8:10, :]
+pot6 = round3big.iloc[10:12, :]
 
-afcpot1 = afcpot1.sample(frac=1)
-afcpot2 = afcpot2.sample(frac=1)
-afcpot3 = afcpot3.sample(frac=1)
-afcpot4 = afcpot4.sample(frac=1)
-afcpot5 = afcpot5.sample(frac=1)
-afcpot6 = afcpot6.sample(frac=1)
+pot1 = pot1.sample(frac=1)
+pot2 = pot2.sample(frac=1)
+pot3 = pot3.sample(frac=1)
+pot4 = pot4.sample(frac=1)
+pot5 = pot5.sample(frac=1)
+pot6 = pot6.sample(frac=1)
 
-round3big = pd.concat([afcpot1, afcpot2, afcpot3, afcpot4, afcpot5, afcpot6])
+round3big = pd.concat([pot1, pot2, pot3, pot4, pot5, pot6])
 round3big[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
-afcgroupA = round3big.iloc[[0, 2, 4, 6, 8, 10], :]
-afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
-afcgroupB = round3big.iloc[[1, 3, 5, 7, 9, 11], :]
-afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
+groupA = round3big.iloc[[0, 2, 4, 6, 8, 10], :]
+groupA = groupA.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
+groupB = round3big.iloc[[1, 3, 5, 7, 9, 11], :]
+groupB = groupB.set_index([pd.Index([0, 1, 2, 3, 4, 5]), ])
 
-afcqualified = afcpot_data.iloc[:1, :]
+qualified = pot_data.iloc[:1, :]
 
-for group in [afcgroupA, afcgroupB]:
-    print("############  AFC ROUND 3  ############")
+for group in [groupA, groupB]:
+    print("############   ROUND 3  ############")
     print(group)
     # time.sleep(2)
     print("############")
@@ -348,29 +346,29 @@ for group in [afcgroupA, afcgroupB]:
     group = group.sort_values(by=['Pts'], ascending=False)
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
-    print("############  AFC ROUND 3  ############")
+    print("############   ROUND 3  ############")
     print(group)
 
-    qualified = group.iloc[0:2, :]
-    afcqualified = pd.concat([afcqualified, qualified])
-    afcround4 = group.iloc[2:3, :]
-    afcpot_data = pd.concat([afcpot_data, afcround4])
+    top2 = group.iloc[0:2, :]
+    qualified = pd.concat([qualified, top2])
+    round4 = group.iloc[2:3, :]
+    pot_data = pd.concat([pot_data, round4])
 
     uc = input("Do you wish to continue, 1 if yes, 0 if no: ")  # uc = user continue
     if uc == 0:
         sys.exit
 
-afcround4 = afcpot_data.iloc[16:, :]
-afcround4 = afcround4.sample(frac=1)
-afcround4 = afcround4.set_index([pd.Index([0, 1]), ])
-afcpot_data = afcpot_data.iloc[16:, :]
+round4 = pot_data.iloc[16:, :]
+round4 = round4.sample(frac=1)
+round4 = round4.set_index([pd.Index([0, 1]), ])
+pot_data = pot_data.iloc[16:, :]
 
-print("############  AFC ROUND 4  ############")
+print("############   ROUND 4  ############")
 for a in range(1):
-    team1 = afcround4.loc[(2 * a), 'Country']
-    team2 = afcround4.loc[(2 * a + 1), 'Country']
-    a1, d1 = afcround4.loc[(2 * a), 'Attack'], afcround4.loc[(2 * a), 'Defence']
-    a2, d2 = afcround4.loc[(2 * a), 'Attack'], afcround4.loc[(2 * a), 'Defence']
+    team1 = round4.loc[(2 * a), 'Country']
+    team2 = round4.loc[(2 * a + 1), 'Country']
+    a1, d1 = round4.loc[(2 * a), 'Attack'], round4.loc[(2 * a), 'Defence']
+    a2, d2 = round4.loc[(2 * a), 'Attack'], round4.loc[(2 * a), 'Defence']
     for leg in (1, 2):
         if leg == 1:
             p1 = 0.014 * (a1 / d2)
@@ -395,24 +393,20 @@ for a in range(1):
 
     if goals1 > goals2:
         winner = team1
-        afcict = afcround4.iloc[(2 * a):(2 * a + 1), :]
-
+        ict = round4.iloc[(2 * a):(2 * a + 1), :]
 
     if goals1 < goals2:
         winner = team2
-        afcict = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
-
+        ict = round4.iloc[(2 * a + 1):(2 * a + 2), :]
 
     if goals1 == goals2:
         if agoals1 > agoals2:
             winner = team1
-            afcict = afcround4.iloc[(2 * a):(2 * a + 1), :]
-
+            ict = round4.iloc[(2 * a):(2 * a + 1), :]
 
         if agoals2 > agoals1:
             winner = team2
-            afcict = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
-
+            ict = round4.iloc[(2 * a + 1):(2 * a + 2), :]
 
         if agoals1 == agoals2:
             time.sleep(1)
@@ -423,13 +417,13 @@ for a in range(1):
 
             if goals1 > goals2:
                 winner = team1
-                afcict = afcround1.iloc[(2 * a):(2 * a + 1), :]
+                ict = round4.iloc[(2 * a):(2 * a + 1), :]
 
                 print("ET:", team1, goals1, " - ", goals2, team2)
 
             if goals1 < goals2:
                 winner = team2
-                afcict = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                ict = round4.iloc[(2 * a + 1):(2 * a + 2), :]
 
                 print("ET:", team1, goals1, " - ", goals2, team2)
 
@@ -443,12 +437,12 @@ for a in range(1):
 
                 if pen1 > pen2:
                     winner = team1
-                    afcict = afcround4.iloc[(2 * a):(2 * a + 1), :]
+                    ict = round4.iloc[(2 * a):(2 * a + 1), :]
 
                     print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                 if pen1 < pen2:
                     winner = team2
-                    afcict = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                    ict = round4.iloc[(2 * a + 1):(2 * a + 2), :]
 
                     print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                 if pen1 == pen2:
@@ -460,13 +454,13 @@ for a in range(1):
                         if pen1 != pen2:
                             if pen1 > pen2:
                                 winner = team1
-                                afcict = afcround4.iloc[(2 * a):(2 * a + 1), :]
+                                ict = round4.iloc[(2 * a):(2 * a + 1), :]
 
                                 print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                 break
                             if pen1 < pen2:
                                 winner = team2
-                                afcict = afcround4.iloc[(2 * a + 1):(2 * a + 2), :]
+                                ict = round4.iloc[(2 * a + 1):(2 * a + 2), :]
 
                                 print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                 break
@@ -474,10 +468,10 @@ for a in range(1):
     time.sleep(1)
     print("############")
 
-afcqualified = afcqualified.iloc[1:, :]
+qualified = qualified.iloc[1:, :]
 print("\nQUALIFIED FOR WORLD CUP\n")
-print(afcqualified)
+print(qualified)
 print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-print(afcict, "\n")
+print(ict, "\n")
 uc = input("Press enter to exit: ")  # uc = user continue
 
