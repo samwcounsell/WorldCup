@@ -14,6 +14,9 @@ afcround1 = afcround1.sample(frac=1)
 afcround1 = afcround1.set_index([pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ])
 afcpot_data = afcpot_data.iloc[:34, :]
 
+print("\nWELCOME TO AFC WORLD CUP QUALIFYING\n")
+print("ROUND 1\n")
+
 for a in range(6):
     print("MATCH", a + 1)
     team1 = afcround1.loc[(2 * a), 'Country']
@@ -145,28 +148,28 @@ afcpotbig = pd.concat([afcpot1, afcpot2, afcpot3, afcpot4, afcpot5])
 
 afcgroupA = afcpotbig.iloc[[0, 8, 16, 24, 32], :]
 afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupA.name = 'Group A'
+afcgroupA.name = 'GROUP A'
 afcgroupB = afcpotbig.iloc[[1, 9, 17, 25, 33], :]
 afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupB.name = 'Group B'
+afcgroupB.name = 'GROUP B'
 afcgroupC = afcpotbig.iloc[[2, 10, 18, 26, 34], :]
 afcgroupC = afcgroupC.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupC.name = 'Group C'
+afcgroupC.name = 'GROUP C'
 afcgroupD = afcpotbig.iloc[[3, 11, 19, 27, 35], :]
 afcgroupD = afcgroupD.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupD.name = 'Group D'
+afcgroupD.name = 'GROUP D'
 afcgroupE = afcpotbig.iloc[[4, 12, 20, 28, 36], :]
 afcgroupE = afcgroupE.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupE.name = 'Group E'
+afcgroupE.name = 'GROUP E'
 afcgroupF = afcpotbig.iloc[[5, 13, 21, 29, 37], :]
 afcgroupF = afcgroupF.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupF.name = 'Group F'
+afcgroupF.name = 'GROUP F'
 afcgroupG = afcpotbig.iloc[[6, 14, 22, 30, 38], :]
 afcgroupG = afcgroupG.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupG.name = 'Group G'
+afcgroupG.name = 'GROUP G'
 afcgroupH = afcpotbig.iloc[[7, 15, 23, 31, 39], :]
 afcgroupH = afcgroupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-afcgroupH.name = 'Group H'
+afcgroupH.name = 'GROUP H'
 
 for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, afcgroupG, afcgroupH]:
     print(group.name, "\n")
