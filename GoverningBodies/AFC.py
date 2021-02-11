@@ -365,8 +365,6 @@ afcround4 = afcround4.sample(frac=1)
 afcround4 = afcround4.set_index([pd.Index([0, 1]), ])
 afcpot_data = afcpot_data.iloc[16:, :]
 
-print("\n", afcqualified, "\n")
-
 print("############  AFC ROUND 4  ############")
 for a in range(1):
     team1 = afcround4.loc[(2 * a), 'Country']
