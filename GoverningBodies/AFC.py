@@ -5,8 +5,8 @@ import time
 import random
 import sys
 
-pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
-# pot_data = pd.read_csv(r"")
+# pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
+# pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
 round1 = pot_data.iloc[34:46]
@@ -468,6 +468,8 @@ for a in range(1):
     time.sleep(1)
     print("############")
 
+ict = ict[['Country', 'World_Rank']]
+qualified = qualified[['Country', 'World_Rank']]    
 qualified = qualified.iloc[1:, :]
 print("\nQUALIFIED FOR WORLD CUP\n")
 print(qualified)
