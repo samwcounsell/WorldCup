@@ -227,11 +227,11 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
                     group.loc[t2, 'Pts'] = group.loc[t2, 'Pts'] + 1
                     group.loc[t1, 'D'], group.loc[t2, 'D'] = group.loc[t1, 'D'] + 1, group.loc[t2, 'D'] + 1
                  
-                time.sleep(0.5)
+                time.sleep(0.3)
 
             nb, nc, nd, ne, nf = c, e, b, f, d
             b, c, d, e, f = nb, nc, nd, ne, nf
-            time.sleep(0.5)
+            time.sleep(0.3)
 
         
             
