@@ -4,6 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
+from MatchSim import TLKO
 
 # pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
 # pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")
@@ -17,114 +18,8 @@ pot_data = pot_data.iloc[:34, :]
 print("\nWELCOME TO AFC WORLD CUP QUALIFYING\n")
 print("ROUND 1\n")
 
-for a in range(6):
-    print("MATCH", a + 1)
-    team1 = round1.loc[(2 * a), 'Country']
-    team2 = round1.loc[(2 * a + 1), 'Country']
-    a1, d1 = round1.loc[(2 * a), 'Attack'], round1.loc[(2 * a), 'Defence']
-    a2, d2 = round1.loc[(2 * a), 'Attack'], round1.loc[(2 * a), 'Defence']
-    for leg in (1, 2):
-        if leg == 1:
-            p1 = 0.014 * (a1 / d2)
-            p2 = 0.014 * (a2 / d1) * 0.8
-            Ber1 = bernoulli.rvs(p1, size=90)
-            Ber2 = bernoulli.rvs(p2, size=90)
-            hgoals1 = sum(Ber1)
-            agoals2 = sum(Ber2)
-            print(team1, hgoals1, " - ", agoals2, team2)
-            time.sleep(0.7)
-
-        if leg == 2:
-            p1 = 0.014 * (a1 / d2) * 0.8
-            p2 = 0.014 * (a2 / d1)
-            Ber1 = bernoulli.rvs(p1, size=90)
-            Ber2 = bernoulli.rvs(p2, size=90)
-            agoals1 = sum(Ber1)
-            hgoals2 = sum(Ber2)
-            goals1 = hgoals1 + agoals1
-            goals2 = hgoals2 + agoals2
-            print(team2, hgoals2, "[", goals2, "]", " - ", "[", goals1, "]", agoals1, team1)
-
-    if goals1 > goals2:
-        winner = team1
-        df = round1.iloc[(2 * a):(2 * a + 1), :]
-        pot_data = pd.concat([pot_data, df])
-
-    if goals1 < goals2:
-        winner = team2
-        df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
-        pot_data = pd.concat([pot_data, df])
-
-    if goals1 == goals2:
-        if agoals1 > agoals2:
-            winner = team1
-            df = round1.iloc[(2 * a):(2 * a + 1), :]
-            pot_data = pd.concat([pot_data, df])
-
-        if agoals2 > agoals1:
-            winner = team2
-            df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
-            pot_data = pd.concat([pot_data, df])
-
-        if agoals1 == agoals2:
-            time.sleep(0.7)
-            Ber1 = bernoulli.rvs(p1, size=30)
-            Ber2 = bernoulli.rvs(p2, size=30)
-            goals1 = sum(Ber1) + goals1
-            goals2 = sum(Ber2) + goals2
-
-            if goals1 > goals2:
-                winner = team1
-                df = round1.iloc[(2 * a):(2 * a + 1), :]
-                pot_data = pd.concat([pot_data, df])
-                print("ET:", team1, goals1, " - ", goals2, team2)
-
-            if goals1 < goals2:
-                winner = team2
-                df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
-                pot_data = pd.concat([pot_data, df])
-                print("ET:", team1, goals1, " - ", goals2, team2)
-
-            if goals1 == goals2:
-                print("ET:", team1, goals1, " - ", goals2, team2)
-                time.sleep(0.7)
-                Ber1 = bernoulli.rvs(0.7, size=5)
-                Ber2 = bernoulli.rvs(0.7, size=5)
-                pen1 = sum(Ber1)
-                pen2 = sum(Ber2)
-
-                if pen1 > pen2:
-                    winner = team1
-                    df = round1.iloc[(2 * a):(2 * a + 1), :]
-                    pot_data = pd.concat([pot_data, df])
-                    print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
-                if pen1 < pen2:
-                    winner = team2
-                    df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
-                    pot_data = pd.concat([pot_data, df])
-                    print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
-                if pen1 == pen2:
-                    for b in range(100):
-                        Ber1 = bernoulli.rvs(0.7, size=1)
-                        Ber2 = bernoulli.rvs(0.7, size=1)
-                        pen1 = sum(Ber1) + pen1
-                        pen2 = sum(Ber2) + pen2
-                        if pen1 != pen2:
-                            if pen1 > pen2:
-                                winner = team1
-                                df = round1.iloc[(2 * a):(2 * a + 1), :]
-                                pot_data = pd.concat([pot_data, df])
-                                print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
-                                break
-                            if pen1 < pen2:
-                                winner = team2
-                                df = round1.iloc[(2 * a + 1):(2 * a + 2), :]
-                                pot_data = pd.concat([pot_data, df])
-                                print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
-                                break
-
-    time.sleep(0.7)
-    print()
+x = 6
+pot_data = TLKO(x, round1, pot_data)
 
 uc = input("Press enter to continue: ")  # uc = user continue
 
