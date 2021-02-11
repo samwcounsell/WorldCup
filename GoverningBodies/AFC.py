@@ -43,7 +43,7 @@ for a in range(6):
             hgoals2 = sum(Ber2)
             goals1 = hgoals1 + agoals1
             goals2 = hgoals2 + agoals2
-            print(team1, agoals1, "[", goals1, "]", " - ", "[", goals2, "]", hgoals2, team2)
+            print(team2, agoals2, "[", goals2, "]", " - ", "[", goals1, "]", hgoals1, team1)
 
     if goals1 > goals2:
         winner = team1
