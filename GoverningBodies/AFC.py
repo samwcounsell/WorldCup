@@ -15,6 +15,7 @@ afcround1 = afcround1.set_index([pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 afcpot_data = afcpot_data.iloc[:34, :]
 
 for a in range(6):
+    print("MATCH", a + 1)
     team1 = afcround1.loc[(2 * a), 'Country']
     team2 = afcround1.loc[(2 * a + 1), 'Country']
     a1, d1 = afcround1.loc[(2 * a), 'Attack'], afcround1.loc[(2 * a), 'Defence']
@@ -119,16 +120,14 @@ for a in range(6):
                                 print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                 break
 
-    time.sleep(1)
-    print("############")
+    time.sleep(0.7)
+    print()
 
 uc = input("Press enter to continue: ")  # uc = user continue
-
 
 afcpot_data = afcpot_data.sort_values(by=['World_Rank'])
 afcpot_data = afcpot_data.reset_index()
 afcpot_data = afcpot_data.drop(['index'], axis=1)
-# print(afcpot_data)
 
 afcpot1 = afcpot_data.iloc[:8, :]
 afcpot2 = afcpot_data.iloc[8:16, :]
@@ -146,32 +145,41 @@ afcpotbig = pd.concat([afcpot1, afcpot2, afcpot3, afcpot4, afcpot5])
 
 afcgroupA = afcpotbig.iloc[[0, 8, 16, 24, 32], :]
 afcgroupA = afcgroupA.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupA.name = 'Group A'
 afcgroupB = afcpotbig.iloc[[1, 9, 17, 25, 33], :]
 afcgroupB = afcgroupB.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupB.name = 'Group B'
 afcgroupC = afcpotbig.iloc[[2, 10, 18, 26, 34], :]
 afcgroupC = afcgroupC.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupC.name = 'Group C'
 afcgroupD = afcpotbig.iloc[[3, 11, 19, 27, 35], :]
 afcgroupD = afcgroupD.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupD.name = 'Group D'
 afcgroupE = afcpotbig.iloc[[4, 12, 20, 28, 36], :]
 afcgroupE = afcgroupE.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupE.name = 'Group E'
 afcgroupF = afcpotbig.iloc[[5, 13, 21, 29, 37], :]
 afcgroupF = afcgroupF.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupF.name = 'Group F'
 afcgroupG = afcpotbig.iloc[[6, 14, 22, 30, 38], :]
 afcgroupG = afcgroupG.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupG.name = 'Group G'
 afcgroupH = afcpotbig.iloc[[7, 15, 23, 31, 39], :]
 afcgroupH = afcgroupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
+afcgroupH.name = 'Group H'
 
 for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, afcgroupG, afcgroupH]:
+    print(group.name, "\n")
     print(group)
-    time.sleep(2)
-    print("############")
+    time.sleep(1)
+
     for k in (1, 2):
         
         b, c, d, e, f = 0, 1, 2, 3, 4
 
         for m in range(5):
 
-            print("MATCHDAY", m + ((k - 1) * 5) + 1)
+            print("\n", "MATCHDAY", m + ((k - 1) * 5) + 1)
 
             for g in range(2):
                 if g == 0:
@@ -218,11 +226,12 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
                     group.loc[t1, 'Pts'] = group.loc[t1, 'Pts'] + 1
                     group.loc[t2, 'Pts'] = group.loc[t2, 'Pts'] + 1
                     group.loc[t1, 'D'], group.loc[t2, 'D'] = group.loc[t1, 'D'] + 1, group.loc[t2, 'D'] + 1
-
+                 
                 time.sleep(0.5)
 
             nb, nc, nd, ne, nf = c, e, b, f, d
             b, c, d, e, f = nb, nc, nd, ne, nf
+            time.sleep(0.5)
 
         
             
@@ -230,14 +239,14 @@ for group in [afcgroupA, afcgroupB, afcgroupC, afcgroupD, afcgroupE, afcgroupF, 
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
-    print(group)
+    print("\n", group, "\n")
     
     afcround3 = group.iloc[0:2, :]
     afcpot_data = pd.concat([afcpot_data, afcround3])
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
-    print("################")
+    print()
     
     
 afcpot_data = afcpot_data.iloc[40:, :]
