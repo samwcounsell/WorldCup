@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKOb, TLKOc, GRP4
+from MatchSim import TLKO, GRP4
 from GroupDraw import GD4
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
@@ -24,7 +24,7 @@ print("\nWELCOME TO CAF WORLD CUP QUALIFYING\n")
 print("ROUND 1\n")
 
 a = 14
-pot_data = TLKOc(a, round1, pot_data, 0.5)
+pot_data = TLKO(a, round1, pot_data, 0.5)
 
 uc = input("Press enter to continue: ")  # uc = user continue
 
@@ -73,7 +73,7 @@ pot_data = pot_data.drop(['index'], axis=1)
 uc = input("Press enter to continue: ")  # uc = user continue
 
 a = 5
-pot_data = TLKOb(a, pot_data, pot_data, 1)
+pot_data = TLKO(a, pot_data, pot_data, 1)
 pot_data = pot_data.iloc[10:, :]
 
 print("QUALIFIED FOR THE WORLD CUP")
