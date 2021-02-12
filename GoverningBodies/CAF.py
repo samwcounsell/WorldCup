@@ -76,5 +76,5 @@ a = 5
 pot_data = TLKO(a, pot_data, pot_data, 1)
 pot_data = pot_data.iloc[10:, :]
 
-print("QUALIFIED FOR THE WORLD CUP")
+print("QUALIFIED FOR THE WORLD CUP\n")
 print(pot_data)
