@@ -9,13 +9,14 @@ from MatchGameSim import TLGRP90
 
 def TLKO(alpha, beta, gamma, tao):
     for a in range(alpha):
+        time.sleep(tao * 1.5)
         print("MATCH", a + 1)
         team1 = beta.loc[(2 * a), 'Country']
         team2 = beta.loc[(2 * a + 1), 'Country']
         a1, d1 = beta.loc[(2 * a), 'Attack'], beta.loc[(2 * a), 'Defence']
         a2, d2 = beta.loc[(2 * a), 'Attack'], beta.loc[(2 * a), 'Defence']
         for leg in (1, 2):
-            time.sleep(tao)
+            time.sleep(tao * 0.5)
             if leg == 1:
                 p1 = 0.014 * (a1 / d2)
                 p2 = 0.014 * (a2 / d1) * 0.8
@@ -114,8 +115,6 @@ def TLKO(alpha, beta, gamma, tao):
                                     gamma = pd.concat([gamma, df])
                                     print(team1, goals1, "(", pen1, ") - (", pen2, ")", goals2, team2)
                                     break
-
-        time.sleep(tao)
         print()
 
     return gamma
