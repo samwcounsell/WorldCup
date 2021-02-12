@@ -9,7 +9,7 @@ from MatchGameSim import TLGRP90
 
 def TLKO(alpha, beta, gamma, tao):
     for a in range(alpha):
-        time.sleep(tao * 1.5)
+        time.sleep(tao)
         print("MATCH", a + 1)
         team1 = beta.loc[(2 * a), 'Country']
         team2 = beta.loc[(2 * a + 1), 'Country']
