@@ -78,3 +78,8 @@ pot_data = pot_data.iloc[10:, :]
 
 print("QUALIFIED FOR THE WORLD CUP\n")
 print(pot_data)
+
+def CAF():
+    caf = pot_data
+    return caf
+
