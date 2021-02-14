@@ -13,8 +13,8 @@ def TLKO(alpha, beta, gamma, tao):
         print("MATCH", a + 1)
         team1 = beta.loc[(2 * a), 'Country']
         team2 = beta.loc[(2 * a + 1), 'Country']
-        a1, d1 = beta.loc[(2 * a), 'Attack'], beta.loc[(2 * a), 'Defence']
-        a2, d2 = beta.loc[(2 * a), 'Attack'], beta.loc[(2 * a), 'Defence']
+        a1, d1 = beta.loc[(2 * a + 1), 'Attack'], beta.loc[(2 * a), 'Defence']
+        a2, d2 = beta.loc[(2 * a + 1), 'Attack'], beta.loc[(2 * a), 'Defence']
         for leg in (1, 2):
             time.sleep(tao * 0.5)
             if leg == 1:
