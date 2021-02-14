@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO
+from MatchSim import TLKO, GRP5, GRP6
 
 # pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
 # pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")
