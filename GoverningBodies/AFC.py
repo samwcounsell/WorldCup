@@ -10,6 +10,10 @@ from MatchSim import TLKO, GRP5, GRP6
 # pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
+#AFChosts = ["China", "India", "Japan", "Qatar", "South Korea"]
+#host, hostdf = host()
+#print(host, hostdf)
+
 round1 = pot_data.iloc[34:46]
 round1 = round1.sample(frac=1)
 round1 = round1.set_index([pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ])
@@ -96,9 +100,16 @@ groupwinner = pot_data.loc[0, :]
 
 runnerup = pot_data.loc[1, :]
 runnerup = runnerup.sort_values(by=['Pts'], ascending=False)
-runnerup = runnerup.iloc[:4, :]
+#hostcheck = pd.concat([groupwinner, runnerup])
 
+#if host in AFChosts:
+   #hostcheck = hostcheck[hostcheck.Country != host]
+    
+#pot_data = hostcheck.iloc[:12, :]
+
+runnerup = runnerup.iloc[:4, :] #When using host feature # this line and the one below
 pot_data = pd.concat([groupwinner, runnerup])
+
 pot_data = pot_data.sort_values(by=['World_Rank'])
 pot_data = pot_data.reset_index()
 pot_data = pot_data.drop(['index'], axis=1)
