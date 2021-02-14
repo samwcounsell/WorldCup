@@ -67,7 +67,7 @@ runnerup = pot.loc[1, :]
 for i in range(2):
     group = GD5(i, 2, runnerup)
     print("\nGroup", alphabet[i])
-    print("\n", group5, "\n")
+    print("\n", group, "\n")
 
     group = GRP5(group)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
