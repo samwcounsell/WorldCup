@@ -9,8 +9,9 @@ from GroupDraw import GD4, GD5, GD6
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
-pot = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\UEFA.csv")
-# pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/UEFA.csv")
+#pot = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\UEFA.csv")
+#pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/UEFA.csv")
+pot = pd.read_csv("UEFA.csv")
 
 pot1 = pot.iloc[:10, :]
 pot2 = pot.iloc[10:20, :]
