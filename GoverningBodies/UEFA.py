@@ -42,7 +42,7 @@ for i in range(5):
 
 for i in range(5):
     group5 = GD5(i + 5, 10, pot)
-    print("\nGroup", alphabet[i])
+    print("\nGroup", alphabet[i + 5])
     print("\n", group5, "\n")
 
     group5 = GRP5(group5)
@@ -57,7 +57,8 @@ for i in range(5):
     uc = input("Press enter to continue: ")  # uc = user continue
 
 pot = pot.iloc[55:, :]
-print(pot)
+#print(pot)
+pot[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
 potbig = pot.loc[0, :]
 runnerup = pot.loc[1, :]
