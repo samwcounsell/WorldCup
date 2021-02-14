@@ -57,7 +57,7 @@ for i in range(5):
     uc = input("Press enter to continue: ")  # uc = user continue
 
 pot = pot.iloc[55:, :]
-#print(pot)
+print(pot)
 pot[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
 potbig = pot.loc[0, :]
