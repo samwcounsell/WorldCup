@@ -7,6 +7,7 @@ import sys
 from MatchSim import TLKO, GRP4, GRP5, GRP6
 from GroupDraw import GD4, GD5, GD6
 
+#REMOVE HOST BEFORE ROUND1, CHANGE IT TO 4x6 and 6x5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 pot = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\UEFA.csv")
