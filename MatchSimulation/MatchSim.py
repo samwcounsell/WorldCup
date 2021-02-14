@@ -444,8 +444,8 @@ def GRP10(alpha):
 
                 #time.sleep(0.3)
 
-            na, nb, nc, nd, ne, nf, ng, nh, ni, nj = c, e, b, g, d, i, f, j, h, a
-            a, b, c, d, e, f, g, h, i, j = na, nb, nc, nd, ne, nf, ng, nh, ni, nj
+            nb, nc, nd, ne, nf, ng, nh, ni, nj = c, e, b, g, d, i, f, j, h
+            b, c, d, e, f, g, h, i, j = nb, nc, nd, ne, nf, ng, nh, ni, nj
 
             #time.sleep(0.3)
     return alpha
