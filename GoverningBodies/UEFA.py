@@ -7,10 +7,10 @@ import sys
 from MatchSim import TLKO, GRP4, GRP5, GRP6
 from GroupDraw import GD4, GD5, GD6
 
-#REMOVE HOST BEFORE ROUND1, CHANGE IT TO 4x6 and 6x5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 pot = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\UEFA.csv")
+# pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/UEFA.csv")
 
 pot1 = pot.iloc[:10, :]
 pot2 = pot.iloc[10:20, :]
@@ -25,10 +25,13 @@ pot3 = pot3.sample(frac=1)
 pot4 = pot4.sample(frac=1)
 pot = pd.concat([pot1, pot2, pot3, pot4, pot5, pot6])
 
+print("\nWELCOME TO UEFA WORLD CUP QUALIFYING")
+print("\nROUND 1")
+
 for i in range(5):
     group6 = GD6(i, 10, pot)
     print("\nGroup", alphabet[i])
-    print("\n", group6, "\n")
+    print("\n", group6.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     group6 = GRP6(group6)
     group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
@@ -37,14 +40,14 @@ for i in range(5):
     round2 = group6.iloc[0:2, :]
     pot = pd.concat([pot, round2])
 
-    print("\n", group6, "\n")
+    print("\n", group6.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
 for i in range(5):
     group5 = GD5(i + 5, 10, pot)
     print("\nGroup", alphabet[i + 5])
-    print("\n", group5, "\n")
+    print("\n", group5.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     group5 = GRP5(group5)
     group5 = group5.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
@@ -53,23 +56,23 @@ for i in range(5):
     round2 = group5.iloc[0:2, :]
     pot = pd.concat([pot, round2])
 
-    print("\n", group5, "\n")
+    print("\n", group5.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
 pot = pot.iloc[55:, :]
-print(pot)
+print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
 pot[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
 potbig = pot.loc[0, :]
 runnerup = pot.loc[1, :]
 
-#Round2
+# Round2
 
 for i in range(2):
     group = GD5(i, 2, runnerup)
     print("\nGroup", alphabet[i])
-    print("\n", group, "\n")
+    print("\n", group.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     group = GRP5(group)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
@@ -78,17 +81,20 @@ for i in range(2):
     round3 = group.iloc[0:2, :]
     potbig = pd.concat([potbig, round3])
 
-    print("\n", group, "\n")
+    print("\n", group.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     uc = input("Press enter to continue: ")  # uc = user continue
 
-print(potbig)
+#print(potbig[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']], "\n")
 qualified = potbig.loc[0, :]
 playoff = potbig.loc[1, :]
 
 playoff = playoff.reset_index()
 playoff = playoff.drop(['index'], axis=1)
 
-qualified = TLKO(1, playoff, qualified, 0.5)
+print("\n")
 
-print(qualified)
+qualified = TLKO(1, playoff, qualified, 0.5)
+print("QUALIFIED FOR THE WORLD CUP\n")
+print(qualified.to_string(columns = ['Country'], index = False))
+
