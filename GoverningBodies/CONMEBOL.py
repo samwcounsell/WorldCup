@@ -12,6 +12,8 @@ from GroupDraw import GD4
 pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/CONMEBOL.csv")
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
+print("\nWELCOME TO CONMEBOL WORLD CUP QUALIFYING\n")
+
 group = pot_data
 print("\n", group, "\n")
 
