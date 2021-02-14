@@ -19,9 +19,19 @@ group = GRP10(group)
 group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
 group = group.reset_index()
 group = group.drop(['index'], axis=1)
-    #round3 = group.iloc[0:1, :]
-    #pot_data = pd.concat([pot_data, round3])
 
 print("\n", group, "\n")
 
-uc = input("Press enter to continue: ")  # uc = user continue
+top4 = group.iloc[0:4, :]
+qualified = pd.concat([group, top4])
+ict = group.iloc[4:5, :]
+ict = pd.concat([group, ict])
+
+qualified = qualified.iloc[10:, :]
+ict = ict.iloc[10:, :]
+ict = ict[['Country', 'World_Rank']]
+qualified = qualified[['Country', 'World_Rank']]
+print("\nQUALIFIED FOR WORLD CUP\n")
+print(qualified)
+print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
+print(ict, "\n")
