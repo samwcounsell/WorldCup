@@ -1,17 +1,17 @@
-from scipy.stats import binom, bernoulli
-import numpy as np
 import pandas as pd
-import time
-import random
-import sys
 from MatchSim import TLKO, GRP4, GRP5, GRP6
 from GroupDraw import GD4, GD5, GD6
+from Host import host
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
-#pot = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\UEFA.csv")
-#pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/UEFA.csv")
 pot = pd.read_csv("UEFA.csv")
+
+UEFAhosts = ["France", "England", "Spain", "Italy", "Germany", "Russia"]
+host, hostdf = host()
+
+if host in UEFAhosts:
+   pot = pot[pot.Country != host]
 
 pot1 = pot.iloc[:10, :]
 pot2 = pot.iloc[10:20, :]
@@ -29,39 +29,82 @@ pot = pd.concat([pot1, pot2, pot3, pot4, pot5, pot6])
 print("\nWELCOME TO UEFA WORLD CUP QUALIFYING")
 print("\nROUND 1")
 
-for i in range(5):
-    group6 = GD6(i, 10, pot)
-    print("\nGroup", alphabet[i])
-    print("\n", group6.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
+if host in UEFAhosts:
+    for i in range(4):
+        group6 = GD6(i, 10, pot)
+        print("\nGroup", alphabet[i])
+        print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
 
-    group6 = GRP6(group6)
-    group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
-    group6 = group6.reset_index()
-    group6 = group6.drop(['index'], axis=1)
-    round2 = group6.iloc[0:2, :]
-    pot = pd.concat([pot, round2])
+        group6 = GRP6(group6)
+        group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
+        group6 = group6.reset_index()
+        group6 = group6.drop(['index'], axis=1)
+        round2 = group6.iloc[0:2, :]
+        pot = pd.concat([pot, round2])
 
-    print("\n", group6.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
+        print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+        uc = input("Press enter to continue: ")  # uc = user continue
 
-for i in range(5):
-    group5 = GD5(i + 5, 10, pot)
-    print("\nGroup", alphabet[i + 5])
-    print("\n", group5.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
+    for i in range(6):
+        group5 = GD5(i + 4, 10, pot)
+        print("\nGroup", alphabet[i + 4])
+        print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
 
-    group5 = GRP5(group5)
-    group5 = group5.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
-    group5 = group5.reset_index()
-    group5 = group5.drop(['index'], axis=1)
-    round2 = group5.iloc[0:2, :]
-    pot = pd.concat([pot, round2])
+        group5 = GRP5(group5)
+        group5 = group5.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
+        group5 = group5.reset_index()
+        group5 = group5.drop(['index'], axis=1)
+        round2 = group5.iloc[0:2, :]
+        pot = pd.concat([pot, round2])
 
-    print("\n", group5.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
+        print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+        uc = input("Press enter to continue: ")  # uc = user continue
+    pot = pot.iloc[54:, :]
 
-pot = pot.iloc[55:, :]
+if host not in UEFAhosts:
+    for i in range(5):
+        group6 = GD6(i, 10, pot)
+        print("\nGroup", alphabet[i])
+        print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
+
+        group6 = GRP6(group6)
+        group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
+        group6 = group6.reset_index()
+        group6 = group6.drop(['index'], axis=1)
+        round2 = group6.iloc[0:2, :]
+        pot = pd.concat([pot, round2])
+
+        print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
+
+        uc = input("Press enter to continue: ")  # uc = user continue
+
+    for i in range(5):
+        group5 = GD5(i + 5, 10, pot)
+        print("\nGroup", alphabet[i + 4])
+        print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
+
+        group5 = GRP5(group5)
+        group5 = group5.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
+        group5 = group5.reset_index()
+        group5 = group5.drop(['index'], axis=1)
+        round2 = group5.iloc[0:2, :]
+        pot = pd.concat([pot, round2])
+
+        print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+              "\n")
+
+        uc = input("Press enter to continue: ")  # uc = user continue
+    pot = pot.iloc[55:, :]
+
 print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
 pot[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
@@ -98,4 +141,6 @@ print("\n")
 qualified = TLKO(1, playoff, qualified, 0.5)
 print("QUALIFIED FOR THE WORLD CUP\n")
 print(qualified.to_string(columns = ['Country'], index = False))
-
+if host in UEFAhosts:
+    print("\nQUALIFIED AS HOST\n")
+    print(host)
