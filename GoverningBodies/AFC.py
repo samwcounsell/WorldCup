@@ -1,18 +1,13 @@
-from scipy.stats import binom, bernoulli
-import numpy as np
 import pandas as pd
 import time
-import random
-import sys
 from MatchSim import TLKO, GRP5, GRP6
+from Host import host
 
-# pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\AFC.csv")
-# pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/AFC.csv")
+pot_data = pd.read_csv("AFC.csv")
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
-#AFChosts = ["China", "India", "Japan", "Qatar", "South Korea"]
-#host, hostdf = host()
-#print(host, hostdf)
+AFChosts = ["China", "India", "Japan", "Qatar", "South Korea", "Saudi Arabia"]
+host, hostdf = host()
 
 round1 = pot_data.iloc[34:46]
 round1 = round1.sample(frac=1)
@@ -74,7 +69,7 @@ print("\nROUND 2\n")
 
 for group in [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]:
     print(group.name, "\n")
-    print(group)
+    print(group.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False))
     time.sleep(1)
 
     group = GRP5(group)
@@ -83,7 +78,7 @@ for group in [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]:
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
-    print("\n", group, "\n")
+    print("\n", group.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     round3 = group.iloc[0:2, :]
     pot_data = pd.concat([pot_data, round3])
@@ -100,15 +95,14 @@ groupwinner = pot_data.loc[0, :]
 
 runnerup = pot_data.loc[1, :]
 runnerup = runnerup.sort_values(by=['Pts'], ascending=False)
-#hostcheck = pd.concat([groupwinner, runnerup])
+hostcheck = pd.concat([groupwinner, runnerup])
 
-#if host in AFChosts:
-   #hostcheck = hostcheck[hostcheck.Country != host]
-    
-#pot_data = hostcheck.iloc[:12, :]
+if host in AFChosts:
+    hostcheck = hostcheck[hostcheck.Country != host]
+pot_data = hostcheck.iloc[:12, :]
 
-runnerup = runnerup.iloc[:4, :] #When using host feature # this line and the one below
-pot_data = pd.concat([groupwinner, runnerup])
+# runnerup = runnerup.iloc[:4, :]  # When using host feature # this line and the one below
+# pot_data = pd.concat([groupwinner, runnerup])
 
 pot_data = pot_data.sort_values(by=['World_Rank'])
 pot_data = pot_data.reset_index()
@@ -145,15 +139,14 @@ print("\nROUND 3\n")
 for group in [groupA, groupB]:
     print(group.name, "\n")
     print(group)
-    #time.sleep(1)
+    # time.sleep(1)
 
     group = GRP6(group)
-
-    #time.sleep(1)
+    # time.sleep(1)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
-    print("\n", group, "\n")
+    print("\n", group.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
 
     top2 = group.iloc[0:2, :]
     qualified = pd.concat([qualified, top2])
@@ -169,15 +162,17 @@ print("\nROUND 4\n")
 
 ict = TLKO(1, pot_data, pot_data, 0.5)
 ict = ict.iloc[2:, :]
-ict = ict[['Country', 'World_Rank']]
-qualified = qualified[['Country', 'World_Rank']]
 qualified = qualified.iloc[1:, :]
 print("\nQUALIFIED FOR WORLD CUP\n")
-print(qualified)
+print(qualified.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False))
 print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-print(ict, "\n")
+print(ict.to_string(columns = ['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index = False), "\n")
+if host in AFChosts:
+    print("\nQUALIFIED AS HOST\n")
+    print(host)
 
-#afc = pd.concat([ict, qualified])
-#return afc
+# afc = pd.concat([ict, qualified])
+# return afc
 
-uc = input("Press enter to exit: ")  # uc = user continue
+uc = input("\nPress enter to exit: ")  # uc = user continue
+
