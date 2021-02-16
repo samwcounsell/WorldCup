@@ -7,12 +7,15 @@ import sys
 from MatchSim import TLKO
 from MatchSim import GRP10
 from GroupDraw import GD4
+from Host import host
 
-# pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\CONMEBOL.csv")
-pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/CONMEBOL.csv")
+pot_data = pd.read_csv("CONMEBOL.csv")
 pot_data = pot_data.sort_values(by=['World_Rank'])
 
-print("\nWELCOME TO CONMEBOL WORLD CUP QUALIFYING\n")
+pot = pd.read_csv("UEFA.csv")
+
+CONMEBOLhosts = ["Brazil", "Argentina"]
+host, hostdf = host()
 
 group = pot_data
 print("\n", group, "\n")
@@ -24,16 +27,17 @@ group = group.drop(['index'], axis=1)
 
 print("\n", group, "\n")
 
-top4 = group.iloc[0:4, :]
-qualified = pd.concat([group, top4])
-ict = group.iloc[4:5, :]
-ict = pd.concat([group, ict])
+if host in CONMEBOLhosts:
+    group = group[group.Country != host]
 
-qualified = qualified.iloc[10:, :]
-ict = ict.iloc[10:, :]
-ict = ict[['Country', 'World_Rank']]
-qualified = qualified[['Country', 'World_Rank']]
-print("\nQUALIFIED FOR WORLD CUP\n")
-print(qualified)
+qualified = group.iloc[:4, :]
+ict = group.iloc[4:5, :]
+
+print("QUALIFIED FOR THE WORLD CUP\n")
+print(qualified.to_string(columns = ['Country'], index = False))
 print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-print(ict, "\n")
+print(ict.to_string(columns = ['Country'], index = False), "\n")
+if host in CONMEBOLhosts:
+    print("\nQUALIFIED AS HOST\n")
+    print(host)
+
