@@ -2,7 +2,7 @@ from Host import hosty
 from AFC import afc
 from CAF import caf
 from CONCACAF import concacaf
-from CONMBEOL import conmebol
+from CONMEBOL import conmebol
 from OFC import ofc
 from UEFA import uefa
 
