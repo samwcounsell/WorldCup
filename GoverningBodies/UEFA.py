@@ -108,14 +108,14 @@ def uefa():
             uc = input("Press enter to continue: ")  # uc = user continue
         pot = pot.iloc[55:, :]
 
-    print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
+    #print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
     pot[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
     potbig = pot.loc[0, :]
     runnerup = pot.loc[1, :]
 
     # Round2
-
+    print("\nROUND 2")
     for i in range(2):
         group = GD5(i, 2, runnerup)
         print("\nGroup", alphabet[i])
