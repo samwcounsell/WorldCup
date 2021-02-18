@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO, GRP4, GRP5, GRP8
+from MatchSim import TLKO, GRP5, GRP8, GRP8HA
 from GroupDraw import GD4, GD5
 
 def concacaf():
@@ -77,7 +77,7 @@ def concacaf():
 
     print(round3.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
 
-    group = GRP8(round3)
+    group = GRP8HA(round3)
 
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
