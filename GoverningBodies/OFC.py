@@ -34,7 +34,7 @@ def ofc():
 
     print("\nGROUP B")
     print(group2)
-    group2 = GRP6(group2)
+    group2 = GRP6HA(group2)
     group2 = group2.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group2 = group2.reset_index()
     group2 = group2.drop(['index'], axis=1)
