@@ -5,7 +5,7 @@ import time
 import random
 import sys
 from MatchSim import TLKO
-from MatchSim import GRP10
+from MatchSim import GRP10, CONMEBOL
 from GroupDraw import GD4
 
 def conmebol():
@@ -23,7 +23,7 @@ def conmebol():
     group = pot_data
     print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False), "\n")
 
-    group = GRP10(group)
+    group = CONMEBOL(group)
     group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group = group.reset_index()
     group = group.drop(['index'], axis=1)
