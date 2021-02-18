@@ -1,6 +1,6 @@
 import pandas as pd
 import time
-from MatchSim import TLKO, GRP5, GRP6
+from MatchSim import TLKO, GRP5, GRP6, GRP6HA
 
 def afc():
     from Host import hosty
@@ -144,7 +144,7 @@ def afc():
         print(group)
         # time.sleep(1)
 
-        group = GRP6(group)
+        group = GRP6HA(group)
         # time.sleep(1)
         group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
         group = group.reset_index()
