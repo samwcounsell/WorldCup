@@ -1,5 +1,5 @@
 import pandas as pd
-from MatchSim import TLKO, GRP4, GRP5, GRP6, GRP6HA,
+from MatchSim import TLKO, GRP4, GRP5, GRP6, GRP6HA
 from GroupDraw import GD4, GD5, GD6
 
 
