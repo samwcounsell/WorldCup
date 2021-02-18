@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO, GRP5, GRP6
+from MatchSim import TLKO, GRP5, GRP6, GRP6HA
 
 def ofc():
     pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\OFC.csv")
