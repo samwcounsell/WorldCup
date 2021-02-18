@@ -652,7 +652,7 @@ def GRP4WC(alpha):
                 if m == 0:
                     a, b, c, d = 0, 1, 2, 3
                 if m == 1:
-                    a, b, c, d = 1, 2, 3, 0
+                    a, b, c, d = 3, 0, 1, 2
                 if m == 2:
                     a, b, c, d = 2, 0, 1, 3
 
