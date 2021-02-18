@@ -1,5 +1,5 @@
 import pandas as pd
-from MatchSim import TLKO, GRP4, GRP5, GRP6
+from MatchSim import TLKO, GRP4, GRP5, GRP6, GRP6HA,
 from GroupDraw import GD4, GD5, GD6
 
 
@@ -39,7 +39,7 @@ def uefa():
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            group6 = GRP6(group6)
+            group6 = GRP6HA(group6)
             group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
             group6 = group6.reset_index()
             group6 = group6.drop(['index'], axis=1)
@@ -77,7 +77,7 @@ def uefa():
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            group6 = GRP6(group6)
+            group6 = GRP6HA(group6)
             group6 = group6.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
             group6 = group6.reset_index()
             group6 = group6.drop(['index'], axis=1)
