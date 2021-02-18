@@ -15,8 +15,6 @@ def conmebol():
     # pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/CONMEBOL.csv")
     pot_data = pot_data.sort_values(by=['World_Rank'])
 
-    pot = pd.read_csv("UEFA.csv")
-
     CONMEBOLhosts = ["Brazil", "Argentina"]
     host, hostdf = hosty()
 
