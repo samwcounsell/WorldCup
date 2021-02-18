@@ -25,20 +25,20 @@ def ofc():
     group2 = group2.drop(['index'], axis=1)
 
     print("\nGROUP A")
-    print(group1)
+    print(group1.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False)
     group1 = GRP5(group1)
     group1 = group1.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group1 = group1.reset_index()
     group1 = group1.drop(['index'], axis=1)
-    print("\n", group1)
+    print("\n", group1.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False)
 
     print("\nGROUP B")
-    print(group2)
+    print(group2.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False)
     group2 = GRP6HA(group2)
     group2 = group2.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
     group2 = group2.reset_index()
     group2 = group2.drop(['index'], axis=1)
-    print("\n", group2)
+    print("\n", group2.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False)
     uc = input("Press enter to continue: ")  # uc = user continue
 
     print("\nROUND 2\n")
@@ -57,6 +57,6 @@ def ofc():
     ict = TLKO(1, ict, ict, 0.5)
     ict = ict.iloc[2:, :]
     print("QUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict)
+    print(ict.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False)
 
     return ict
