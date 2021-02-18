@@ -5,7 +5,7 @@ import time
 import random
 import sys
 from MatchSim import TLKO
-from MatchSim import GRP10, CONMEBOL
+from MatchSim import CONMEBOL
 from GroupDraw import GD4
 
 def conmebol():
