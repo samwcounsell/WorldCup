@@ -478,7 +478,7 @@ def CONMEBOL(alpha):
                 a1, d1 = alpha.loc[t1, 'Attack'], alpha.loc[t1, 'Defence']
                 a2, d2 = alpha.loc[t2, 'Attack'], alpha.loc[t2, 'Defence']
 
-                goals1, goals2 = TLGRP90AH(k, a1, d1, a2, d2)
+                goals1, goals2 = TLGRP90HA(k, a1, d1, a2, d2)
 
                 print(team1, goals1, " - ", goals2, team2)
 
