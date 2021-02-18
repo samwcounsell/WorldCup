@@ -8,6 +8,7 @@ def uefa():
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
     pot = pd.read_csv("UEFA.csv")
+    #pot = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/UEFA.csv")
 
     UEFAhosts = ["France", "England", "Spain", "Italy", "Germany", "Russia"]
     host, hostdf = hosty()
