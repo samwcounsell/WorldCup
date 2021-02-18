@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO, GRP4
+from MatchSim import TLKO, GRP4, GRP4HA
 from GroupDraw import GD4
 
 def caf():
@@ -56,7 +56,7 @@ def caf():
         print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
               "\n")
 
-        group = GRP4(group)
+        group = GRP4HA(group)
         group = group.sort_values(['Pts', 'GD', 'GF', 'GA'], ascending=[False, False, False, True])
         group = group.reset_index()
         group = group.drop(['index'], axis=1)
