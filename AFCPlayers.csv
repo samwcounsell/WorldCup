@@ -164,17 +164,17 @@ Almoez Azi,Qatar,ATK,#11,10,0,AFC
 ,Jordan,MID,#9,6,0,AFC
 ,Jordan,ATK,#10,10,0,AFC
 ,Jordan,ATK,#11,10,0,AFC
-,Kyrgyzstan,GK,#1,0,0,AFC
-,Kyrgyzstan,DEF,#2,1,0,AFC
-,Kyrgyzstan,DEF,#3,1,0,AFC
-,Kyrgyzstan,DEF,#4,2,0,AFC
-,Kyrgyzstan,DEF,#5,2,0,AFC
-,Kyrgyzstan,MID,#6,4,0,AFC
-,Kyrgyzstan,MID,#7,4,0,AFC
-,Kyrgyzstan,MID,#8,6,0,AFC
-,Kyrgyzstan,MID,#9,6,0,AFC
-,Kyrgyzstan,ATK,#10,10,0,AFC
-,Kyrgyzstan,ATK,#11,10,0,AFC
+Pavel Matyash,Kyrgyzstan,GK,#1,0,0,AFC
+Mustafa Iusupov,Kyrgyzstan,DEF,#2,1,0,AFC
+Tamirlan Kozubaev,Kyrgyzstan,DEF,#3,1,0,AFC
+Valery Kichin,Kyrgyzstan,DEF,#4,2,0,AFC
+Azamat Baimatov,Kyrgyzstan,DEF,#5,2,0,AFC
+Bekzhan Sagynbaev,Kyrgyzstan,MID,#6,4,0,AFC
+Kairat Zhyrgalbek Uulu,Kyrgyzstan,MID,#7,4,0,AFC
+Akhlidin Shukurov,Kyrgyzstan,MID,#8,6,0,AFC
+Edgar Bernhardt,Kyrgyzstan,MID,#9,6,0,AFC
+Vitalij Lux,Kyrgyzstan,ATK,#10,10,0,AFC
+Mirlan Murzaev,Kyrgyzstan,ATK,#11,10,0,AFC
 ,Bahrain,GK,#1,0,0,AFC
 ,Bahrain,DEF,#2,1,0,AFC
 ,Bahrain,DEF,#3,1,0,AFC
@@ -219,17 +219,17 @@ Almoez Azi,Qatar,ATK,#11,10,0,AFC
 ,Thailand,MID,#9,6,0,AFC
 ,Thailand,ATK,#10,10,0,AFC
 ,Thailand,ATK,#11,10,0,AFC
-,North Korea,GK,#1,0,0,AFC
-,North Korea,DEF,#2,1,0,AFC
-,North Korea,DEF,#3,1,0,AFC
-,North Korea,DEF,#4,2,0,AFC
-,North Korea,DEF,#5,2,0,AFC
-,North Korea,MID,#6,4,0,AFC
-,North Korea,MID,#7,4,0,AFC
-,North Korea,MID,#8,6,0,AFC
-,North Korea,MID,#9,6,0,AFC
-,North Korea,ATK,#10,10,0,AFC
-,North Korea,ATK,#11,10,0,AFC
+Ri Kwang-il,North Korea,GK,#1,0,0,AFC
+Kim Chol-bom,North Korea,DEF,#2,1,0,AFC
+Pak Myong-song,North Korea,DEF,#3,1,0,AFC
+Sim Hyon-jin,North Korea,DEF,#4,2,0,AFC
+Jang Kuk-chol,North Korea,DEF,#5,2,0,AFC
+Han Thae-hyok,North Korea,MID,#6,4,0,AFC
+Ri Yong-jik,North Korea,MID,#7,4,0,AFC
+Ri Un-chol,North Korea,MID,#8,6,0,AFC
+Jong Il-gwan,North Korea,MID,#9,10,0,AFC
+Pak Hyon-il,North Korea,ATK,#10,10,0,AFC
+Pak Kwang-ryong,North Korea,ATK,#11,15,0,AFC
 ,Tajikistan,GK,#1,0,0,AFC
 ,Tajikistan,DEF,#2,1,0,AFC
 ,Tajikistan,DEF,#3,1,0,AFC
@@ -274,28 +274,28 @@ Almoez Azi,Qatar,ATK,#11,10,0,AFC
 ,Myanmar,MID,#9,6,0,AFC
 ,Myanmar,ATK,#10,10,0,AFC
 ,Myanmar,ATK,#11,10,0,AFC
-,Taipei,GK,#1,0,0,AFC
-,Taipei,DEF,#2,1,0,AFC
-,Taipei,DEF,#3,1,0,AFC
-,Taipei,DEF,#4,2,0,AFC
-,Taipei,DEF,#5,2,0,AFC
-,Taipei,MID,#6,4,0,AFC
-,Taipei,MID,#7,4,0,AFC
-,Taipei,MID,#8,6,0,AFC
-,Taipei,MID,#9,6,0,AFC
-,Taipei,ATK,#10,10,0,AFC
-,Taipei,ATK,#11,10,0,AFC
-,Hong Kong,GK,#1,0,0,AFC
-,Hong Kong,DEF,#2,1,0,AFC
-,Hong Kong,DEF,#3,1,0,AFC
-,Hong Kong,DEF,#4,2,0,AFC
-,Hong Kong,DEF,#5,2,0,AFC
-,Hong Kong,MID,#6,4,0,AFC
-,Hong Kong,MID,#7,4,0,AFC
-,Hong Kong,MID,#8,6,0,AFC
-,Hong Kong,MID,#9,6,0,AFC
-,Hong Kong,ATK,#10,10,0,AFC
-,Hong Kong,ATK,#11,10,0,AFC
+Pan Wen-chieh,Taipei,GK,#1,0,0,AFC
+Hung Tzu-kuei,Taipei,DEF,#2,1,0,AFC
+Wang Ruei,Taipei,DEF,#3,1,0,AFC
+Lin Cheng-yi,Taipei,DEF,#4,2,0,AFC
+Chen Ting-yang,Taipei,DEF,#5,2,0,AFC
+Chen Ye-wei,Taipei,MID,#6,4,0,AFC
+Wu Chun-ching,Taipei,MID,#7,6,0,AFC
+Wen Chih-hao,Taipei,MID,#8,6,0,AFC
+Chen Po-liang,Taipei,MID,#9,9,0,AFC
+Chen Hao-wei,Taipei,ATK,#10,10,0,AFC
+Chu En-le,Taipei,ATK,#11,10,0,AFC
+Yapp Hung Fai,Hong Kong,GK,#1,0,0,AFC
+Tsui Wang Kit,Hong Kong,DEF,#2,1,0,AFC
+Helio,Hong Kong,DEF,#3,1,0,AFC
+Roberto,Hong Kong,DEF,#4,2,0,AFC
+Festus Baise,Hong Kong,DEF,#5,2,0,AFC
+Wong Wai,Hong Kong,MID,#6,4,0,AFC
+Tan Chun Lok,Hong Kong,MID,#7,4,0,AFC
+Huang Yang,Hong Kong,MID,#8,6,0,AFC
+Xu Deshuai,Hong Kong,MID,#9,6,0,AFC
+Alex Akande,Hong Kong,ATK,#10,10,0,AFC
+Sandro,Hong Kong,ATK,#11,10,0,AFC
 ,Yemen,GK,#1,0,0,AFC
 ,Yemen,DEF,#2,1,0,AFC
 ,Yemen,DEF,#3,1,0,AFC
@@ -395,17 +395,17 @@ Almoez Azi,Qatar,ATK,#11,10,0,AFC
 ,Indonesia,MID,#9,6,0,AFC
 ,Indonesia,ATK,#10,10,0,AFC
 ,Indonesia,ATK,#11,10,0,AFC
-,Macau,GK,#1,0,0,AFC
-,Macau,DEF,#2,1,0,AFC
-,Macau,DEF,#3,1,0,AFC
-,Macau,DEF,#4,2,0,AFC
-,Macau,DEF,#5,2,0,AFC
-,Macau,MID,#6,4,0,AFC
-,Macau,MID,#7,4,0,AFC
-,Macau,MID,#8,6,0,AFC
-,Macau,MID,#9,6,0,AFC
-,Macau,ATK,#10,10,0,AFC
-,Macau,ATK,#11,10,0,AFC
+Ho Man Fai,Macau,GK,#1,0,0,AFC
+Filipe Duarte,Macau,DEF,#2,1,0,AFC
+Lei Ka Him,Macau,DEF,#3,1,0,AFC
+Chan Man,Macau,DEF,#4,2,0,AFC
+Pang Chi Hang,Macau,MID,#5,4,0,AFC
+Kong Cheng Hou,Macau,MID,#6,4,0,AFC
+Ho Chi Fung,Macau,MID,#7,4,0,AFC
+Lam Ka Seng,Macau,MID,#8,6,0,AFC
+Leong Ka Hang,Macau,ATK,#9,10,0,AFC
+Ho Man Hou,Macau,ATK,#10,10,0,AFC
+Niki Torrao,Macau,ATK,#11,10,0,AFC
 Ashraful Islam Rana,Bangladesh,GK,#1,0,0,AFC
 Biswanath Ghosh,Bangladesh,DEF,#2,1,0,AFC
 Raphat Mia,Bangladesh,DEF,#3,1,0,AFC
