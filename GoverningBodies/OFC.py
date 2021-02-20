@@ -57,6 +57,6 @@ def ofc():
     ict = TLKO(1, ict, ict, 0.5)
     ict = ict.iloc[2:, :]
     print("QUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
+    print(ict.to_string(columns=['Country'], index=False))
 
     return ict
