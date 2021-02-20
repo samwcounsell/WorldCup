@@ -31,7 +31,7 @@ Nam Tae-hee,South Korea,MID,#8,3,0,AFC
 Lee Jae-sung,South Korea,MID,#10,5,0,AFC
 Hwang Hee-chan,South Korea,ATK,#11,9,0,AFC
 Hwang Ui-jo,South Korea,ATK,#16,8,0,AFC
-Son Heung-min,South Korea,ATK,#7,15,0,AFC
+Son Heuing-min,South Korea,ATK,#7,15,0,AFC
 Matthew Ryan,Australia,GK,#1,0,0,AFC
 Milos Degenek,Australia,DEF,#2,1,0,AFC
 Bailey Wright,Australia,DEF,#3,1,0,AFC
@@ -54,61 +54,61 @@ Mohamed Waad,Qatar,MID,#8,3,0,AFC
 Hassan Al-Haydos,Qatar,ATK,#9,7,0,AFC
 Akram Afif,Qatar,ATK,#10,10,0,AFC
 Almoez Azi,Qatar,ATK,#11,10,0,AFC
-,Saudi Arabia,GK,#1,0,0,AFC
-,Saudi Arabia,DEF,#2,1,0,AFC
-,Saudi Arabia,DEF,#3,1,0,AFC
-,Saudi Arabia,DEF,#4,2,0,AFC
-,Saudi Arabia,DEF,#5,2,0,AFC
-,Saudi Arabia,MID,#6,4,0,AFC
-,Saudi Arabia,MID,#7,4,0,AFC
-,Saudi Arabia,MID,#8,6,0,AFC
-,Saudi Arabia,MID,#9,6,0,AFC
-,Saudi Arabia,ATK,#10,10,0,AFC
-,Saudi Arabia,ATK,#11,10,0,AFC
-,Iraq,GK,#1,0,0,AFC
-,Iraq,DEF,#2,1,0,AFC
-,Iraq,DEF,#3,1,0,AFC
-,Iraq,DEF,#4,2,0,AFC
-,Iraq,DEF,#5,2,0,AFC
-,Iraq,MID,#6,4,0,AFC
-,Iraq,MID,#7,4,0,AFC
-,Iraq,MID,#8,6,0,AFC
-,Iraq,MID,#9,6,0,AFC
-,Iraq,ATK,#10,10,0,AFC
-,Iraq,ATK,#11,10,0,AFC
-,UAE,GK,#1,0,0,AFC
-,UAE,DEF,#2,1,0,AFC
-,UAE,DEF,#3,1,0,AFC
-,UAE,DEF,#4,2,0,AFC
-,UAE,DEF,#5,2,0,AFC
-,UAE,MID,#6,4,0,AFC
-,UAE,MID,#7,4,0,AFC
-,UAE,MID,#8,6,0,AFC
-,UAE,MID,#9,6,0,AFC
-,UAE,ATK,#10,10,0,AFC
-,UAE,ATK,#11,10,0,AFC
-,China,GK,#1,0,0,AFC
-,China,DEF,#2,1,0,AFC
-,China,DEF,#3,1,0,AFC
-,China,DEF,#4,2,0,AFC
-,China,DEF,#5,2,0,AFC
-,China,MID,#6,4,0,AFC
-,China,MID,#7,4,0,AFC
-,China,MID,#8,6,0,AFC
-,China,MID,#9,6,0,AFC
-,China,ATK,#10,10,0,AFC
-,China,ATK,#11,10,0,AFC
-,Syria,GK,#1,0,0,AFC
-,Syria,DEF,#2,1,0,AFC
-,Syria,DEF,#3,1,0,AFC
-,Syria,DEF,#4,2,0,AFC
-,Syria,DEF,#5,2,0,AFC
-,Syria,MID,#6,4,0,AFC
-,Syria,MID,#7,4,0,AFC
-,Syria,MID,#8,6,0,AFC
-,Syria,MID,#9,6,0,AFC
-,Syria,ATK,#10,10,0,AFC
-,Syria,ATK,#11,10,0,AFC
+Mohammed Al-Rubaie,Saudi Arabia,GK,#1,0,0,AFC
+Ali Al-Bulaihi,Saudi Arabia,DEF,#2,1,0,AFC
+Mohammed Al-Breik,Saudi Arabia,DEF,#3,1,0,AFC
+Mohammed Al-Khabrani,Saudi Arabia,DEF,#4,2,0,AFC
+Yasser Al-Shahrani,Saudi Arabia,DEF,#5,2,0,AFC
+Hattan Bahberi,Saudi Arabia,MID,#6,4,0,AFC
+Nawaf Al-Abed,Saudi Arabia,MID,#7,4,0,AFC
+Salman Al-Faraj,Saudi Arabia,MID,#8,6,0,AFC
+Salem Al-Dawsari,Saudi Arabia,MID,#9,6,0,AFC
+Abdullah Al-Hamdan,Saudi Arabia,ATK,#10,10,0,AFC
+Firas al-Buraikan,Saudi Arabia,ATK,#11,10,0,AFC
+Jalal Hassan,Iraq,GK,#1,0,0,AFC
+Ahmed Ibrahim,Iraq,DEF,#2,1,0,AFC
+Ali Faez,Iraq,DEF,#3,1,0,AFC
+Rebin Sulaka,Iraq,DEF,#4,2,0,AFC
+Ali Adnan,Iraq,DEF,#5,2,0,AFC
+Bashae Resan,Iraq,MID,#6,4,0,AFC
+Mohammed Qasim,Iraq,MID,#7,4,0,AFC
+Humam Tariq,Iraq,MID,#8,6,0,AFC
+Hussein Ali,Iraq,MID,#9,6,0,AFC
+Alaa Abdul-Zahra,Iraq,ATK,#10,10,0,AFC
+Mohanad Ali,Iraq,ATK,#11,14,0,AFC
+Khalid Eisa,UAE,GK,#1,0,0,AFC
+Walid Abbas,UAE,DEF,#2,1,0,AFC
+Fares Juma,UAE,DEF,#3,1,0,AFC
+Yousif Jaber,UAE,DEF,#4,2,0,AFC
+Abdulaziz Haikal,UAE,DEF,#5,2,0,AFC
+Ali Salmeen,UAE,MID,#6,4,0,AFC
+Majed Hassan,UAE,MID,#7,4,0,AFC
+Habib Al Fardan,UAE,MID,#8,6,0,AFC
+Khalil Ibrahim,UAE,MID,#9,6,0,AFC
+Ali Mabkhout,UAE,ATK,#10,15,0,AFC
+Khalfan Mubarak,UAE,ATK,#11,10,0,AFC
+Zeng Cheng,China,GK,#1,0,0,AFC
+Zheng Zheng,China,DEF,#2,1,0,AFC
+Mei Fang,China,DEF,#3,1,0,AFC
+Yu Dabao,China,DEF,#4,4,0,AFC
+Zhang Linpeng,China,DEF,#5,2,0,AFC
+Cai Huikang,China,MID,#6,4,0,AFC
+Zhang Xizhe,China,MID,#7,4,0,AFC
+Wu Xi,China,MID,#8,6,0,AFC
+Hao Junmin,China,MID,#9,6,0,AFC
+Yang Xu,China,ATK,#10,10,0,AFC
+Wu Lei,China,ATK,#11,10,0,AFC
+Ibrahim Alma,Syria,GK,#1,0,0,AFC
+Moayad Ajan,Syria,DEF,#2,1,0,AFC
+Amro Jenyat,Syria,DEF,#3,1,0,AFC
+Omar Midani,Syria,DEF,#4,2,0,AFC
+Hussein Jwayed,Syria,DEF,#5,2,0,AFC
+Ward Al Salama,Syria,MID,#6,4,0,AFC
+Mohammed Osman,Syria,MID,#7,4,0,AFC
+Mahmoud Al-Mawas,Syria,MID,#8,6,0,AFC
+Mohammad Marmour,Syria,MID,#9,6,0,AFC
+Omar Kharbin,Syria,ATK,#10,10,0,AFC
+Omar Al Somah,Syria,ATK,#11,10,0,AFC
 ,Oman,GK,#1,0,0,AFC
 ,Oman,DEF,#2,1,0,AFC
 ,Oman,DEF,#3,1,0,AFC
@@ -186,28 +186,28 @@ Mirlan Murzaev,Kyrgyzstan,ATK,#11,10,0,AFC
 ,Bahrain,MID,#9,6,0,AFC
 ,Bahrain,ATK,#10,10,0,AFC
 ,Bahrain,ATK,#11,10,0,AFC
-,Palestine,GK,#1,0,0,AFC
-,Palestine,DEF,#2,1,0,AFC
-,Palestine,DEF,#3,1,0,AFC
-,Palestine,DEF,#4,2,0,AFC
-,Palestine,DEF,#5,2,0,AFC
-,Palestine,MID,#6,4,0,AFC
-,Palestine,MID,#7,4,0,AFC
-,Palestine,MID,#8,6,0,AFC
-,Palestine,MID,#9,6,0,AFC
-,Palestine,ATK,#10,10,0,AFC
-,Palestine,ATK,#11,10,0,AFC
-,India,GK,#1,0,0,AFC
-,India,DEF,#2,1,0,AFC
-,India,DEF,#3,1,0,AFC
-,India,DEF,#4,2,0,AFC
-,India,DEF,#5,2,0,AFC
-,India,MID,#6,4,0,AFC
-,India,MID,#7,4,0,AFC
-,India,MID,#8,6,0,AFC
-,India,MID,#9,6,0,AFC
-,India,ATK,#10,10,0,AFC
-,India,ATK,#11,10,0,AFC
+Tawfiq Ali,Palestine,GK,#1,0,0,AFC
+Musab Al-Battat,Palestine,DEF,#2,1,0,AFC
+Mahommad Abu Malayah,Palestine,DEF,#3,1,0,AFC
+Musa Farawi,Palestine,DEF,#4,2,0,AFC
+Musa Saleem,Palestine,DEF,#5,2,0,AFC
+Mohamed Darwish,Palestine,MID,#6,4,0,AFC
+Mohammed Yameen,Palestine,MID,#7,4,0,AFC
+Tamar Seyam,Palestine,MID,#8,6,0,AFC
+Sameh Maraaba,Palestine,MID,#9,6,0,AFC
+Khaled Salem,Palestine,ATK,#10,10,0,AFC
+Shehab Qumbor,Palestine,ATK,#11,10,0,AFC
+Gurpreet Singh Sandhu,India,GK,#1,0,0,AFC
+Anas Edathodika,India,DEF,#2,1,0,AFC
+Pritam Kotal,India,DEF,#3,1,0,AFC
+Subhasish Bose,India,DEF,#4,2,0,AFC
+Sandesh Jhingan,India,DEF,#5,2,0,AFC
+Udanta Singh,India,MID,#6,4,0,AFC
+Rowlin Borges,India,MID,#7,4,0,AFC
+Anirudh Thapa,India,MID,#8,6,0,AFC
+Lallianzuala Chhangte,India,MID,#9,6,0,AFC
+Manvir Singh,India,ATK,#10,10,0,AFC
+Sunil Chettri,India,ATK,#11,25,0,AFC
 ,Thailand,GK,#1,0,0,AFC
 ,Thailand,DEF,#2,1,0,AFC
 ,Thailand,DEF,#3,1,0,AFC
