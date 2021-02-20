@@ -1,23 +1,56 @@
-﻿Name,Country,Position,ShirtNumber,Attack,Goals
-Eiji Kawashima,Japan,GK,#1,0,0
-Yugo Nagtomo,Japan,DEF,#3,2,0
-Hiroki Sakai,Japan,DEF,#2,3,0
-Maya Yoshida,Japan,DEF,#4,3,0
-Takehiro Tomiyasu,Japan,DEF,#24,1,0
-Wataru Endo,Japan,MID,#6,2,0
-Makoto Hasebe,Japan,MID,#5,3,0
-Takumi Minamino,Japan,MID,#7,7,0
-Takefusi Kubo,Japan,MID,#12,7,0
-Musashi Suzuki,Japan,ATK,#9,8,0
-Takuma Asano,Japan,ATK,#10,9,0
-Alireza Beiranvand,Iran,GK,#1,0,0
-Hossein Kanaanizadegan,Iran,DEF,#3,2,0
-Sadegh Moharrami,Iran,DEF,#2,3,0
-Milad Mohammadi,Iran,DEF,#4,2,0
-Morteza Pouraliganji,Iran,DEF,#5,2,0
-Valid Amiri,Iran,MID,#6,4,0
-Ehsan Hajsafi,Iran,MID,#11,5,0
-Medhi Torabi,Iran,MID,#8,5,0
-Alireza Jahanbakhsh,Iran,MID,#7,8,0
-Medhi Taremi,Iran,ATK,#9,9,0
-Sardar Azmoun,Iran,ATK,#10,10,0
+﻿Name,Country,Position,ShirtNumber,Attack,Goals,Confederation
+Eiji Kawashima,Japan,GK,#1,0,0,AFC
+Yugo Nagtomo,Japan,DEF,#3,2,0,AFC
+Hiroki Sakai,Japan,DEF,#2,3,0,AFC
+Maya Yoshida,Japan,DEF,#4,3,0,AFC
+Takehiro Tomiyasu,Japan,DEF,#24,1,0,AFC
+Wataru Endo,Japan,MID,#6,2,0,AFC
+Makoto Hasebe,Japan,MID,#5,3,0,AFC
+Takumi Minamino,Japan,MID,#7,7,0,AFC
+Takefusi Kubo,Japan,MID,#12,7,0,AFC
+Musashi Suzuki,Japan,ATK,#9,8,0,AFC
+Takuma Asano,Japan,ATK,#10,9,0,AFC
+Alireza Beiranvand,Iran,GK,#1,0,0,AFC
+Hossein Kanaanizadegan,Iran,DEF,#3,2,0,AFC
+Sadegh Moharrami,Iran,DEF,#2,3,0,AFC
+Milad Mohammadi,Iran,DEF,#4,2,0,AFC
+Morteza Pouraliganji,Iran,DEF,#5,2,0,AFC
+Valid Amiri,Iran,MID,#6,4,0,AFC
+Ehsan Hajsafi,Iran,MID,#11,5,0,AFC
+Medhi Torabi,Iran,MID,#8,5,0,AFC
+Alireza Jahanbakhsh,Iran,MID,#7,8,0,AFC
+Medhi Taremi,Iran,ATK,#9,9,0,AFC
+Sardar Azmoun,Iran,ATK,#10,10,0,AFC
+Jo Hyeon-Woo,South Korea,GK,#1,0,0,AFC
+Kim Jin-su,South Korea,DEF,#3,2,0,AFC
+Kwon Kyung-won,South Korea,DEF,#16,3,0,AFC
+Kim Min-jae,South Korea,DEF,#4,1,0,AFC
+Hong Chul,South Korea,DEF,#2,1,0,AFC
+Lee Chung-yong,South Korea,MID,#6,3,0,AFC
+Nam Tae-hee,South Korea,MID,#8,3,0,AFC
+Lee Jae-sung,South Korea,MID,#10,5,0,AFC
+Hwang Hee-chan,South Korea,ATK,#11,9,0,AFC
+Hwang Ui-jo,South Korea,ATK,#16,8,0,AFC
+Son Heuing-min,South Korea,ATK,#7,15,0,AFC
+Matthew Ryan,Australia,GK,#1,0,0,AFC
+Milos Degenek,Australia,DEF,#2,1,0,AFC
+Bailey Wright,Australia,DEF,#3,1,0,AFC
+Aziz Behich,Australia,DEF,#4,1,0,AFC
+Harry Soutar,Australia,DEF,#5,2,0,AFC
+Trent Salisbury,Australia,DEF,#6,2,0,AFC
+Jackson Irvine,Australia,MID,#7,5,0,AFC
+Aaron Mooy,Australia,MID,#8,5,0,AFC
+Tom Rogic,Australia,MID,#9,6,0,AFC
+Awer Mabil,Australia,ATK,#10,7,0,AFC
+Adam Taggart,Australia,ATK,#11,9,0,AFC
+Saad Al Sheeb,Qatar,GK,#1,0,0,AFC
+Ro-Ro,Qatar,DEF,#2,1,0,AFC
+Abdelkarim Hassan ,Qatar,DEF,#3,3,0,AFC
+Boualem Khoukhi,Qatar,DEF,#4,4,0,AFC
+Al-Madhi Al Mukhtar,Qatar,DEF,#5,2,0,AFC
+Karim Boudaif,Qatar,MID,#6,4,0,AFC
+Abdulaziz Hatem,Qatar,MID,#7,3,0,AFC
+Mohamed Waad,Qatar,MID,#8,3,0,AFC
+Hassan Al-Haydos,Qatar,ATK,#9,7,0,AFC
+Akram Afif,Qatar,ATK,#10,10,0,AFC
+Almoez Azi,Qatar,ATK,#11,10,0,AFC
