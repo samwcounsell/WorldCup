@@ -54,3 +54,454 @@ Mohamed Waad,Qatar,MID,#8,3,0,AFC
 Hassan Al-Haydos,Qatar,ATK,#9,7,0,AFC
 Akram Afif,Qatar,ATK,#10,10,0,AFC
 Almoez Azi,Qatar,ATK,#11,10,0,AFC
+,Saudi Arabia,GK,#1,0,0,AFC
+,Saudi Arabia,DEF,#2,1,0,AFC
+,Saudi Arabia,DEF,#3,1,0,AFC
+,Saudi Arabia,DEF,#4,2,0,AFC
+,Saudi Arabia,DEF,#5,2,0,AFC
+,Saudi Arabia,MID,#6,4,0,AFC
+,Saudi Arabia,MID,#7,4,0,AFC
+,Saudi Arabia,MID,#8,6,0,AFC
+,Saudi Arabia,MID,#9,6,0,AFC
+,Saudi Arabia,ATK,#10,10,0,AFC
+,Saudi Arabia,ATK,#11,10,0,AFC
+,Iraq,GK,#1,0,0,AFC
+,Iraq,DEF,#2,1,0,AFC
+,Iraq,DEF,#3,1,0,AFC
+,Iraq,DEF,#4,2,0,AFC
+,Iraq,DEF,#5,2,0,AFC
+,Iraq,MID,#6,4,0,AFC
+,Iraq,MID,#7,4,0,AFC
+,Iraq,MID,#8,6,0,AFC
+,Iraq,MID,#9,6,0,AFC
+,Iraq,ATK,#10,10,0,AFC
+,Iraq,ATK,#11,10,0,AFC
+,UAE,GK,#1,0,0,AFC
+,UAE,DEF,#2,1,0,AFC
+,UAE,DEF,#3,1,0,AFC
+,UAE,DEF,#4,2,0,AFC
+,UAE,DEF,#5,2,0,AFC
+,UAE,MID,#6,4,0,AFC
+,UAE,MID,#7,4,0,AFC
+,UAE,MID,#8,6,0,AFC
+,UAE,MID,#9,6,0,AFC
+,UAE,ATK,#10,10,0,AFC
+,UAE,ATK,#11,10,0,AFC
+,China,GK,#1,0,0,AFC
+,China,DEF,#2,1,0,AFC
+,China,DEF,#3,1,0,AFC
+,China,DEF,#4,2,0,AFC
+,China,DEF,#5,2,0,AFC
+,China,MID,#6,4,0,AFC
+,China,MID,#7,4,0,AFC
+,China,MID,#8,6,0,AFC
+,China,MID,#9,6,0,AFC
+,China,ATK,#10,10,0,AFC
+,China,ATK,#11,10,0,AFC
+,Syria,GK,#1,0,0,AFC
+,Syria,DEF,#2,1,0,AFC
+,Syria,DEF,#3,1,0,AFC
+,Syria,DEF,#4,2,0,AFC
+,Syria,DEF,#5,2,0,AFC
+,Syria,MID,#6,4,0,AFC
+,Syria,MID,#7,4,0,AFC
+,Syria,MID,#8,6,0,AFC
+,Syria,MID,#9,6,0,AFC
+,Syria,ATK,#10,10,0,AFC
+,Syria,ATK,#11,10,0,AFC
+,Oman,GK,#1,0,0,AFC
+,Oman,DEF,#2,1,0,AFC
+,Oman,DEF,#3,1,0,AFC
+,Oman,DEF,#4,2,0,AFC
+,Oman,DEF,#5,2,0,AFC
+,Oman,MID,#6,4,0,AFC
+,Oman,MID,#7,4,0,AFC
+,Oman,MID,#8,6,0,AFC
+,Oman,MID,#9,6,0,AFC
+,Oman,ATK,#10,10,0,AFC
+,Oman,ATK,#11,10,0,AFC
+,Uzbekistan,GK,#1,0,0,AFC
+,Uzbekistan,DEF,#2,1,0,AFC
+,Uzbekistan,DEF,#3,1,0,AFC
+,Uzbekistan,DEF,#4,2,0,AFC
+,Uzbekistan,DEF,#5,2,0,AFC
+,Uzbekistan,MID,#6,4,0,AFC
+,Uzbekistan,MID,#7,4,0,AFC
+,Uzbekistan,MID,#8,6,0,AFC
+,Uzbekistan,MID,#9,6,0,AFC
+,Uzbekistan,ATK,#10,10,0,AFC
+,Uzbekistan,ATK,#11,10,0,AFC
+,Lebanon,GK,#1,0,0,AFC
+,Lebanon,DEF,#2,1,0,AFC
+,Lebanon,DEF,#3,1,0,AFC
+,Lebanon,DEF,#4,2,0,AFC
+,Lebanon,DEF,#5,2,0,AFC
+,Lebanon,MID,#6,4,0,AFC
+,Lebanon,MID,#7,4,0,AFC
+,Lebanon,MID,#8,6,0,AFC
+,Lebanon,MID,#9,6,0,AFC
+,Lebanon,ATK,#10,10,0,AFC
+,Lebanon,ATK,#11,10,0,AFC
+,Vietnam,GK,#1,0,0,AFC
+,Vietnam,DEF,#2,1,0,AFC
+,Vietnam,DEF,#3,1,0,AFC
+,Vietnam,DEF,#4,2,0,AFC
+,Vietnam,DEF,#5,2,0,AFC
+,Vietnam,MID,#6,4,0,AFC
+,Vietnam,MID,#7,4,0,AFC
+,Vietnam,MID,#8,6,0,AFC
+,Vietnam,MID,#9,6,0,AFC
+,Vietnam,ATK,#10,10,0,AFC
+,Vietnam,ATK,#11,10,0,AFC
+,Jordan,GK,#1,0,0,AFC
+,Jordan,DEF,#2,1,0,AFC
+,Jordan,DEF,#3,1,0,AFC
+,Jordan,DEF,#4,2,0,AFC
+,Jordan,DEF,#5,2,0,AFC
+,Jordan,MID,#6,4,0,AFC
+,Jordan,MID,#7,4,0,AFC
+,Jordan,MID,#8,6,0,AFC
+,Jordan,MID,#9,6,0,AFC
+,Jordan,ATK,#10,10,0,AFC
+,Jordan,ATK,#11,10,0,AFC
+,Kyrgyzstan,GK,#1,0,0,AFC
+,Kyrgyzstan,DEF,#2,1,0,AFC
+,Kyrgyzstan,DEF,#3,1,0,AFC
+,Kyrgyzstan,DEF,#4,2,0,AFC
+,Kyrgyzstan,DEF,#5,2,0,AFC
+,Kyrgyzstan,MID,#6,4,0,AFC
+,Kyrgyzstan,MID,#7,4,0,AFC
+,Kyrgyzstan,MID,#8,6,0,AFC
+,Kyrgyzstan,MID,#9,6,0,AFC
+,Kyrgyzstan,ATK,#10,10,0,AFC
+,Kyrgyzstan,ATK,#11,10,0,AFC
+,Bahrain,GK,#1,0,0,AFC
+,Bahrain,DEF,#2,1,0,AFC
+,Bahrain,DEF,#3,1,0,AFC
+,Bahrain,DEF,#4,2,0,AFC
+,Bahrain,DEF,#5,2,0,AFC
+,Bahrain,MID,#6,4,0,AFC
+,Bahrain,MID,#7,4,0,AFC
+,Bahrain,MID,#8,6,0,AFC
+,Bahrain,MID,#9,6,0,AFC
+,Bahrain,ATK,#10,10,0,AFC
+,Bahrain,ATK,#11,10,0,AFC
+,Palestine,GK,#1,0,0,AFC
+,Palestine,DEF,#2,1,0,AFC
+,Palestine,DEF,#3,1,0,AFC
+,Palestine,DEF,#4,2,0,AFC
+,Palestine,DEF,#5,2,0,AFC
+,Palestine,MID,#6,4,0,AFC
+,Palestine,MID,#7,4,0,AFC
+,Palestine,MID,#8,6,0,AFC
+,Palestine,MID,#9,6,0,AFC
+,Palestine,ATK,#10,10,0,AFC
+,Palestine,ATK,#11,10,0,AFC
+,India,GK,#1,0,0,AFC
+,India,DEF,#2,1,0,AFC
+,India,DEF,#3,1,0,AFC
+,India,DEF,#4,2,0,AFC
+,India,DEF,#5,2,0,AFC
+,India,MID,#6,4,0,AFC
+,India,MID,#7,4,0,AFC
+,India,MID,#8,6,0,AFC
+,India,MID,#9,6,0,AFC
+,India,ATK,#10,10,0,AFC
+,India,ATK,#11,10,0,AFC
+,Thailand,GK,#1,0,0,AFC
+,Thailand,DEF,#2,1,0,AFC
+,Thailand,DEF,#3,1,0,AFC
+,Thailand,DEF,#4,2,0,AFC
+,Thailand,DEF,#5,2,0,AFC
+,Thailand,MID,#6,4,0,AFC
+,Thailand,MID,#7,4,0,AFC
+,Thailand,MID,#8,6,0,AFC
+,Thailand,MID,#9,6,0,AFC
+,Thailand,ATK,#10,10,0,AFC
+,Thailand,ATK,#11,10,0,AFC
+,North Korea,GK,#1,0,0,AFC
+,North Korea,DEF,#2,1,0,AFC
+,North Korea,DEF,#3,1,0,AFC
+,North Korea,DEF,#4,2,0,AFC
+,North Korea,DEF,#5,2,0,AFC
+,North Korea,MID,#6,4,0,AFC
+,North Korea,MID,#7,4,0,AFC
+,North Korea,MID,#8,6,0,AFC
+,North Korea,MID,#9,6,0,AFC
+,North Korea,ATK,#10,10,0,AFC
+,North Korea,ATK,#11,10,0,AFC
+,Tajikistan,GK,#1,0,0,AFC
+,Tajikistan,DEF,#2,1,0,AFC
+,Tajikistan,DEF,#3,1,0,AFC
+,Tajikistan,DEF,#4,2,0,AFC
+,Tajikistan,DEF,#5,2,0,AFC
+,Tajikistan,MID,#6,4,0,AFC
+,Tajikistan,MID,#7,4,0,AFC
+,Tajikistan,MID,#8,6,0,AFC
+,Tajikistan,MID,#9,6,0,AFC
+,Tajikistan,ATK,#10,10,0,AFC
+,Tajikistan,ATK,#11,10,0,AFC
+,Philippines,GK,#1,0,0,AFC
+,Philippines,DEF,#2,1,0,AFC
+,Philippines,DEF,#3,1,0,AFC
+,Philippines,DEF,#4,2,0,AFC
+,Philippines,DEF,#5,2,0,AFC
+,Philippines,MID,#6,4,0,AFC
+,Philippines,MID,#7,4,0,AFC
+,Philippines,MID,#8,6,0,AFC
+,Philippines,MID,#9,6,0,AFC
+,Philippines,ATK,#10,10,0,AFC
+,Philippines,ATK,#11,10,0,AFC
+,Turkmenistan,GK,#1,0,0,AFC
+,Turkmenistan,DEF,#2,1,0,AFC
+,Turkmenistan,DEF,#3,1,0,AFC
+,Turkmenistan,DEF,#4,2,0,AFC
+,Turkmenistan,DEF,#5,2,0,AFC
+,Turkmenistan,MID,#6,4,0,AFC
+,Turkmenistan,MID,#7,4,0,AFC
+,Turkmenistan,MID,#8,6,0,AFC
+,Turkmenistan,MID,#9,6,0,AFC
+,Turkmenistan,ATK,#10,10,0,AFC
+,Turkmenistan,ATK,#11,10,0,AFC
+,Myanmar,GK,#1,0,0,AFC
+,Myanmar,DEF,#2,1,0,AFC
+,Myanmar,DEF,#3,1,0,AFC
+,Myanmar,DEF,#4,2,0,AFC
+,Myanmar,DEF,#5,2,0,AFC
+,Myanmar,MID,#6,4,0,AFC
+,Myanmar,MID,#7,4,0,AFC
+,Myanmar,MID,#8,6,0,AFC
+,Myanmar,MID,#9,6,0,AFC
+,Myanmar,ATK,#10,10,0,AFC
+,Myanmar,ATK,#11,10,0,AFC
+,Taipei,GK,#1,0,0,AFC
+,Taipei,DEF,#2,1,0,AFC
+,Taipei,DEF,#3,1,0,AFC
+,Taipei,DEF,#4,2,0,AFC
+,Taipei,DEF,#5,2,0,AFC
+,Taipei,MID,#6,4,0,AFC
+,Taipei,MID,#7,4,0,AFC
+,Taipei,MID,#8,6,0,AFC
+,Taipei,MID,#9,6,0,AFC
+,Taipei,ATK,#10,10,0,AFC
+,Taipei,ATK,#11,10,0,AFC
+,Hong Kong,GK,#1,0,0,AFC
+,Hong Kong,DEF,#2,1,0,AFC
+,Hong Kong,DEF,#3,1,0,AFC
+,Hong Kong,DEF,#4,2,0,AFC
+,Hong Kong,DEF,#5,2,0,AFC
+,Hong Kong,MID,#6,4,0,AFC
+,Hong Kong,MID,#7,4,0,AFC
+,Hong Kong,MID,#8,6,0,AFC
+,Hong Kong,MID,#9,6,0,AFC
+,Hong Kong,ATK,#10,10,0,AFC
+,Hong Kong,ATK,#11,10,0,AFC
+,Yemen,GK,#1,0,0,AFC
+,Yemen,DEF,#2,1,0,AFC
+,Yemen,DEF,#3,1,0,AFC
+,Yemen,DEF,#4,2,0,AFC
+,Yemen,DEF,#5,2,0,AFC
+,Yemen,MID,#6,4,0,AFC
+,Yemen,MID,#7,4,0,AFC
+,Yemen,MID,#8,6,0,AFC
+,Yemen,MID,#9,6,0,AFC
+,Yemen,ATK,#10,10,0,AFC
+,Yemen,ATK,#11,10,0,AFC
+,Kuwait,GK,#1,0,0,AFC
+,Kuwait,DEF,#2,1,0,AFC
+,Kuwait,DEF,#3,1,0,AFC
+,Kuwait,DEF,#4,2,0,AFC
+,Kuwait,DEF,#5,2,0,AFC
+,Kuwait,MID,#6,4,0,AFC
+,Kuwait,MID,#7,4,0,AFC
+,Kuwait,MID,#8,6,0,AFC
+,Kuwait,MID,#9,6,0,AFC
+,Kuwait,ATK,#10,10,0,AFC
+,Kuwait,ATK,#11,10,0,AFC
+,Afghanistan,GK,#1,0,0,AFC
+,Afghanistan,DEF,#2,1,0,AFC
+,Afghanistan,DEF,#3,1,0,AFC
+,Afghanistan,DEF,#4,2,0,AFC
+,Afghanistan,DEF,#5,2,0,AFC
+,Afghanistan,MID,#6,4,0,AFC
+,Afghanistan,MID,#7,4,0,AFC
+,Afghanistan,MID,#8,6,0,AFC
+,Afghanistan,MID,#9,6,0,AFC
+,Afghanistan,ATK,#10,10,0,AFC
+,Afghanistan,ATK,#11,10,0,AFC
+,Malaysia,GK,#1,0,0,AFC
+,Malaysia,DEF,#2,1,0,AFC
+,Malaysia,DEF,#3,1,0,AFC
+,Malaysia,DEF,#4,2,0,AFC
+,Malaysia,DEF,#5,2,0,AFC
+,Malaysia,MID,#6,4,0,AFC
+,Malaysia,MID,#7,4,0,AFC
+,Malaysia,MID,#8,6,0,AFC
+,Malaysia,MID,#9,6,0,AFC
+,Malaysia,ATK,#10,10,0,AFC
+,Malaysia,ATK,#11,10,0,AFC
+,Maldives,GK,#1,0,0,AFC
+,Maldives,DEF,#2,1,0,AFC
+,Maldives,DEF,#3,1,0,AFC
+,Maldives,DEF,#4,2,0,AFC
+,Maldives,DEF,#5,2,0,AFC
+,Maldives,MID,#6,4,0,AFC
+,Maldives,MID,#7,4,0,AFC
+,Maldives,MID,#8,6,0,AFC
+,Maldives,MID,#9,6,0,AFC
+,Maldives,ATK,#10,10,0,AFC
+,Maldives,ATK,#11,10,0,AFC
+,Singapore,GK,#1,0,0,AFC
+,Singapore,DEF,#2,1,0,AFC
+,Singapore,DEF,#3,1,0,AFC
+,Singapore,DEF,#4,2,0,AFC
+,Singapore,DEF,#5,2,0,AFC
+,Singapore,MID,#6,4,0,AFC
+,Singapore,MID,#7,4,0,AFC
+,Singapore,MID,#8,6,0,AFC
+,Singapore,MID,#9,6,0,AFC
+,Singapore,ATK,#10,10,0,AFC
+,Singapore,ATK,#11,10,0,AFC
+,Nepal,GK,#1,0,0,AFC
+,Nepal,DEF,#2,1,0,AFC
+,Nepal,DEF,#3,1,0,AFC
+,Nepal,DEF,#4,2,0,AFC
+,Nepal,DEF,#5,2,0,AFC
+,Nepal,MID,#6,4,0,AFC
+,Nepal,MID,#7,4,0,AFC
+,Nepal,MID,#8,6,0,AFC
+,Nepal,MID,#9,6,0,AFC
+,Nepal,ATK,#10,10,0,AFC
+,Nepal,ATK,#11,10,0,AFC
+,Cambodia,GK,#1,0,0,AFC
+,Cambodia,DEF,#2,1,0,AFC
+,Cambodia,DEF,#3,1,0,AFC
+,Cambodia,DEF,#4,2,0,AFC
+,Cambodia,DEF,#5,2,0,AFC
+,Cambodia,MID,#6,4,0,AFC
+,Cambodia,MID,#7,4,0,AFC
+,Cambodia,MID,#8,6,0,AFC
+,Cambodia,MID,#9,6,0,AFC
+,Cambodia,ATK,#10,10,0,AFC
+,Cambodia,ATK,#11,10,0,AFC
+,Indonesia,GK,#1,0,0,AFC
+,Indonesia,DEF,#2,1,0,AFC
+,Indonesia,DEF,#3,1,0,AFC
+,Indonesia,DEF,#4,2,0,AFC
+,Indonesia,DEF,#5,2,0,AFC
+,Indonesia,MID,#6,4,0,AFC
+,Indonesia,MID,#7,4,0,AFC
+,Indonesia,MID,#8,6,0,AFC
+,Indonesia,MID,#9,6,0,AFC
+,Indonesia,ATK,#10,10,0,AFC
+,Indonesia,ATK,#11,10,0,AFC
+,Macau,GK,#1,0,0,AFC
+,Macau,DEF,#2,1,0,AFC
+,Macau,DEF,#3,1,0,AFC
+,Macau,DEF,#4,2,0,AFC
+,Macau,DEF,#5,2,0,AFC
+,Macau,MID,#6,4,0,AFC
+,Macau,MID,#7,4,0,AFC
+,Macau,MID,#8,6,0,AFC
+,Macau,MID,#9,6,0,AFC
+,Macau,ATK,#10,10,0,AFC
+,Macau,ATK,#11,10,0,AFC
+,Bangladesh,GK,#1,0,0,AFC
+,Bangladesh,DEF,#2,1,0,AFC
+,Bangladesh,DEF,#3,1,0,AFC
+,Bangladesh,DEF,#4,2,0,AFC
+,Bangladesh,DEF,#5,2,0,AFC
+,Bangladesh,MID,#6,4,0,AFC
+,Bangladesh,MID,#7,4,0,AFC
+,Bangladesh,MID,#8,6,0,AFC
+,Bangladesh,MID,#9,6,0,AFC
+,Bangladesh,ATK,#10,10,0,AFC
+,Bangladesh,ATK,#11,10,0,AFC
+,Laos,GK,#1,0,0,AFC
+,Laos,DEF,#2,1,0,AFC
+,Laos,DEF,#3,1,0,AFC
+,Laos,DEF,#4,2,0,AFC
+,Laos,DEF,#5,2,0,AFC
+,Laos,MID,#6,4,0,AFC
+,Laos,MID,#7,4,0,AFC
+,Laos,MID,#8,6,0,AFC
+,Laos,MID,#9,6,0,AFC
+,Laos,ATK,#10,10,0,AFC
+,Laos,ATK,#11,10,0,AFC
+,Bhutan,GK,#1,0,0,AFC
+,Bhutan,DEF,#2,1,0,AFC
+,Bhutan,DEF,#3,1,0,AFC
+,Bhutan,DEF,#4,2,0,AFC
+,Bhutan,DEF,#5,2,0,AFC
+,Bhutan,MID,#6,4,0,AFC
+,Bhutan,MID,#7,4,0,AFC
+,Bhutan,MID,#8,6,0,AFC
+,Bhutan,MID,#9,6,0,AFC
+,Bhutan,ATK,#10,10,0,AFC
+,Bhutan,ATK,#11,10,0,AFC
+,Mongolia,GK,#1,0,0,AFC
+,Mongolia,DEF,#2,1,0,AFC
+,Mongolia,DEF,#3,1,0,AFC
+,Mongolia,DEF,#4,2,0,AFC
+,Mongolia,DEF,#5,2,0,AFC
+,Mongolia,MID,#6,4,0,AFC
+,Mongolia,MID,#7,4,0,AFC
+,Mongolia,MID,#8,6,0,AFC
+,Mongolia,MID,#9,6,0,AFC
+,Mongolia,ATK,#10,10,0,AFC
+,Mongolia,ATK,#11,10,0,AFC
+,Brunei,GK,#1,0,0,AFC
+,Brunei,DEF,#2,1,0,AFC
+,Brunei,DEF,#3,1,0,AFC
+,Brunei,DEF,#4,2,0,AFC
+,Brunei,DEF,#5,2,0,AFC
+,Brunei,MID,#6,4,0,AFC
+,Brunei,MID,#7,4,0,AFC
+,Brunei,MID,#8,6,0,AFC
+,Brunei,MID,#9,6,0,AFC
+,Brunei,ATK,#10,10,0,AFC
+,Brunei,ATK,#11,10,0,AFC
+,Timor-Leste,GK,#1,0,0,AFC
+,Timor-Leste,DEF,#2,1,0,AFC
+,Timor-Leste,DEF,#3,1,0,AFC
+,Timor-Leste,DEF,#4,2,0,AFC
+,Timor-Leste,DEF,#5,2,0,AFC
+,Timor-Leste,MID,#6,4,0,AFC
+,Timor-Leste,MID,#7,4,0,AFC
+,Timor-Leste,MID,#8,6,0,AFC
+,Timor-Leste,MID,#9,6,0,AFC
+,Timor-Leste,ATK,#10,10,0,AFC
+,Timor-Leste,ATK,#11,10,0,AFC
+,Guam,GK,#1,0,0,AFC
+,Guam,DEF,#2,1,0,AFC
+,Guam,DEF,#3,1,0,AFC
+,Guam,DEF,#4,2,0,AFC
+,Guam,DEF,#5,2,0,AFC
+,Guam,MID,#6,4,0,AFC
+,Guam,MID,#7,4,0,AFC
+,Guam,MID,#8,6,0,AFC
+,Guam,MID,#9,6,0,AFC
+,Guam,ATK,#10,10,0,AFC
+,Guam,ATK,#11,10,0,AFC
+,Pakistan,GK,#1,0,0,AFC
+,Pakistan,DEF,#2,1,0,AFC
+,Pakistan,DEF,#3,1,0,AFC
+,Pakistan,DEF,#4,2,0,AFC
+,Pakistan,DEF,#5,2,0,AFC
+,Pakistan,MID,#6,4,0,AFC
+,Pakistan,MID,#7,4,0,AFC
+,Pakistan,MID,#8,6,0,AFC
+,Pakistan,MID,#9,6,0,AFC
+,Pakistan,ATK,#10,10,0,AFC
+,Pakistan,ATK,#11,10,0,AFC
+,Sri Lanka,GK,#1,0,0,AFC
+,Sri Lanka,DEF,#2,1,0,AFC
+,Sri Lanka,DEF,#3,1,0,AFC
+,Sri Lanka,DEF,#4,2,0,AFC
+,Sri Lanka,DEF,#5,2,0,AFC
+,Sri Lanka,MID,#6,4,0,AFC
+,Sri Lanka,MID,#7,4,0,AFC
+,Sri Lanka,MID,#8,6,0,AFC
+,Sri Lanka,MID,#9,6,0,AFC
+,Sri Lanka,ATK,#10,10,0,AFC
+,Sri Lanka,ATK,#11,10,0,AFC
