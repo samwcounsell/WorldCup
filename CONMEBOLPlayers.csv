@@ -1,111 +1,111 @@
-﻿Name,Country,Position,ShirtNumber,Attack,Goals,Confederation,,,,
-Ederson,Brazil,GK,#1,1,0,CONMEBOL,,,,
-Danilo,Brazil,DEF,#2,5,0,CONMEBOL,,,,
-Marquinhos,Brazil,DEF,#3,6,0,CONMEBOL,,,,
-Thiago Silva,Brazil,DEF,#4,6,0,CONMEBOL,,,,Brazil
-Alex Telles,Brazil,DEF,#5,5,0,CONMEBOL,,,,Argentina
-Fabinho,Brazil,MID,#6,4,0,CONMEBOL,,,,Uruguay
-Phillipe Coutinho,Brazil,MID,#7,13,0,CONMEBOL,,,,Colombia
-Arthur,Brazil,MID,#8,7,0,CONMEBOL,,,,Chile
-Gabriel Jesus,Brazil,ATK,#9,15,0,CONMEBOL,,,,Peru
-Neymar,Brazil,ATK,#10,20,0,CONMEBOL,,,,Venezuela
-Vinicuis Junior,Brazil,ATK,#11,10,0,CONMEBOL,,,,Paraguay
-Augustin Marchesin,Argentina,GK,#1,0,0,CONMEBOL,,,,Ecaudor
-Nicolas Tagliafico,Argentina,DEF,#2,2,0,CONMEBOL,,,,Bolivia
-Gonzalo Montiel,Argentina,DEF,#3,2,0,CONMEBOL,,,,
-Lisando Martinez,Argentina,DEF,#4,3,0,CONMEBOL,,,,
-Leandro Paredes,Argentina,MID,#5,5,0,CONMEBOL,,,,
-Nicolas Otamendi,Argentina,DEF,#6,3,0,CONMEBOL,,,,
-Angel Di Maria,Argentina,ATK,#7,10,0,CONMEBOL,,,,
-Exequiel Palacios,Argentina,MID,#8,5,0,CONMEBOL,,,,
-Lautaro Martinez,Argentina,ATK,#9,10,0,CONMEBOL,,,,
-Lionel Messi,Argentina,ATK,#10,20,0,CONMEBOL,,,,
-Sergio Aguero,Argentina,ATK,#11,15,0,CONMEBOL,,,,
-,Uruguay,,#1,,0,CONMEBOL,,,,
-,Uruguay,,#2,,0,CONMEBOL,,,,
-,Uruguay,,#3,,0,CONMEBOL,,,,
-,Uruguay,,#4,,0,CONMEBOL,,,,
-,Uruguay,,#5,,0,CONMEBOL,,,,
-,Uruguay,,#6,,0,CONMEBOL,,,,
-,Uruguay,,#7,,0,CONMEBOL,,,,
-,Uruguay,,#8,,0,CONMEBOL,,,,
-,Uruguay,,#9,,0,CONMEBOL,,,,
-,Uruguay,,#10,,0,CONMEBOL,,,,
-,Uruguay,,#11,,0,CONMEBOL,,,,
-,Colombia,,#1,,0,CONMEBOL,,,,
-,Colombia,,#2,,0,CONMEBOL,,,,
-,Colombia,,#3,,0,CONMEBOL,,,,
-,Colombia,,#4,,0,CONMEBOL,,,,
-,Colombia,,#5,,0,CONMEBOL,,,,
-,Colombia,,#6,,0,CONMEBOL,,,,
-,Colombia,,#7,,0,CONMEBOL,,,,
-,Colombia,,#8,,0,CONMEBOL,,,,
-,Colombia,,#9,,0,CONMEBOL,,,,
-,Colombia,,#10,,0,CONMEBOL,,,,
-,Colombia,,#11,,0,CONMEBOL,,,,
-,Chile,,#1,,0,CONMEBOL,,,,
-,Chile,,#2,,0,CONMEBOL,,,,
-,Chile,,#3,,0,CONMEBOL,,,,
-,Chile,,#4,,0,CONMEBOL,,,,
-,Chile,,#5,,0,CONMEBOL,,,,
-,Chile,,#6,,0,CONMEBOL,,,,
-,Chile,,#7,,0,CONMEBOL,,,,
-,Chile,,#8,,0,CONMEBOL,,,,
-,Chile,,#9,,0,CONMEBOL,,,,
-,Chile,,#10,,0,CONMEBOL,,,,
-,Chile,,#11,,0,CONMEBOL,,,,
-,Peru,,#1,,0,CONMEBOL,,,,
-,Peru,,#2,,0,CONMEBOL,,,,
-,Peru,,#3,,0,CONMEBOL,,,,
-,Peru,,#4,,0,CONMEBOL,,,,
-,Peru,,#5,,0,CONMEBOL,,,,
-,Peru,,#6,,0,CONMEBOL,,,,
-,Peru,,#7,,0,CONMEBOL,,,,
-,Peru,,#8,,0,CONMEBOL,,,,
-,Peru,,#9,,0,CONMEBOL,,,,
-,Peru,,#10,,0,CONMEBOL,,,,
-,Peru,,#11,,0,CONMEBOL,,,,
-,Venzuela,,#1,,0,CONMEBOL,,,,
-,Venzuela,,#2,,0,CONMEBOL,,,,
-,Venzuela,,#3,,0,CONMEBOL,,,,
-,Venzuela,,#4,,0,CONMEBOL,,,,
-,Venzuela,,#5,,0,CONMEBOL,,,,
-,Venzuela,,#6,,0,CONMEBOL,,,,
-,Venzuela,,#7,,0,CONMEBOL,,,,
-,Venzuela,,#8,,0,CONMEBOL,,,,
-,Venzuela,,#9,,0,CONMEBOL,,,,
-,Venzuela,,#10,,0,CONMEBOL,,,,
-,Venzuela,,#11,,0,CONMEBOL,,,,
-,Paraguay,,#1,,0,CONMEBOL,,,,
-,Paraguay,,#2,,0,CONMEBOL,,,,
-,Paraguay,,#3,,0,CONMEBOL,,,,
-,Paraguay,,#4,,0,CONMEBOL,,,,
-,Paraguay,,#5,,0,CONMEBOL,,,,
-,Paraguay,,#6,,0,CONMEBOL,,,,
-,Paraguay,,#7,,0,CONMEBOL,,,,
-,Paraguay,,#8,,0,CONMEBOL,,,,
-,Paraguay,,#9,,0,CONMEBOL,,,,
-,Paraguay,,#10,,0,CONMEBOL,,,,
-,Paraguay,,#11,,0,CONMEBOL,,,,
-,Ecuador,,#1,,0,CONMEBOL,,,,
-,Ecuador,,#2,,0,CONMEBOL,,,,
-,Ecuador,,#3,,0,CONMEBOL,,,,
-,Ecuador,,#4,,0,CONMEBOL,,,,
-,Ecuador,,#5,,0,CONMEBOL,,,,
-,Ecuador,,#6,,0,CONMEBOL,,,,
-,Ecuador,,#7,,0,CONMEBOL,,,,
-,Ecuador,,#8,,0,CONMEBOL,,,,
-,Ecuador,,#9,,0,CONMEBOL,,,,
-,Ecuador,,#10,,0,CONMEBOL,,,,
-,Ecuador,,#11,,0,CONMEBOL,,,,
-,Bolivia,,#1,,0,CONMEBOL,,,,
-,Bolivia,,#2,,0,CONMEBOL,,,,
-,Bolivia,,#3,,0,CONMEBOL,,,,
-,Bolivia,,#4,,0,CONMEBOL,,,,
-,Bolivia,,#5,,0,CONMEBOL,,,,
-,Bolivia,,#6,,0,CONMEBOL,,,,
-,Bolivia,,#7,,0,CONMEBOL,,,,
-,Bolivia,,#8,,0,CONMEBOL,,,,
-,Bolivia,,#9,,0,CONMEBOL,,,,
-,Bolivia,,#10,,0,CONMEBOL,,,,
-,Bolivia,,#11,,0,CONMEBOL,,,,
+﻿Name,Country,Position,ShirtNumber,Attack,Goals,Confederation
+Ederson,Brazil,GK,#1,1,0,CONMEBOL
+Danilo,Brazil,DEF,#2,5,0,CONMEBOL
+Marquinhos,Brazil,DEF,#3,6,0,CONMEBOL
+Thiago Silva,Brazil,DEF,#4,6,0,CONMEBOL
+Alex Telles,Brazil,DEF,#5,5,0,CONMEBOL
+Fabinho,Brazil,MID,#6,4,0,CONMEBOL
+Phillipe Coutinho,Brazil,MID,#7,13,0,CONMEBOL
+Arthur,Brazil,MID,#8,7,0,CONMEBOL
+Gabriel Jesus,Brazil,ATK,#9,15,0,CONMEBOL
+Neymar,Brazil,ATK,#10,20,0,CONMEBOL
+Vinicuis Junior,Brazil,ATK,#11,10,0,CONMEBOL
+Augustin Marchesin,Argentina,GK,#1,0,0,CONMEBOL
+Nicolas Tagliafico,Argentina,DEF,#2,2,0,CONMEBOL
+Gonzalo Montiel,Argentina,DEF,#3,2,0,CONMEBOL
+Lisando Martinez,Argentina,DEF,#4,3,0,CONMEBOL
+Leandro Paredes,Argentina,MID,#5,5,0,CONMEBOL
+Nicolas Otamendi,Argentina,DEF,#6,3,0,CONMEBOL
+Angel Di Maria,Argentina,ATK,#7,10,0,CONMEBOL
+Exequiel Palacios,Argentina,MID,#8,5,0,CONMEBOL
+Lautaro Martinez,Argentina,ATK,#9,10,0,CONMEBOL
+Lionel Messi,Argentina,ATK,#10,20,0,CONMEBOL
+Sergio Aguero,Argentina,ATK,#11,15,0,CONMEBOL
+Fernando Muslera,Uruguay,GK,#1,0,0,CONMEBOL
+Jose Gimenez,Uruguay,DEF,#2,3,0,CONMEBOL
+Diego Godin,Uruguay,DEF,#3,3,0,CONMEBOL
+Matias Vina,Uruguay,DEF,#4,2,0,CONMEBOL
+Damian Suarez,Uruguay,DEF,#5,2,0,CONMEBOL
+Rodrigo Bentacur,Uruguay,MID,#6,3,0,CONMEBOL
+Lucas Torreira,Uruguay,MID,#7,5,0,CONMEBOL
+Federico Valverde,Uruguay,MID,#8,6,0,CONMEBOL
+Maxi Gomez,Uruguay,ATK,#9,8,0,CONMEBOL
+Luis Suarez,Uruguay,ATK,#10,20,0,CONMEBOL
+Edinson Cavani,Uruguay,ATK,#11,15,0,CONMEBOL
+David Ospina,Colombia,GK,#1,0,0,CONMEBOL
+Jeison Murillo,Colombia,DEF,#2,2,0,CONMEBOL
+Yerry Mina,Colombia,DEF,#3,3,0,CONMEBOL
+Frank Fabra,Colombia,DEF,#4,3,0,CONMEBOL
+Santiago Arias,Colombia,DEF,#5,2,0,CONMEBOL
+Wilmar Barrios,Colombia,MID,#6,5,0,CONMEBOL
+James Rodriguez,Colombia,MID,#7,10,0,CONMEBOL
+Mateus Uribe,Colombia,MID,#8,5,0,CONMEBOL
+Juan Quintero,Colombia,MID,#9,8,0,CONMEBOL
+Juan Cuadrado,Colombia,MID,#10,8,0,CONMEBOL
+Luis Muriel,Colombia,ATK,#11,10,0,CONMEBOL
+Claudio Bravo,Chile,GK,#1,0,0,CONMEBOL
+Nicolas Diaz,Chile,DEF,#2,1,0,CONMEBOL
+Guillermo Maripan,Chile,DEF,#3,1,0,CONMEBOL
+Mauricio Isla,Chile,DEF,#4,2,0,CONMEBOL
+Paulo Diaz,Chile,DEF,#5,2,0,CONMEBOL
+Charles Aranguiz,Chile,MID,#6,6,0,CONMEBOL
+Alexis Sanchez,Chile,ATK,#7,10,0,CONMEBOL
+Arturo Vidal,Chile,MID,#8,6,0,CONMEBOL
+Jean Meneses,Chile,ATK,#9,8,0,CONMEBOL
+Cesar Pinares,Chile,MID,#10,6,0,CONMEBOL
+Felipe Mora,Chile,ATK,#11,8,0,CONMEBOL
+Pedro Gallese,Peru,GK,#1,0,0,CONMEBOL
+Luis Abram,Peru,DEF,#2,2,0,CONMEBOL
+Aldo Corzo,Peru,DEF,#3,2,0,CONMEBOL
+Anderson Santamaria,Peru,DEF,#4,3,0,CONMEBOL
+Miguel Araujo,Peru,DEF,#5,2,0,CONMEBOL
+Miguel Trauco,Peru,DEF,#6,3,0,CONMEBOL
+Andy Polo,Peru,ATK,#7,8,0,CONMEBOL
+Yoshimar Yotun,Peru,MID,#8,6,0,CONMEBOL
+Edison Flores,Peru,ATK,#9,10,0,CONMEBOL
+Christian Cueva,Peru,MID,#10,7,0,CONMEBOL
+Raul Ruidiaz,Peru,ATK,#11,8,0,CONMEBOL
+Wuilker Farinez,Venezuela,GK,#1,0,0,CONMEBOL
+Wilker Angel,Venezuela,DEF,#2,2,0,CONMEBOL
+Yordon Osorio,Venezuela,DEF,#3,3,0,CONMEBOL
+Jhon Chancellor,Venezuela,DEF,#4,4,0,CONMEBOL
+Junior Moreno,Venezuela,MID,#5,5,0,CONMEBOL
+Bernaldo Manzano,Venezuela,MID,#6,6,0,CONMEBOL
+Darwin Machis,Venezuela,ATK,#7,11,0,CONMEBOL
+Tomas Rincon,Venezuela,MID,#8,8,0,CONMEBOL
+Fernando Aristeguieta,Venezuela,ATK,#9,9,0,CONMEBOL
+Yeferson Soteldo,Venezuela,MID,#10,10,0,CONMEBOL
+Juan Pablo Anor,Venezuela,MID,#11,7,0,CONMEBOL
+Antony Silva,Paraguay,GK,#1,0,0,CONMEBOL
+Robert Rojas,Paraguay,DEF,#2,2,0,CONMEBOL
+Omer Alderete,Paraguay,DEF,#3,3,0,CONMEBOL
+Fabian Balbuena,Paraguay,DEF,#4,4,0,CONMEBOL
+Gaston Gimenez,Paraguay,MID,#5,5,0,CONMEBOL
+Junior Alonso,Paraguay,DEF,#6,6,0,CONMEBOL
+Raul Bobadilla,Paraguay,ATK,#7,9,0,CONMEBOL
+Richard Sanchez,Paraguay,MID,#8,7,0,CONMEBOL
+Antonio Sanabria,Paraguay,ATK,#9,10,0,CONMEBOL
+Miguel Almiron,Paraguay,MID,#10,8,0,CONMEBOL
+Angel Romero,Paraguay,ATK,#11,11,0,CONMEBOL
+Alexander Dominguez,Ecuador,GK,#1,0,0,CONMEBOL
+Mario Pineida,Ecuador,DEF,#2,2,0,CONMEBOL
+Xavier Arreaga,Ecuador,DEF,#3,3,0,CONMEBOL
+Beder Caicedo,Ecuador,DEF,#4,4,0,CONMEBOL
+Robert Arboleda,Ecuador,DEF,#5,5,0,CONMEBOL
+Renato Ibarra,Ecuador,MID,#6,6,0,CONMEBOL
+Carlos Gruezo,Ecuador,MID,#7,7,0,CONMEBOL
+Jhegson Mendez,Ecuador,MID,#8,8,0,CONMEBOL
+Gonzalo Plata,Ecuador,MID,#9,9,0,CONMEBOL
+Angel Mena,Ecuador,MID,#10,10,0,CONMEBOL
+Michael Estrada,Ecuador,ATK,#11,11,0,CONMEBOL
+Carlos Lampe,Bolivia,GK,#1,0,0,CONMEBOL
+Ronny Montero,Bolivia,DEF,#2,2,0,CONMEBOL
+Diego Bejarano,Bolivia,DEF,#3,3,0,CONMEBOL
+Jose Sagredo,Bolivia,DEF,#4,4,0,CONMEBOL
+Adrian Jusino,Bolivia,DEF,#5,5,0,CONMEBOL
+Diego Wayar,Bolivia,MID,#6,6,0,CONMEBOL
+Juan Carlos Arce,Bolivia,ATK,#7,10,0,CONMEBOL
+Alejandro Chumacero,Bolivia,MID,#8,7,0,CONMEBOL
+Marcelo Moreno,Bolivia,ATK,#9,11,0,CONMEBOL
+Moises Villarreol,Bolivia,MID,#10,8,0,CONMEBOL
+Victor Abrego,Bolivia,ATK,#11,9,0,CONMEBOL
