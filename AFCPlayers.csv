@@ -109,61 +109,61 @@ Mahmoud Al-Mawas,Syria,MID,#8,6,0,AFC
 Mohammad Marmour,Syria,MID,#9,6,0,AFC
 Omar Kharbin,Syria,ATK,#10,10,0,AFC
 Omar Al Somah,Syria,ATK,#11,10,0,AFC
-,Oman,GK,#1,0,0,AFC
-,Oman,DEF,#2,1,0,AFC
-,Oman,DEF,#3,1,0,AFC
-,Oman,DEF,#4,2,0,AFC
-,Oman,DEF,#5,2,0,AFC
-,Oman,MID,#6,4,0,AFC
-,Oman,MID,#7,4,0,AFC
-,Oman,MID,#8,6,0,AFC
-,Oman,MID,#9,6,0,AFC
-,Oman,ATK,#10,10,0,AFC
-,Oman,ATK,#11,10,0,AFC
-,Uzbekistan,GK,#1,0,0,AFC
-,Uzbekistan,DEF,#2,1,0,AFC
-,Uzbekistan,DEF,#3,1,0,AFC
-,Uzbekistan,DEF,#4,2,0,AFC
-,Uzbekistan,DEF,#5,2,0,AFC
-,Uzbekistan,MID,#6,4,0,AFC
-,Uzbekistan,MID,#7,4,0,AFC
-,Uzbekistan,MID,#8,6,0,AFC
-,Uzbekistan,MID,#9,6,0,AFC
-,Uzbekistan,ATK,#10,10,0,AFC
-,Uzbekistan,ATK,#11,10,0,AFC
-,Lebanon,GK,#1,0,0,AFC
-,Lebanon,DEF,#2,1,0,AFC
-,Lebanon,DEF,#3,1,0,AFC
-,Lebanon,DEF,#4,2,0,AFC
-,Lebanon,DEF,#5,2,0,AFC
-,Lebanon,MID,#6,4,0,AFC
-,Lebanon,MID,#7,4,0,AFC
-,Lebanon,MID,#8,6,0,AFC
-,Lebanon,MID,#9,6,0,AFC
-,Lebanon,ATK,#10,10,0,AFC
-,Lebanon,ATK,#11,10,0,AFC
-,Vietnam,GK,#1,0,0,AFC
-,Vietnam,DEF,#2,1,0,AFC
-,Vietnam,DEF,#3,1,0,AFC
-,Vietnam,DEF,#4,2,0,AFC
-,Vietnam,DEF,#5,2,0,AFC
-,Vietnam,MID,#6,4,0,AFC
-,Vietnam,MID,#7,4,0,AFC
-,Vietnam,MID,#8,6,0,AFC
-,Vietnam,MID,#9,6,0,AFC
-,Vietnam,ATK,#10,10,0,AFC
-,Vietnam,ATK,#11,10,0,AFC
-,Jordan,GK,#1,0,0,AFC
-,Jordan,DEF,#2,1,0,AFC
-,Jordan,DEF,#3,1,0,AFC
-,Jordan,DEF,#4,2,0,AFC
-,Jordan,DEF,#5,2,0,AFC
-,Jordan,MID,#6,4,0,AFC
-,Jordan,MID,#7,4,0,AFC
-,Jordan,MID,#8,6,0,AFC
-,Jordan,MID,#9,6,0,AFC
-,Jordan,ATK,#10,10,0,AFC
-,Jordan,ATK,#11,10,0,AFC
+Faiz Al-Rushaidi,Oman,GK,#1,0,0,AFC
+Ali Al-Busaidi,Oman,DEF,#2,1,0,AFC
+Saad Al-Mukhaini,Oman,DEF,#3,1,0,AFC
+Mohammed Al-Balushi,Oman,DEF,#4,2,0,AFC
+Mohammed Al-Musalami,Oman,DEF,#5,2,0,AFC
+Salaah Al-Yahyaei,Oman,MID,#6,4,0,AFC
+Mohsin Al-Khaldi,Oman,MID,#7,4,0,AFC
+Ahmed Mubrarak Al-Mahaijri,Oman,MID,#8,6,0,AFC
+Raed Ibrahim Saleh,Oman,MID,#9,6,0,AFC
+Abdulaziz Al-Muqbali,Oman,ATK,#10,10,0,AFC
+Khalid Al-Hajri,Oman,ATK,#11,10,0,AFC
+Eldorbek Suyunov,Uzbekistan,GK,#1,0,0,AFC
+Islom Tukhtakhujaev,Uzbekistan,DEF,#2,1,0,AFC
+Oleg Zoteev,Uzbekistan,DEF,#3,1,0,AFC
+Murod Kholmukhademov,Uzbekistan,DEF,#4,2,0,AFC
+Rustam Ashurmatov,Uzbekistan,DEF,#5,2,0,AFC
+Ikromjon Alibaev,Uzbekistan,MID,#6,4,0,AFC
+Egor Krimets,Uzbekistan,MID,#7,4,0,AFC
+Otabek Shukurov,Uzbekistan,MID,#8,6,0,AFC
+Sanjar Kodirkulov,Uzbekistan,MID,#9,6,0,AFC
+Igot Sergeev,Uzbekistan,ATK,#10,10,0,AFC
+Eldor Shomurodov,Uzbekistan,ATK,#11,10,0,AFC
+Medhi Khalil,Lebanon,GK,#1,0,0,AFC
+Mohamed Zein Tahan,Lebanon,DEF,#2,1,0,AFC
+Mootaz Jounaidi,Lebanon,DEF,#3,1,0,AFC
+Joan Oumari,Lebanon,DEF,#4,2,0,AFC
+Nour Mansour,Lebanon,DEF,#5,2,0,AFC
+Adnan Haidar,Lebanon,MID,#6,4,0,AFC
+Nadar Matar,Lebanon,MID,#7,4,0,AFC
+"Hassan ""Moni"" Chaito",Lebanon,MID,#8,6,0,AFC
+Moahamed Haidar,Lebanon,MID,#9,6,0,AFC
+Rabih Ataya,Lebanon,ATK,#10,10,0,AFC
+Hilal El-Helwe,Lebanon,ATK,#11,10,0,AFC
+Tran Nguyen Manh,Vietnam,GK,#1,0,0,AFC
+Bui Tien Dung,Vietnam,DEF,#2,1,0,AFC
+Doan Van Hau,Vietnam,DEF,#3,1,0,AFC
+Do Duy Manh,Vietnam,DEF,#4,2,0,AFC
+Que Ngoc Hai,Vietnam,DEF,#5,2,0,AFC
+Nguyen Huy Heng,Vietnam,MID,#6,4,0,AFC
+Luong Xuan Truong,Vietnam,MID,#7,4,0,AFC
+Nguyen Quang Hai,Vietnam,MID,#8,6,0,AFC
+Nguyen Trong Hoang,Vietnam,MID,#9,6,0,AFC
+Nguyen Anh Duc,Vietnam,ATK,#10,10,0,AFC
+Nguyen Van Quyet,Vietnam,ATK,#11,10,0,AFC
+Amer Shafi,Jordan,GK,#1,0,0,AFC
+Fares Shelbaieh,Jordan,DEF,#2,1,0,AFC
+Ihsan Haddad,Jordan,DEF,#3,1,0,AFC
+Tareq Khattab,Jordan,DEF,#4,2,0,AFC
+Mohammad Al-Dmeiri,Jordan,DEF,#5,2,0,AFC
+Anas Al-Awadat,Jordan,MID,#6,4,0,AFC
+Mohammad Abu Zrayq,Jordan,MID,#7,4,0,AFC
+Nour Al-Rawabdeh,Jordan,MID,#8,6,0,AFC
+Saleh Rateb,Jordan,MID,#9,6,0,AFC
+Mahmoud Al-Mardi,Jordan,MID,#10,10,0,AFC
+Ali Olwan,Jordan,ATK,#11,10,0,AFC
 Pavel Matyash,Kyrgyzstan,GK,#1,0,0,AFC
 Mustafa Iusupov,Kyrgyzstan,DEF,#2,1,0,AFC
 Tamirlan Kozubaev,Kyrgyzstan,DEF,#3,1,0,AFC
@@ -175,17 +175,17 @@ Akhlidin Shukurov,Kyrgyzstan,MID,#8,6,0,AFC
 Edgar Bernhardt,Kyrgyzstan,MID,#9,6,0,AFC
 Vitalij Lux,Kyrgyzstan,ATK,#10,10,0,AFC
 Mirlan Murzaev,Kyrgyzstan,ATK,#11,10,0,AFC
-,Bahrain,GK,#1,0,0,AFC
-,Bahrain,DEF,#2,1,0,AFC
-,Bahrain,DEF,#3,1,0,AFC
-,Bahrain,DEF,#4,2,0,AFC
-,Bahrain,DEF,#5,2,0,AFC
-,Bahrain,MID,#6,4,0,AFC
-,Bahrain,MID,#7,4,0,AFC
-,Bahrain,MID,#8,6,0,AFC
-,Bahrain,MID,#9,6,0,AFC
-,Bahrain,ATK,#10,10,0,AFC
-,Bahrain,ATK,#11,10,0,AFC
+Sayed Jaffer,Bahrain,GK,#1,0,0,AFC
+Waleed Al Hayam,Bahrain,DEF,#2,1,0,AFC
+Abdulla Al-Haza'a,Bahrain,DEF,#3,1,0,AFC
+Ahmed Abdulla,Bahrain,DEF,#4,2,0,AFC
+Sayed Redha Isa,Bahrain,DEF,#5,2,0,AFC
+Sayed Dhiya Saeed,Bahrain,MID,#6,4,0,AFC
+Kamil Al Aswad,Bahrain,MID,#7,4,0,AFC
+Abdulwahab Al-Malood,Bahrain,MID,#8,6,0,AFC
+Ali Madan,Bahrain,MID,#9,6,0,AFC
+Ismail Abdullatif,Bahrain,ATK,#10,10,0,AFC
+Sami Al-Husaini,Bahrain,ATK,#11,10,0,AFC
 Tawfiq Ali,Palestine,GK,#1,0,0,AFC
 Musab Al-Battat,Palestine,DEF,#2,1,0,AFC
 Mahommad Abu Malayah,Palestine,DEF,#3,1,0,AFC
@@ -208,17 +208,17 @@ Anirudh Thapa,India,MID,#8,6,0,AFC
 Lallianzuala Chhangte,India,MID,#9,6,0,AFC
 Manvir Singh,India,ATK,#10,10,0,AFC
 Sunil Chettri,India,ATK,#11,25,0,AFC
-,Thailand,GK,#1,0,0,AFC
-,Thailand,DEF,#2,1,0,AFC
-,Thailand,DEF,#3,1,0,AFC
-,Thailand,DEF,#4,2,0,AFC
-,Thailand,DEF,#5,2,0,AFC
-,Thailand,MID,#6,4,0,AFC
-,Thailand,MID,#7,4,0,AFC
-,Thailand,MID,#8,6,0,AFC
-,Thailand,MID,#9,6,0,AFC
-,Thailand,ATK,#10,10,0,AFC
-,Thailand,ATK,#11,10,0,AFC
+Chatchai Budprom,Thailand,GK,#1,0,0,AFC
+Manuel Bihr,Thailand,DEF,#2,1,0,AFC
+Tristan Do,Thailand,DEF,#3,1,0,AFC
+Philip Roller,Thailand,DEF,#4,2,0,AFC
+Suriya Singmui,Thailand,DEF,#5,2,0,AFC
+Phitiwat Sukjitthammakul,Thailand,MID,#6,4,0,AFC
+Ekanit Panya,Thailand,MID,#7,4,0,AFC
+Sarach Yooyen,Thailand,MID,#8,6,0,AFC
+Thitiphan Puangjan,Thailand,MID,#9,6,0,AFC
+Adisak Kraisorn,Thailand,ATK,#10,10,0,AFC
+Chenrop Samphaodi,Thailand,ATK,#11,10,0,AFC
 Ri Kwang-il,North Korea,GK,#1,0,0,AFC
 Kim Chol-bom,North Korea,DEF,#2,1,0,AFC
 Pak Myong-song,North Korea,DEF,#3,1,0,AFC
@@ -230,50 +230,50 @@ Ri Un-chol,North Korea,MID,#8,6,0,AFC
 Jong Il-gwan,North Korea,MID,#9,10,0,AFC
 Pak Hyon-il,North Korea,ATK,#10,10,0,AFC
 Pak Kwang-ryong,North Korea,ATK,#11,15,0,AFC
-,Tajikistan,GK,#1,0,0,AFC
-,Tajikistan,DEF,#2,1,0,AFC
-,Tajikistan,DEF,#3,1,0,AFC
-,Tajikistan,DEF,#4,2,0,AFC
-,Tajikistan,DEF,#5,2,0,AFC
-,Tajikistan,MID,#6,4,0,AFC
-,Tajikistan,MID,#7,4,0,AFC
-,Tajikistan,MID,#8,6,0,AFC
-,Tajikistan,MID,#9,6,0,AFC
-,Tajikistan,ATK,#10,10,0,AFC
-,Tajikistan,ATK,#11,10,0,AFC
-,Philippines,GK,#1,0,0,AFC
-,Philippines,DEF,#2,1,0,AFC
-,Philippines,DEF,#3,1,0,AFC
-,Philippines,DEF,#4,2,0,AFC
-,Philippines,DEF,#5,2,0,AFC
-,Philippines,MID,#6,4,0,AFC
-,Philippines,MID,#7,4,0,AFC
-,Philippines,MID,#8,6,0,AFC
-,Philippines,MID,#9,6,0,AFC
-,Philippines,ATK,#10,10,0,AFC
-,Philippines,ATK,#11,10,0,AFC
-,Turkmenistan,GK,#1,0,0,AFC
-,Turkmenistan,DEF,#2,1,0,AFC
-,Turkmenistan,DEF,#3,1,0,AFC
-,Turkmenistan,DEF,#4,2,0,AFC
-,Turkmenistan,DEF,#5,2,0,AFC
-,Turkmenistan,MID,#6,4,0,AFC
-,Turkmenistan,MID,#7,4,0,AFC
-,Turkmenistan,MID,#8,6,0,AFC
-,Turkmenistan,MID,#9,6,0,AFC
-,Turkmenistan,ATK,#10,10,0,AFC
-,Turkmenistan,ATK,#11,10,0,AFC
-,Myanmar,GK,#1,0,0,AFC
-,Myanmar,DEF,#2,1,0,AFC
-,Myanmar,DEF,#3,1,0,AFC
-,Myanmar,DEF,#4,2,0,AFC
-,Myanmar,DEF,#5,2,0,AFC
-,Myanmar,MID,#6,4,0,AFC
-,Myanmar,MID,#7,4,0,AFC
-,Myanmar,MID,#8,6,0,AFC
-,Myanmar,MID,#9,6,0,AFC
-,Myanmar,ATK,#10,10,0,AFC
-,Myanmar,ATK,#11,10,0,AFC
+Rustam Yatimov,Tajikistan,GK,#1,0,0,AFC
+Iskandar Dzhalilov,Tajikistan,DEF,#2,1,0,AFC
+Tabrezi Davlatmir,Tajikistan,DEF,#3,1,0,AFC
+Akhtam Nazarov,Tajikistan,DEF,#4,2,0,AFC
+Davron Ergashev,Tajikistan,DEF,#5,2,0,AFC
+Amirbek Juraboev,Tajikistan,MID,#6,4,0,AFC
+Ehson Panjshanbe,Tajikistan,MID,#7,4,0,AFC
+Alisher Dzhalilov,Tajikistan,MID,#8,6,0,AFC
+Prarvizdzhon Umarbayev,Tajikistan,MID,#9,6,0,AFC
+Manuchekhr Dzhalilov,Tajikistan,ATK,#10,10,0,AFC
+Jahongir Ergashev,Tajikistan,ATK,#11,10,0,AFC
+Neil Etheridge,Philippines,GK,#1,0,0,AFC
+Alvaro Silva,Philippines,DEF,#2,1,0,AFC
+Luke Woodland,Philippines,DEF,#3,1,0,AFC
+Daisuke Sato,Philippines,DEF,#4,2,0,AFC
+Carli de Murga,Philippines,DEF,#5,2,0,AFC
+John-Patrick Strauss,Philippines,MID,#6,4,0,AFC
+Mike Ott,Philippines,MID,#7,4,0,AFC
+Stephan Schrock,Philippines,MID,#8,6,0,AFC
+Iain Ramsay,Philippines,MID,#9,6,0,AFC
+Angel Guirado,Philippines,ATK,#10,10,0,AFC
+Patrick Reichelt,Philippines,ATK,#11,10,0,AFC
+Mammet Orazmuhammedow,Turkmenistan,GK,#1,0,0,AFC
+Sohrat Soyunow,Turkmenistan,DEF,#2,1,0,AFC
+Serdar Annaorazow,Turkmenistan,DEF,#3,1,0,AFC
+Mekan Saparow,Turkmenistan,DEF,#4,2,0,AFC
+Abdy Basimow,Turkmenistan,DEF,#5,2,0,AFC
+Serdar Geldiyew,Turkmenistan,MID,#6,4,0,AFC
+Altymyrat Annadurdyyew,Turkmenistan,MID,#7,4,0,AFC
+Arlsanmyrat Amanow,Turkmenistan,MID,#8,6,0,AFC
+Ruslan Mingasow,Turkmenistan,MID,#9,6,0,AFC
+Didar Durdyyew,Turkmenistan,ATK,#10,10,0,AFC
+Wahyt Orazsahedow,Turkmenistan,ATK,#11,10,0,AFC
+Kyaw Zin Htet,Myanmar,GK,#1,0,0,AFC
+Kyaw Zin Lwin,Myanmar,DEF,#2,1,0,AFC
+Nanda Kyaw,Myanmar,DEF,#3,1,0,AFC
+Zaw Min Tun,Myanmar,DEF,#4,2,0,AFC
+David Htan,Myanmar,DEF,#5,2,0,AFC
+Yan Niang Oo,Myanmar,MID,#6,4,0,AFC
+Myo Ko Tun,Myanmar,MID,#7,4,0,AFC
+Maung Maung Lwin,Myanmar,MID,#8,6,0,AFC
+Hlaing Bo Bo,Myanmar,MID,#9,6,0,AFC
+Kyaw Ko Ko,Myanmar,ATK,#10,10,0,AFC
+Aung Thu,Myanmar,ATK,#11,10,0,AFC
 Pan Wen-chieh,Taipei,GK,#1,0,0,AFC
 Hung Tzu-kuei,Taipei,DEF,#2,1,0,AFC
 Wang Ruei,Taipei,DEF,#3,1,0,AFC
@@ -296,105 +296,105 @@ Huang Yang,Hong Kong,MID,#8,6,0,AFC
 Xu Deshuai,Hong Kong,MID,#9,6,0,AFC
 Alex Akande,Hong Kong,ATK,#10,10,0,AFC
 Sandro,Hong Kong,ATK,#11,10,0,AFC
-,Yemen,GK,#1,0,0,AFC
-,Yemen,DEF,#2,1,0,AFC
-,Yemen,DEF,#3,1,0,AFC
-,Yemen,DEF,#4,2,0,AFC
-,Yemen,DEF,#5,2,0,AFC
-,Yemen,MID,#6,4,0,AFC
-,Yemen,MID,#7,4,0,AFC
-,Yemen,MID,#8,6,0,AFC
-,Yemen,MID,#9,6,0,AFC
-,Yemen,ATK,#10,10,0,AFC
-,Yemen,ATK,#11,10,0,AFC
-,Kuwait,GK,#1,0,0,AFC
-,Kuwait,DEF,#2,1,0,AFC
-,Kuwait,DEF,#3,1,0,AFC
-,Kuwait,DEF,#4,2,0,AFC
-,Kuwait,DEF,#5,2,0,AFC
-,Kuwait,MID,#6,4,0,AFC
-,Kuwait,MID,#7,4,0,AFC
-,Kuwait,MID,#8,6,0,AFC
-,Kuwait,MID,#9,6,0,AFC
-,Kuwait,ATK,#10,10,0,AFC
-,Kuwait,ATK,#11,10,0,AFC
-,Afghanistan,GK,#1,0,0,AFC
-,Afghanistan,DEF,#2,1,0,AFC
-,Afghanistan,DEF,#3,1,0,AFC
-,Afghanistan,DEF,#4,2,0,AFC
-,Afghanistan,DEF,#5,2,0,AFC
-,Afghanistan,MID,#6,4,0,AFC
-,Afghanistan,MID,#7,4,0,AFC
-,Afghanistan,MID,#8,6,0,AFC
-,Afghanistan,MID,#9,6,0,AFC
-,Afghanistan,ATK,#10,10,0,AFC
-,Afghanistan,ATK,#11,10,0,AFC
-,Malaysia,GK,#1,0,0,AFC
-,Malaysia,DEF,#2,1,0,AFC
-,Malaysia,DEF,#3,1,0,AFC
-,Malaysia,DEF,#4,2,0,AFC
-,Malaysia,DEF,#5,2,0,AFC
-,Malaysia,MID,#6,4,0,AFC
-,Malaysia,MID,#7,4,0,AFC
-,Malaysia,MID,#8,6,0,AFC
-,Malaysia,MID,#9,6,0,AFC
-,Malaysia,ATK,#10,10,0,AFC
-,Malaysia,ATK,#11,10,0,AFC
-,Maldives,GK,#1,0,0,AFC
-,Maldives,DEF,#2,1,0,AFC
-,Maldives,DEF,#3,1,0,AFC
-,Maldives,DEF,#4,2,0,AFC
-,Maldives,DEF,#5,2,0,AFC
-,Maldives,MID,#6,4,0,AFC
-,Maldives,MID,#7,4,0,AFC
-,Maldives,MID,#8,6,0,AFC
-,Maldives,MID,#9,6,0,AFC
-,Maldives,ATK,#10,10,0,AFC
-,Maldives,ATK,#11,10,0,AFC
-,Singapore,GK,#1,0,0,AFC
-,Singapore,DEF,#2,1,0,AFC
-,Singapore,DEF,#3,1,0,AFC
-,Singapore,DEF,#4,2,0,AFC
-,Singapore,DEF,#5,2,0,AFC
-,Singapore,MID,#6,4,0,AFC
-,Singapore,MID,#7,4,0,AFC
-,Singapore,MID,#8,6,0,AFC
-,Singapore,MID,#9,6,0,AFC
-,Singapore,ATK,#10,10,0,AFC
-,Singapore,ATK,#11,10,0,AFC
-,Nepal,GK,#1,0,0,AFC
-,Nepal,DEF,#2,1,0,AFC
-,Nepal,DEF,#3,1,0,AFC
-,Nepal,DEF,#4,2,0,AFC
-,Nepal,DEF,#5,2,0,AFC
-,Nepal,MID,#6,4,0,AFC
-,Nepal,MID,#7,4,0,AFC
-,Nepal,MID,#8,6,0,AFC
-,Nepal,MID,#9,6,0,AFC
-,Nepal,ATK,#10,10,0,AFC
-,Nepal,ATK,#11,10,0,AFC
-,Cambodia,GK,#1,0,0,AFC
-,Cambodia,DEF,#2,1,0,AFC
-,Cambodia,DEF,#3,1,0,AFC
-,Cambodia,DEF,#4,2,0,AFC
-,Cambodia,DEF,#5,2,0,AFC
-,Cambodia,MID,#6,4,0,AFC
-,Cambodia,MID,#7,4,0,AFC
-,Cambodia,MID,#8,6,0,AFC
-,Cambodia,MID,#9,6,0,AFC
-,Cambodia,ATK,#10,10,0,AFC
-,Cambodia,ATK,#11,10,0,AFC
-,Indonesia,GK,#1,0,0,AFC
-,Indonesia,DEF,#2,1,0,AFC
-,Indonesia,DEF,#3,1,0,AFC
-,Indonesia,DEF,#4,2,0,AFC
-,Indonesia,DEF,#5,2,0,AFC
-,Indonesia,MID,#6,4,0,AFC
-,Indonesia,MID,#7,4,0,AFC
-,Indonesia,MID,#8,6,0,AFC
-,Indonesia,MID,#9,6,0,AFC
-,Indonesia,ATK,#10,10,0,AFC
-,Indonesia,ATK,#11,10,0,AFC
+Mohammed Ayash,Yemen,GK,#1,0,0,AFC
+Mohammed Boqshan,Yemen,DEF,#2,1,0,AFC
+Mudir Al-Radaei,Yemen,DEF,#3,1,0,AFC
+Mohammed Ba Rowis,Yemen,DEF,#4,2,0,AFC
+Mohammed Fuad Omar,Yemen,DEF,#5,2,0,AFC
+Hussein Al-Ghazi,Yemen,MID,#6,4,0,AFC
+Ahmed Al-Haifi,Yemen,MID,#7,4,0,AFC
+Alaa Al-Sasi,Yemen,MID,#8,6,0,AFC
+Abdulwasea Al-Matari,Yemen,MID,#9,6,0,AFC
+Emad Mansoor,Yemen,ATK,#10,10,0,AFC
+Ahmed Alos,Yemen,ATK,#11,10,0,AFC
+Hameed Al-Qallaf,Kuwait,GK,#1,0,0,AFC
+Amer Al-Fadhel,Kuwait,DEF,#2,1,0,AFC
+Dhari Said,Kuwait,DEF,#3,1,0,AFC
+Fahad Humood Al-Rashadi,Kuwait,DEF,#4,2,0,AFC
+Fahed Al Hajri,Kuwait,DEF,#5,2,0,AFC
+Fahad Al Ansari,Kuwait,MID,#6,4,0,AFC
+Sultan Al Enezi,Kuwait,MID,#7,4,0,AFC
+Adbullah Al Buraiki,Kuwait,MID,#8,6,0,AFC
+Faisal Zaid,Kuwait,MID,#9,6,0,AFC
+Bader Al Mutawa,Kuwait,ATK,#10,10,0,AFC
+Yousef Nasser,Kuwait,ATK,#11,10,0,AFC
+Ovays Azizi,Afghanistan,GK,#1,0,0,AFC
+Shafif Mukhammad,Afghanistan,DEF,#2,1,0,AFC
+Farzid Ataie,Afghanistan,DEF,#3,1,0,AFC
+Hassan Amin,Afghanistan,DEF,#4,2,0,AFC
+Zohib Islam Amiri,Afghanistan,DEF,#5,2,0,AFC
+Milad Intezar,Afghanistan,MID,#6,4,0,AFC
+Adam Najem,Afghanistan,MID,#7,4,0,AFC
+Farshad Noor,Afghanistan,MID,#8,6,0,AFC
+Faysal Shayesteh,Afghanistan,MID,#9,6,0,AFC
+Norlla Amiri,Afghanistan,ATK,#10,10,0,AFC
+Khaibar Amani,Afghanistan,ATK,#11,10,0,AFC
+Farizal Marlias,Malaysia,GK,#1,0,0,AFC
+Matthew Davies,Malaysia,DEF,#2,1,0,AFC
+Syahmi Safari,Malaysia,DEF,#3,1,0,AFC
+Aidil Zafuan Radzak,Malaysia,DEF,#4,2,0,AFC
+Sharul Saad,Malaysia,DEF,#5,2,0,AFC
+Danial Amier Norhisham,Malaysia,MID,#6,4,0,AFC
+Brendan Gan Seng Ling,Malaysia,MID,#7,4,0,AFC
+Baddrol Bakhtiar,Malaysia,MID,#8,6,0,AFC
+Syamer Kutty Abba,Malaysia,MID,#9,6,0,AFC
+Norshahrul Idlan Tahala,Malaysia,ATK,#10,10,0,AFC
+Safawi Rasid,Malaysia,ATK,#11,10,0,AFC
+Mohamed Faisal,Maldives,GK,#1,0,0,AFC
+Samdhooh Mohamed ,Maldives,DEF,#2,1,0,AFC
+Hussain Sifaau,Maldives,DEF,#3,1,0,AFC
+Haisham Hassan,Maldives,DEF,#4,2,0,AFC
+Mujuthaaz Mohamed,Maldives,DEF,#5,2,0,AFC
+Akram Abdul Ghanee,Maldives,MID,#6,4,0,AFC
+Mohamed Arif,Maldives,MID,#7,4,0,AFC
+Hamza Mohamed,Maldives,MID,#8,6,0,AFC
+Ahmed Imaz,Maldives,MID,#9,6,0,AFC
+Ali Ashfaq,Maldives,ATK,#10,10,0,AFC
+Asadhulla Abdulla,Maldives,ATK,#11,10,0,AFC
+Hassan Sunny,Singapore,GK,#1,0,0,AFC
+Nazrul Nazari,Singapore,DEF,#2,1,0,AFC
+Zulqarnaen Suzliman,Singapore,DEF,#3,1,0,AFC
+FadilKamis,Singapore,DEF,#4,2,0,AFC
+Anders Aplin,Singapore,DEF,#5,2,0,AFC
+Anumanthan Kumar,Singapore,MID,#6,4,0,AFC
+Firadus Kasman,Singapore,MID,#7,4,0,AFC
+Gabriel Quak,Singapore,MID,#8,6,0,AFC
+Shahdan Sulaiman ,Singapore,MID,#9,6,0,AFC
+Sahil Suhaimi,Singapore,ATK,#10,10,0,AFC
+Shawal Anuar,Singapore,ATK,#11,10,0,AFC
+Kiran Chemjong,Nepal,GK,#1,0,0,AFC
+Suman Aryal,Nepal,DEF,#2,1,0,AFC
+Rajin Dhimal,Nepal,DEF,#3,1,0,AFC
+Ajit Bhandari,Nepal,DEF,#4,2,0,AFC
+Anata Tamang,Nepal,DEF,#5,2,0,AFC
+Rohit Chand,Nepal,MID,#6,4,0,AFC
+Sunil Bal,Nepal,MID,#7,4,0,AFC
+Sujal Shrestha,Nepal,MID,#8,6,0,AFC
+Anjan Bista,Nepal,MID,#9,6,0,AFC
+Bharat Khawas,Nepal,ATK,#10,10,0,AFC
+Nawayug Shreshta,Nepal,ATK,#11,10,0,AFC
+Sou Yaty,Cambodia,GK,#1,0,0,AFC
+Cheng Meng,Cambodia,DEF,#2,1,0,AFC
+Sath Rosib,Cambodia,DEF,#3,1,0,AFC
+Sareth Krya,Cambodia,DEF,#4,2,0,AFC
+Soeuy Visal,Cambodia,DEF,#5,2,0,AFC
+Sos Suhana,Cambodia,MID,#6,4,0,AFC
+Thierry Chantha Bin,Cambodia,MID,#7,4,0,AFC
+Kouch Sokumpheak,Cambodia,MID,#8,6,0,AFC
+Yeu Muslim,Cambodia,MID,#9,6,0,AFC
+Prak Mony Udom,Cambodia,ATK,#10,10,0,AFC
+Keo Sokpheng,Cambodia,ATK,#11,10,0,AFC
+Nadeo Argawinata,Indonesia,GK,#1,0,0,AFC
+Bagas Adi,Indonesia,DEF,#2,1,0,AFC
+Johan Alfarizi,Indonesia,DEF,#3,1,0,AFC
+Asnawi Mangkualam,Indonesia,DEF,#4,2,0,AFC
+Fachrudin Aryanto,Indonesia,DEF,#5,2,0,AFC
+Febri Hariyadi,Indonesia,MID,#6,4,0,AFC
+Hendro Siswanto,Indonesia,MID,#7,4,0,AFC
+Zulfiandi,Indonesia,MID,#8,6,0,AFC
+Evan Dimas,Indonesia,MID,#9,6,0,AFC
+Irfan Bachdim,Indonesia,ATK,#10,10,0,AFC
+Ilija Spasojevic,Indonesia,ATK,#11,10,0,AFC
 Ho Man Fai,Macau,GK,#1,0,0,AFC
 Filipe Duarte,Macau,DEF,#2,1,0,AFC
 Lei Ka Him,Macau,DEF,#3,1,0,AFC
