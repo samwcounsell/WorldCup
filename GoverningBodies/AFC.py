@@ -1,8 +1,11 @@
 import pandas as pd
 import time
-from MatchSim import TLKO, GRP5, GRP6, GRP6HA
+from MatchSim import TLKO, GRP5, GRP6HA
+from GroupDraw import GD5
 
-def afc():
+alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
+
+def afc(time_delay):
     from Host import hosty
 
     pot_data = pd.read_csv("AFC.csv")
@@ -42,35 +45,11 @@ def afc():
 
     potbig = pd.concat([pot1, pot2, pot3, pot4, pot5])
 
-    groupA = potbig.iloc[[0, 8, 16, 24, 32], :]
-    groupA = groupA.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupA.name = 'GROUP A'
-    groupB = potbig.iloc[[1, 9, 17, 25, 33], :]
-    groupB = groupB.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupB.name = 'GROUP B'
-    groupC = potbig.iloc[[2, 10, 18, 26, 34], :]
-    groupC = groupC.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupC.name = 'GROUP C'
-    groupD = potbig.iloc[[3, 11, 19, 27, 35], :]
-    groupD = groupD.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupD.name = 'GROUP D'
-    groupE = potbig.iloc[[4, 12, 20, 28, 36], :]
-    groupE = groupE.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupE.name = 'GROUP E'
-    groupF = potbig.iloc[[5, 13, 21, 29, 37], :]
-    groupF = groupF.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupF.name = 'GROUP F'
-    groupG = potbig.iloc[[6, 14, 22, 30, 38], :]
-    groupG = groupG.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupG.name = 'GROUP G'
-    groupH = potbig.iloc[[7, 15, 23, 31, 39], :]
-    groupH = groupH.set_index([pd.Index([0, 1, 2, 3, 4]), ])
-    groupH.name = 'GROUP H'
-
     print("\nROUND 2\n")
 
-    for group in [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]:
-        print(group.name, "\n")
+    for i in range(8):
+        group = GD5(i, 5, potbig)
+        print("\nGroup", alphabet[i])
         print(group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
         time.sleep(1)
 
@@ -103,9 +82,6 @@ def afc():
     if host in AFChosts:
         hostcheck = hostcheck[hostcheck.Country != host]
     pot_data = hostcheck.iloc[:12, :]
-
-    # runnerup = runnerup.iloc[:4, :]  # When using host feature # this line and the one below
-    # pot_data = pd.concat([groupwinner, runnerup])
 
     pot_data = pot_data.sort_values(by=['World_Rank'])
     pot_data = pot_data.reset_index()
@@ -176,6 +152,5 @@ def afc():
         print(host)
 
     return qualified, ict
-
 
 
