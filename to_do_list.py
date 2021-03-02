@@ -8,6 +8,8 @@
 
 afc_team_data = team_data[(team_data["Confederation"] == AFC)]
 
+# this would mean what we pass into match_sim becomes (player_data, team_data, time_delay, participating_teams)
+
 # then at the end have the returned output be only a list, which the world cup file uses to select the teams for the world cup
 
 # this allows us to collect data on teams as they go through the world cup such as, total games, total goals, goals per game, etc.
