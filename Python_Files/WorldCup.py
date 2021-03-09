@@ -56,9 +56,9 @@ nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
 
 # Plotly Test Graph
 
-concacaf_player_data = player_data[player_data['Confederation'] == 'CONCACAF']
-print(concacaf_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
+ofc_player_data = player_data[player_data['Confederation'] == 'OFC']
+print(ofc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
 
-fig = px.scatter(concacaf_player_data, x=concacaf_player_data.Assists_Per_Game, y=concacaf_player_data.Goals_Per_Game, size=concacaf_player_data.P,
-                 hover_data=[concacaf_player_data.index], color='Country')
+fig = px.scatter(player_data, x=player_data.Assists_Per_Game, y=player_data.Goals_Per_Game, size=player_data.P,
+                 hover_data=[player_data.index], color='Confederation')
 fig.show()
