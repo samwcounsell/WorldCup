@@ -1,7 +1,7 @@
 import pandas as pd
 import random
 
-stadiums = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\Stadiums.csv")
+stadiums = pd.read_csv("Stadiums.csv")
 r, c = stadiums.shape
 
 def stadium():
