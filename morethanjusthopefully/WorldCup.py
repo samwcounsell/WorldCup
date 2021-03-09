@@ -59,5 +59,3 @@ print(uefa_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Ga
 fig = px.scatter(uefa_player_data, x=uefa_player_data.Assists_Per_Game, y=uefa_player_data.Goals_Per_Game, size=uefa_player_data.P,
                  hover_data=[uefa_player_data.index], color='Country')
 fig.show()
-
-# Keane is a twathead
