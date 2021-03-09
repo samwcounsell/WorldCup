@@ -9,9 +9,10 @@ from UEFA import uefa
 import pandas as pd
 import plotly.express as px
 
+# Welcome to the world cup
+
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
-
 
 time_delay = 0
 player_data = pd.read_csv("player_data.csv")
@@ -53,9 +54,9 @@ nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
 
 # Plotly Test Graph
 
-uefa_player_data = player_data[player_data['Confederation'] == 'UEFA']
-print(uefa_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
+concacaf_player_data = player_data[player_data['Confederation'] == 'CONCACAF']
+print(concacaf_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
 
-fig = px.scatter(uefa_player_data, x=uefa_player_data.Assists_Per_Game, y=uefa_player_data.Goals_Per_Game, size=uefa_player_data.P,
-                 hover_data=[uefa_player_data.index], color='Country')
+fig = px.scatter(concacaf_player_data, x=concacaf_player_data.Assists_Per_Game, y=concacaf_player_data.Goals_Per_Game, size=concacaf_player_data.P,
+                 hover_data=[concacaf_player_data.index], color='Country')
 fig.show()
