@@ -95,11 +95,11 @@ def TLKO_simulation(number_of_matches, time_delay, player_data, nation_data, act
         nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'], = \
             nation_data.loc[team1, 'total_GF'] + hgoals2 + agoals2 + et_goals2, nation_data.loc[team1, 'total_GA'] + hgoals1 + agoals1 + et_goals1
         nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
-            nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+            nation_data.loc[team1, 'total_P'] + 2, nation_data.loc[team2, 'total_P'] + 2
 
         player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
-        player_data.loc[player_data.Country == team1, 'P'] + 1, \
-        player_data.loc[player_data.Country == team2, 'P'] + 1
+        player_data.loc[player_data.Country == team1, 'P'] + 2, \
+        player_data.loc[player_data.Country == team2, 'P'] + 2
         
         print()
 
