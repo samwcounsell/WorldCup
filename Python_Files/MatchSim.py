@@ -7,7 +7,6 @@ import sys
 from Commentary import prematch, goal
 from MatchGameSim import TLGRP90, TLGRP90HA, match_simulation, match_simulation_30
 
-
 def TLKO_simulation(number_of_matches, time_delay, player_data, nation_data, active_data, section_data):
 
     for a in range(number_of_matches):
