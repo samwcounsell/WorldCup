@@ -5,8 +5,6 @@ import time
 import random
 import sys
 from Commentary import goal, prematch
-from Players import gs
-
 
 def TLGRP90(k, a1, d1, a2, d2):
     if k == 1:  # the * 1.2 gives the home team and advantage
