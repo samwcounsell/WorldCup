@@ -14,7 +14,9 @@ import plotly.express as px
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
+# This is the time delay for the world cup
 time_delay = 0
+
 player_data = pd.read_csv("player_data.csv")
 player_data = player_data.set_index('Name')
 
