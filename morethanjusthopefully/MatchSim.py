@@ -290,7 +290,7 @@ def GRP5(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
@@ -582,7 +582,7 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
@@ -670,7 +670,7 @@ def GRP6HA(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
@@ -746,7 +746,7 @@ def GRP4HA(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
@@ -815,7 +815,7 @@ def GRP4WC(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
@@ -913,7 +913,7 @@ def GRP8HA(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
-                    nation_data.loc[team1, 'total_GF'] + goals2, nation_data.loc[team1, 'total_GA'] + goals1
+                    nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
