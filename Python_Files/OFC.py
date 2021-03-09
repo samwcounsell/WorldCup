@@ -7,7 +7,7 @@ import sys
 from MatchSim import TLKO, GRP5, GRP6HA, TLKO_simulation
 
 def ofc(time_delay, player_data, nation_data):
-    pot_data = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\OFC.csv")
+    pot_data = pd.read_csv("OFC.csv")
     # pot_data = pd.read_csv(r"/Users/keanerussell/Documents/Documents/Home/Python/OFC.csv")
 
     print("\nWELCOME TO OFC WORLD CUP QUALIFYING\n")
