@@ -39,7 +39,6 @@ def TLGRP90HA(k, a1, d1, a2, d2):
 
 
 def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2):
-
     if leg == 1:
         p1 = 0.014 * (a1 / d2) * 1.2
         p2 = 0.014 * (a2 / d1)
@@ -51,10 +50,10 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
     team2player_data = player_data[(player_data.Country == team2)]
     player_list1 = team1player_data.index.tolist()
     attack_list1 = team1player_data['Attack'].to_numpy()
+    assist_list1 = team1player_data['Passing'].to_numpy()
     player_list2 = team2player_data.index.tolist()
     attack_list2 = team2player_data['Attack'].to_numpy()
-
-    print(player_list1, player_list2)
+    assist_list2 = team2player_data['Passing'].to_numpy()
 
     goals1 = 0
     goals2 = 0
@@ -70,14 +69,22 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
             if sum(Ber1) == 1:
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                assister = (random.choices(player_list1, weights=assist_list1, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
-                player_data.loc[player, 'Goals'] = player_data.loc[player, 'Goals'] + 1
+                player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
+                                                                                             player, 'Goals'] + 1, \
+                                                                                         player_data.loc[
+                                                                                             assister, 'Assists'] + 1
                 print(line, "\n")
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                assister = (random.choices(player_list2, weights=assist_list2, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
-                player_data.loc[player, 'Goals'] = player_data.loc[player, 'Goals'] + 1
+                player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
+                                                                                             player, 'Goals'] + 1, \
+                                                                                         player_data.loc[
+                                                                                             assister, 'Assists'] + 1
                 print(line, "\n")
         if i == 44:
             print("HALF TIME", goals1, " - ", goals2, "\n")
@@ -99,8 +106,10 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
     team2player_data = player_data[(player_data.Country == team2)]
     player_list1 = team1player_data.index.tolist()
     attack_list1 = team1player_data['Attack'].to_numpy()
+    assist_list1 = team1player_data['Passing'].to_numpy()
     player_list2 = team2player_data.index.tolist()
     attack_list2 = team2player_data['Attack'].to_numpy()
+    assist_list2 = team1player_data['Passing'].to_numpy()
     goals1 = 0
     goals2 = 0
     print("\n")
@@ -115,14 +124,22 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
             if sum(Ber1) == 1:
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                assister = (random.choices(player_list1, weights=assist_list1, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
-                player_data.loc[player, 'Goals'] = player_data.loc[player, 'Goals'] + 1
+                player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
+                                                                                             player, 'Goals'] + 1, \
+                                                                                         player_data.loc[
+                                                                                             assister, 'Assists'] + 1
                 print(line, "\n")
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                assister = (random.choices(player_list2, weights=assist_list2, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
-                player_data.loc[player, 'Goals'] = player_data.loc[player, 'Goals'] + 1
+                player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
+                                                                                             player, 'Goals'] + 1, \
+                                                                                         player_data.loc[
+                                                                                             assister, 'Assists'] + 1
                 print(line, "\n")
         if i == 14:
             print("HALF TIME", goals1, " - ", goals2, "\n")

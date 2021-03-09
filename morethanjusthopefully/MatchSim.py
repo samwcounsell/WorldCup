@@ -96,6 +96,10 @@ def TLKO_simulation(number_of_matches, time_delay, player_data, nation_data, act
             nation_data.loc[team1, 'total_GF'] + hgoals2 + agoals2 + et_goals2, nation_data.loc[team1, 'total_GA'] + hgoals1 + agoals1 + et_goals1
         nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
             nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+        player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+        player_data.loc[player_data.Country == team1, 'P'] + 1, \
+        player_data.loc[player_data.Country == team2, 'P'] + 1
         
         print()
 
@@ -293,6 +297,10 @@ def GRP5(time_delay, player_data, nation_data, group_data):
                     nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+                player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                player_data.loc[player_data.Country == team2, 'P'] + 1
 
                 print(team1, goals1, " - ", goals2, team2)
 
@@ -586,6 +594,10 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+                player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                player_data.loc[player_data.Country == team2, 'P'] + 1
+
                 print(team1, goals1, " - ", goals2, team2)
 
                 group_data.loc[t1, 'P'], group_data.loc[t2, 'P'] = group_data.loc[t1, 'P'] + 1, group_data.loc[
@@ -674,6 +686,10 @@ def GRP6HA(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+                player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                player_data.loc[player_data.Country == team2, 'P'] + 1
+
                 print(team1, goals1, " - ", goals2, team2)
 
                 group_data.loc[t1, 'P'], group_data.loc[t2, 'P'] = group_data.loc[t1, 'P'] + 1, group_data.loc[
@@ -750,6 +766,10 @@ def GRP4HA(time_delay, player_data, nation_data, group_data):
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
 
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+                player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                player_data.loc[player_data.Country == team2, 'P'] + 1
+
                 print(team1, goals1, " - ", goals2, team2)
 
                 group_data.loc[t1, 'P'], group_data.loc[t2, 'P'] = group_data.loc[t1, 'P'] + 1, group_data.loc[
@@ -818,6 +838,10 @@ def GRP4WC(time_delay, player_data, nation_data, group_data):
                     nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+                player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                player_data.loc[player_data.Country == team2, 'P'] + 1
 
                 print(team1, goals1, " - ", goals2, team2)
 
@@ -916,6 +940,9 @@ def GRP8HA(time_delay, player_data, nation_data, group_data):
                     nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+                player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = player_data.loc[player_data.Country == team1, 'P'] + 1, \
+                                                                           player_data.loc[player_data.Country == team2, 'P'] + 1
 
                 print(team1, goals1, " - ", goals2, team2)
 
