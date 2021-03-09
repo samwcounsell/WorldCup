@@ -1,7 +1,7 @@
 import random
 import pandas as pd
 
-possible_hosts = pd.read_csv(r"C:\Users\samwc\PycharmProjects\WorldCup\Host.csv")
+possible_hosts = pd.read_csv("Host.csv")
 n = random.randint(0, 20)
 
 host = possible_hosts.loc[n, 'Country']
