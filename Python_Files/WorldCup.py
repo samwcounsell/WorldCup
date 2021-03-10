@@ -14,7 +14,7 @@ import plotly.express as px
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
-time_delay = 0
+time_delay = 0.1
 player_data = pd.read_csv("player_data.csv")
 player_data = player_data.set_index('Name')
 
@@ -45,10 +45,10 @@ player_data = player_data.sort_values(by=['Goals'], ascending=False)
 player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
 player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
 player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
-#print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
+# print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
 
 nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
-#print(nation_data)
+# print(nation_data)
 
 
 

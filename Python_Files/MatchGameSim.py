@@ -57,6 +57,10 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
     goals2 = 0
     print("\n")
     prematch()
+    if leg == 1:
+        print(team1, "v", team2, "\n")
+    if leg == 2:
+        print(team2, "v", team1, "\n")
     for i in range(90):
         time.sleep(time_delay)
         Ber1 = bernoulli.rvs(p1, size=1)
@@ -68,7 +72,10 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
-                print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 1:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 2:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals2, " - ", goals1)
                 player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
@@ -78,7 +85,10 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
-                print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 1:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 2:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals2, " - ", goals1)
                 player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
@@ -123,7 +133,10 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
-                print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 1:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 2:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals2, " - ", goals1)
                 player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
@@ -133,7 +146,10 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
-                print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 1:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals1, " - ", goals2)
+                if leg == 2:
+                    print("GOAL!", ','.join(player), i, "'", "Score: ", goals2, " - ", goals1)
                 player_data.loc[player, 'Goals'], player_data.loc[assister, 'Assists'] = player_data.loc[
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
