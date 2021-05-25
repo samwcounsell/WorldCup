@@ -19,7 +19,8 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 # customise your time delay (one minute within a game), recommended range 0 - 0.1
-time_delay = 0
+td = input("Choose your time delay (0 - 0.1 recommended): ")
+time_delay = float(td)
 
 player_data = pd.read_csv("player_data.csv")
 player_data = player_data.set_index('Name')
