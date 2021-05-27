@@ -19,7 +19,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 # customise your time delay (one minute within a game), recommended range 0 - 0.1
-td = input("Choose your time delay (0 - 0.1 recommended): ")
+td = input("Choose your time delay for the Qualifiers (0 - 0.1 recommended): ")
 time_delay = float(td)
 
 player_data = pd.read_csv("player_data.csv")
@@ -48,11 +48,10 @@ ict = pd.concat([ict1, ict2, ict3, ict4])
 ict = ict.reset_index()
 ict = ict.drop(['index'], axis=1)
 
-# Here we need to reorder ict so that the correct teams play eachother, do this with set index
+td = input("Choose your time delay for the Inter-Continental Playoff (0 - 0.1 recommended): ")
+time_delay = float(td)
 
 print("\nThe Intercontinental Playoff\n")
-
-time_delay = 0
 
 player_data, nation_data, ict = TLKO_simulation(2, time_delay, player_data, nation_data, ict, ict)
 ict = ict.iloc[4:6]
@@ -66,7 +65,8 @@ print(teams.to_string(columns=['Country', 'World_Rank'], index=False))
 world_cup_teams = teams
 world_cup_teams[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
-uc = input("Press enter to continue: ")  # uc = user continue
+td = input("Choose your time delay for the Group Stage (0 - 0.1 recommended): ")
+time_delay = float(td)
 
 # The world cup
 
@@ -91,6 +91,9 @@ player_data, nation_data, group_names = WorldCupGroupStage(time_delay, player_da
 
 # Round of 16
 
+td = input("Choose your time delay for the Round of 16 (0.1 recommended): ")
+time_delay = float(td)
+
 for i in range(8):
     qualified = group_names[i].iloc[0:2, :]
     world_cup_teams = pd.concat([world_cup_teams, qualified])
@@ -99,7 +102,6 @@ round_of_16 = world_cup_teams.iloc[32:48, :]
 
 print(round_of_16)
 
-time_delay = 0
 round_of_16 = round_of_16.reset_index()
 round_of_16 = round_of_16.drop(['index'], axis=1)
 
@@ -110,12 +112,18 @@ print(round_of_16)
 quarter_finalists = round_of_16.iloc[16:24]
 print(quarter_finalists)
 
-time_delay = 0.1
+td = input("Choose your time delay for the Quarter Finals (0.1 recommended): ")
+time_delay = float(td)
+
 quarter_finalists = quarter_finalists.reset_index()
 quarter_finalists = quarter_finalists.drop(['index'], axis=1)
 
 player_data, nation_data, quarter_finalists = TLKO_simulation_wc_late(4, time_delay, player_data, nation_data, quarter_finalists, quarter_finalists)
 #Bugs, need to display extra time goals and match goals together, only an issue in world cup knockout stage
+
+td = input("Choose your time delay for the Semi Finals (0.1 recommended): ")
+time_delay = float(td)
+
 print("\n", "The Semi-Finals", "\n")
 
 semi_finalists = quarter_finalists.iloc[8:12]
@@ -125,6 +133,9 @@ semi_finalists = semi_finalists.reset_index()
 semi_finalists = semi_finalists.drop(['index'], axis=1)
 
 player_data, nation_data, semi_finalists = TLKO_simulation_wc_late(2, time_delay, player_data, nation_data, semi_finalists, semi_finalists)
+
+td = input("Choose your time delay for the Final (0.2 recommended): ")
+time_delay = float(td)
 
 print("\n", "The Final", "\n")
 
