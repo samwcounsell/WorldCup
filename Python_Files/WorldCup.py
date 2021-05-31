@@ -11,38 +11,45 @@ from GroupDraw import GD4
 import pandas as pd
 #import plotly.express as px
 
+# Lists for use in code
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 group_names = ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"]
+
 # Welcome to the world cup
 
+# Ensuring pandas displays the whole data frame
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
-# customise your time delay (one minute within a game), recommended range 0 - 0.1
-td = input("Choose your time delay for the Qualifiers (0 - 0.1 recommended): ")
-time_delay = float(td)
+# For developers
+test = input("For Developers: Is this a test Y/N: ")
 
+# Customise your time delay (each time unit is one minute within a game)
+if test != "Y":
+    td = input("Choose your time delay for the Qualifiers (0 - 0.1 recommended): ")
+    time_delay = float(td)
+else:
+    time_delay = 0
+
+# Reading in the player and nation data, this is where data is also recorded
 player_data = pd.read_csv("player_data.csv")
 player_data = player_data.set_index('Name')
 
 nation_data = pd.read_csv("nation_data.csv")
 nation_data = nation_data.set_index('Country')
 
+# Randomising the host of the World Cup
 host, host_df = host_selector()
 
-player_data, nation_data, afc, ict1 = afc(time_delay, player_data, nation_data)
+# Running all the World Cup Qualifiers
+player_data, nation_data, afc, ict1 = afc(time_delay, player_data, nation_data, test)
 player_data, nation_data, caf = caf(time_delay, player_data, nation_data)
 player_data, nation_data, concacaf, ict2 = concacaf(time_delay, player_data, nation_data)
 player_data, nation_data, conmebol, ict3 = conmebol(time_delay, player_data, nation_data)
 player_data, nation_data, ict4 = ofc(time_delay, player_data, nation_data)
 player_data, nation_data, uefa = uefa(time_delay, player_data, nation_data)
 
-teams = host_df
-teams = pd.concat([teams, afc])
-teams = pd.concat([teams, caf])
-teams = pd.concat([teams, concacaf])
-teams = pd.concat([teams, conmebol])
-teams = pd.concat([teams, uefa])
+teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
 
 ict = pd.concat([ict1, ict2, ict3, ict4])
 ict = ict.reset_index()

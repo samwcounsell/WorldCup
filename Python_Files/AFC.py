@@ -7,7 +7,7 @@ from GroupDraw import GD5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc(time_delay, player_data, nation_data):
+def afc(time_delay, player_data, nation_data, test):
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
 
@@ -33,7 +33,8 @@ def afc(time_delay, player_data, nation_data):
     player_data, nation_data, afc_data = TLKO_simulation(6, time_delay, player_data, nation_data, round1, afc_data)
 
     # Checking the user wants to continue
-    input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     # Resorting the teams by world rank, the reindexing
     afc_data = afc_data.sort_values(by=['World_Rank'])
@@ -80,7 +81,8 @@ def afc(time_delay, player_data, nation_data):
         round3 = group.iloc[0:2, :]
         afc_data = pd.concat([afc_data, round3])
 
-        input("Press enter to continue: ")  # uc = user continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
         print()
 
@@ -165,7 +167,8 @@ def afc(time_delay, player_data, nation_data):
         # 3rd place teams get reattached to main data frame for round 4
         round4 = group_data.iloc[2:3, :]
         afc_data = pd.concat([afc_data, round4])
-        input("Press enter to continue: ")
+        if test != "Y":
+            input("Press enter to continue: ")
 
     # Cutting main data frame down to only round 4 teams and reindexing
     afc_data = afc_data.iloc[12:, :]
@@ -194,21 +197,21 @@ def afc(time_delay, player_data, nation_data):
 
     # AFC Plotly Test
 
-    #player_data = player_data.sort_values(by=['Goals'], ascending=False)
-    #player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
-    #player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
-    #player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
+    # player_data = player_data.sort_values(by=['Goals'], ascending=False)
+    # player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
+    # player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
+    # player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
     # print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
 
-    #nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
-    #nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
-    #nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
-    #nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
+    # nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
+    # nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
+    # nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
+    # nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
     # print(nation_data)
 
-    #afc_player_data = player_data[player_data['Confederation'] == 'AFC']
-    #afc_player_table_data = afc_player_data.reset_index()
-    #afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
-    #print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
+    # afc_player_data = player_data[player_data['Confederation'] == 'AFC']
+    # afc_player_table_data = afc_player_data.reset_index()
+    # afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
+    # print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
 
     return player_data, nation_data, qualified, ict
