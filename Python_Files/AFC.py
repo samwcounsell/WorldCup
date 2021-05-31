@@ -1,4 +1,3 @@
-import dash_table
 import pandas as pd
 import time
 from MatchSim import TLKO_simulation, GRP5, GRP6HA
@@ -17,7 +16,7 @@ def afc(time_delay, player_data, nation_data):
     afc_data = afc_data.sort_values(by=['World_Rank'])
 
     # Listing possible AFC hosts, then calling the host nation
-    AFChosts = ["China", "India", "Japan", "Qatar", "South Korea", "Saudi Arabia"]
+    AFChosts = ["China", "India", "Japan", "Qatar", "South Korea", "Saudi Arabia", "Australia"]
     host, hostdf = host_selector()
 
     # Pulling last 12 teams to play in round 1, then removing them from the main data set
@@ -195,21 +194,21 @@ def afc(time_delay, player_data, nation_data):
 
     # AFC Plotly Test
 
-    player_data = player_data.sort_values(by=['Goals'], ascending=False)
-    player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
-    player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
-    player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
+    #player_data = player_data.sort_values(by=['Goals'], ascending=False)
+    #player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
+    #player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
+    #player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
     # print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
 
-    nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
-    nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
-    nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
-    nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
+    #nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
+    #nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
+    #nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
+    #nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
     # print(nation_data)
 
-    afc_player_data = player_data[player_data['Confederation'] == 'AFC']
-    afc_player_table_data = afc_player_data.reset_index()
-    afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
-    print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
+    #afc_player_data = player_data[player_data['Confederation'] == 'AFC']
+    #afc_player_table_data = afc_player_data.reset_index()
+    #afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
+    #print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
 
     return player_data, nation_data, qualified, ict
