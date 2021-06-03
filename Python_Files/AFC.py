@@ -167,6 +167,7 @@ def afc(time_delay, player_data, nation_data, test):
         # 3rd place teams get reattached to main data frame for round 4
         round4 = group_data.iloc[2:3, :]
         afc_data = pd.concat([afc_data, round4])
+
         if test != "Y":
             input("Press enter to continue: ")
 
@@ -188,7 +189,7 @@ def afc(time_delay, player_data, nation_data, test):
     print("\nQUALIFIED FOR WORLD CUP\n")
     print(qualified.to_string(columns=['Country'], index=False))
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country'], index=False), "\n")
+    print(ict.to_string(columns=['Country'], index=False))
     if host in AFChosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
@@ -213,5 +214,7 @@ def afc(time_delay, player_data, nation_data, test):
     # afc_player_table_data = afc_player_data.reset_index()
     # afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
     # print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
+
+    input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, qualified, ict

@@ -3,7 +3,7 @@ from MatchSim import TLKO_simulation, GRP5, GRP6HA
 from GroupDraw import GD5, GD6
 
 
-def uefa(time_delay, player_data, nation_data):
+def uefa(time_delay, player_data, nation_data, test):
     from Host import host_selector
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -49,7 +49,9 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
 
         for i in range(6):
             group5 = GD5(i + 4, 10, pot)
@@ -67,7 +69,10 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
+
         pot = pot.iloc[54:, :]
 
     if host not in UEFAhosts:
@@ -87,7 +92,9 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
 
         for i in range(5):
             group5 = GD5(i + 5, 10, pot)
@@ -105,7 +112,10 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
+
         pot = pot.iloc[55:, :]
 
     print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
@@ -132,7 +142,9 @@ def uefa(time_delay, player_data, nation_data):
         print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
               "\n")
 
-        uc = input("Press enter to continue: ")  # uc = user continue
+        # Checking the user wants to continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     # print(potbig[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']], "\n")
     qualified = potbig.loc[0, :]
@@ -144,10 +156,12 @@ def uefa(time_delay, player_data, nation_data):
     print("\n")
 
     player_data, nation_data, qualified = TLKO_simulation(1, time_delay, player_data, nation_data, playoff, qualified)
-    print("QUALIFIED FOR THE WORLD CUP\n")
-    print(qualified.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR THE WORLD CUP FROM UEFA\n")
+    print(qualified.to_string(columns=['Country'], index=False), "\n")
     if host in UEFAhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
+
+    input("End of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
 
     return player_data, nation_data, qualified

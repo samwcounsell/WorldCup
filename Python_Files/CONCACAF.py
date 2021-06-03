@@ -3,7 +3,7 @@ from MatchSim import TLKO_simulation, GRP5, GRP8HA
 from GroupDraw import GD5
 
 
-def concacaf(time_delay, player_data, nation_data):
+def concacaf(time_delay, player_data, nation_data, test):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
@@ -48,7 +48,8 @@ def concacaf(time_delay, player_data, nation_data):
         print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
               "\n")
 
-        # uc = input("Press enter to continue: ")  # uc = user continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     pot = pot.iloc[30:, :]
     # print(pot)
@@ -67,7 +68,8 @@ def concacaf(time_delay, player_data, nation_data):
     round3 = round3.drop(['index'], axis=1)
     round3[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
-    # uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     print("\nROUND 3\n")
 
@@ -92,5 +94,7 @@ def concacaf(time_delay, player_data, nation_data):
     if host in CONCACAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
+
+    input("\nEnd of CONCACAF qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, qualified, ict

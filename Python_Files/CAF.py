@@ -8,7 +8,7 @@ from MatchSim import TLKO_simulation, GRP4HA
 from GroupDraw import GD4
 
 
-def caf(time_delay, player_data, nation_data):
+def caf(time_delay, player_data, nation_data, test):
     from Host import host_selector
 
     CAFhosts = ["South Africa", "Egypt", "Morocco"]
@@ -32,7 +32,8 @@ def caf(time_delay, player_data, nation_data):
     a = 14
     player_data, nation_data, pot_data = TLKO_simulation(a, time_delay, player_data, nation_data, round1, pot_data)
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     pot_data = pot_data.sort_values(by=['World_Rank'])
     pot_data = pot_data.reset_index()
@@ -68,7 +69,8 @@ def caf(time_delay, player_data, nation_data):
         round3 = group.iloc[0:1, :]
         pot_data = pd.concat([pot_data, round3])
 
-        uc = input("Press enter to continue: ")  # uc = user continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     pot_data = pot_data.iloc[40:, :]
     print(pot_data.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
@@ -79,7 +81,8 @@ def caf(time_delay, player_data, nation_data):
     pot_data = pot_data.reset_index()
     pot_data = pot_data.drop(['index'], axis=1)
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     a = 5
     player_data, nation_data, pot_data = TLKO_simulation(a, time_delay, player_data, nation_data, pot_data, pot_data)  # number of games, dataframe x2, time delay
@@ -90,5 +93,7 @@ def caf(time_delay, player_data, nation_data):
     if host in CAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
+
+    input("\nEnd of CAF qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, pot_data

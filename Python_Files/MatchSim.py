@@ -5,7 +5,7 @@ import time
 import random
 import sys
 from Commentary import prematch, goal
-from MatchGameSim import TLGRP90, TLGRP90HA, match_simulation, match_simulation_30, match_simulation_wc, \
+from MatchGameSim import match_simulation, match_simulation_30, match_simulation_wc, \
     match_simulation_30_wc
 
 
@@ -101,8 +101,8 @@ def TLKO_simulation(number_of_matches, time_delay, player_data, nation_data, act
             nation_data.loc[team1, 'total_GF'] + hgoals1 + agoals1 + et_goals1, nation_data.loc[
                 team1, 'total_GA'] + hgoals2 + agoals2 + et_goals2
         nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'], = \
-            nation_data.loc[team1, 'total_GF'] + hgoals2 + agoals2 + et_goals2, nation_data.loc[
-                team1, 'total_GA'] + hgoals1 + agoals1 + et_goals1
+            nation_data.loc[team2, 'total_GF'] + hgoals2 + agoals2 + et_goals2, nation_data.loc[
+                team2, 'total_GA'] + hgoals1 + agoals1 + et_goals1
         nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
             nation_data.loc[team1, 'total_P'] + 2, nation_data.loc[team2, 'total_P'] + 2
 
@@ -202,6 +202,8 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
 
         for m in range(9):
 
+
+
             print("\n", "MATCHDAY", m + ((leg - 1) * 9) + 1)
             if leg == 1:
                 if m == 0:
@@ -230,7 +232,7 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                 if m == 2:
                     a, b, c, d, e, f, g, h, i, j = 1, 9, 3, 0, 5, 6, 7, 2, 8, 4
                 if m == 3:
-                    a, b, c, d, e, f, g, h, i, j = 0, 7, 2, 5, 3, 1, 6, 8, 9, 5
+                    a, b, c, d, e, f, g, h, i, j = 0, 7, 2, 5, 3, 1, 6, 8, 9, 4
                 if m == 4:
                     a, b, c, d, e, f, g, h, i, j = 1, 6, 4, 2, 5, 0, 7, 3, 8, 9
                 if m == 5:
@@ -706,7 +708,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
 
             if goals1 == goals2:
                 player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                           d1, a2, d2)
+                                                                           d1, a2, d2, goals1, goals2)
                 if et_goals1 > et_goals2:
                     df = active_data.iloc[(2 * a):(2 * a) + 1, :]
                     section_data = pd.concat([section_data, df])
@@ -745,13 +747,13 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
                                 if pen1 > pen2:
                                     df = active_data.iloc[(2 * a):(2 * a) + 1, :]
                                     section_data = pd.concat([section_data, df])
-                                    print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                    print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                           goals2 + et_goals2, team2)
                                     break
                                 if pen1 < pen2:
                                     df = active_data.iloc[(2 * a + 3):(2 * a) + 4, :]
                                     section_data = pd.concat([section_data, df])
-                                    print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                    print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                           goals2 + et_goals2, team2)
                                     break
 
@@ -776,7 +778,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
 
             if goals1 == goals2:
                 player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                           d1, a2, d2)
+                                                                           d1, a2, d2, goals1, goals2)
                 if et_goals1 > et_goals2:
                     df = active_data.iloc[(2 * a) - 1:2 * a, :]
                     section_data = pd.concat([section_data, df])
@@ -815,19 +817,30 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
                                 if pen1 > pen2:
                                     df = active_data.iloc[(2 * a) - 1:2 * a, :]
                                     section_data = pd.concat([section_data, df])
-                                    print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                    print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                           goals2 + et_goals2, team2)
                                     break
                                 if pen1 < pen2:
                                     df = active_data.iloc[2 * a:(2 * a) + 1, :]
                                     section_data = pd.concat([section_data, df])
-                                    print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                    print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                           goals2 + et_goals2, team2)
                                     break
 
             print(team1, goals1, " - ", goals2, team2)
             print()
             print()
+
+        nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
+            nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
+        nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
+            nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
+        nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
+            nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+        player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+            player_data.loc[player_data.Country == team1, 'P'] + 1, \
+            player_data.loc[player_data.Country == team2, 'P'] + 1
 
     return player_data, nation_data, section_data
 
@@ -868,7 +881,7 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
 
         if goals1 == goals2:
             player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                       d1, a2, d2)
+                                                                       d1, a2, d2, goals1, goals2)
             if et_goals1 > et_goals2:
                 df = active_data.iloc[x:x + 1, :]
                 section_data = pd.concat([section_data, df])
@@ -907,16 +920,27 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
                             if pen1 > pen2:
                                 df = active_data.iloc[x:x + 1, :]
                                 section_data = pd.concat([section_data, df])
-                                print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                       goals2 + et_goals2, team2)
                                 break
                             if pen1 < pen2:
                                 df = active_data.iloc[y:y + 1, :]
                                 section_data = pd.concat([section_data, df])
-                                print(team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
+                                print("\n", team1, goals1 + et_goals1, "(", pen1, ") - (", pen2, ")",
                                       goals2 + et_goals2, team2)
                                 break
 
             print(team1, goals1, " - ", goals2, team2, "\n", "\n")
+
+        nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
+            nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
+        nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
+            nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
+        nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
+            nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
+
+        player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
+            player_data.loc[player_data.Country == team1, 'P'] + 1, \
+            player_data.loc[player_data.Country == team2, 'P'] + 1
 
     return player_data, nation_data, section_data

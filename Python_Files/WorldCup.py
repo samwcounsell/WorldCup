@@ -17,6 +17,15 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 group_names = ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"]
 
 # Welcome to the world cup
+print("\nWelcome to the Python World Cup, produced by Samwcounsell & Githubkeano\n")
+print("This programme uses a binomial simulation to predict the outcome of the World Cup Qualifiers and Tournament")
+print("Every nations ratings and squads are our choices, so expect some weird outcomes, we don't know as much as we "
+      "wish we did...")
+print("\nWe recommend setting the time delay to 0 for the Qualifiers, if you set it to 0.1, it will take roughly 3 "
+      "hours!")
+print("For your second run through feel free to answer Y to is this a test, you will no be stopped after each round "
+      "of Qualification")
+print("\nWe hope you enjoy a relatively realistic run through of the 2022 World Cup\n")
 
 # Ensuring pandas displays the whole data frame
 pd.set_option('display.max_rows', None)
@@ -25,9 +34,11 @@ pd.set_option('display.max_columns', None)
 # For developers
 test = input("For Developers: Is this a test Y/N: ")
 
+### Add introduction to the World Cup
+
 # Customise your time delay (each time unit is one minute within a game)
 if test != "Y":
-    td = input("Choose your time delay for the Qualifiers (0 - 0.1 recommended): ")
+    td = input("\nChoose your time delay for the Qualifiers (0 - 0.1 recommended): ")
     time_delay = float(td)
 else:
     time_delay = 0
@@ -44,11 +55,11 @@ host, host_df = host_selector()
 
 # Running all the World Cup Qualifiers from their respecitve functions
 player_data, nation_data, afc, ict1 = afc(time_delay, player_data, nation_data, test)
-player_data, nation_data, caf = caf(time_delay, player_data, nation_data)
-player_data, nation_data, concacaf, ict2 = concacaf(time_delay, player_data, nation_data)
+player_data, nation_data, caf = caf(time_delay, player_data, nation_data, test)
+player_data, nation_data, concacaf, ict2 = concacaf(time_delay, player_data, nation_data, test)
 player_data, nation_data, conmebol, ict3 = conmebol(time_delay, player_data, nation_data)
-player_data, nation_data, ict4 = ofc(time_delay, player_data, nation_data)
-player_data, nation_data, uefa = uefa(time_delay, player_data, nation_data)
+player_data, nation_data, ict4 = ofc(time_delay, player_data, nation_data, test)
+player_data, nation_data, uefa = uefa(time_delay, player_data, nation_data, test)
 
 # Joining all the qualified teams
 teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
@@ -129,6 +140,19 @@ print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False))
 round_of_16 = round_of_16.reset_index()
 round_of_16 = round_of_16.drop(['index'], axis=1)
 
+for a in range(8):
+    if (a % 2) == 0:
+        x, y = 2 * a, 2 * a + 3
+        team1, team2 = round_of_16.loc[x, 'Country'], round_of_16.loc[y, 'Country']
+    if (a % 2) != 0:
+        x, y = 2 * a - 1, 2 * a
+        team1, team2 = round_of_16.loc[x, 'Country'], round_of_16.loc[y, 'Country']
+
+    print("\nRound of 16 Match ", a + 1, ":", team1, "v", team2)
+
+print()
+input("Press enter to continue to Match Day: \n")
+
 # Running the Round of 16
 player_data, nation_data, round_of_16 = TLKO_simulation_wc_16(8, time_delay, player_data, nation_data, round_of_16,
                                                               round_of_16)
@@ -145,6 +169,22 @@ time_delay = float(td)
 # Re-indexing the teams, ensuring the correct teams match up
 quarter_finalists = quarter_finalists.reset_index()
 quarter_finalists = quarter_finalists.drop(['index'], axis=1)
+
+for a in range(4):
+    if a == 0:
+        x, y = 0, 2
+    if a == 1:
+        x, y = 1, 3
+    if a == 2:
+        x, y = 4, 6
+    if a == 3:
+        x, y = 5, 7
+    team1, team2 = quarter_finalists.loc[x, 'Country'], quarter_finalists.loc[y, 'Country']
+
+    print("\nQuarter-Final ", a + 1, ":", team1, "v", team2)
+
+print()
+input("Press enter to continue to Match Day: \n")
 
 # Running the Quarter Finals
 player_data, nation_data, quarter_finalists = TLKO_simulation_wc_late(4, time_delay, player_data, nation_data,
@@ -166,6 +206,15 @@ print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 semi_finalists = semi_finalists.reset_index()
 semi_finalists = semi_finalists.drop(['index'], axis=1)
 
+# Displaying the Semi-Final fixtures
+for a in range(2):
+    x, y = a, a + 2
+    team1, team2 = semi_finalists.loc[x, 'Country'], semi_finalists.loc[y, 'Country']
+    print("\nSemi-Final ", a + 1, ":", team1, "v", team2)
+
+print()
+input("Press enter to continue to Match Day: \n")
+
 # Running the Semi-Finals
 player_data, nation_data, semi_finalists = TLKO_simulation_wc_late(2, time_delay, player_data, nation_data,
                                                                    semi_finalists, semi_finalists)
@@ -184,6 +233,11 @@ print(finalists.to_string(columns=['Country', 'World_Rank'], index=False), "\n")
 finalists = finalists.reset_index()
 finalists = finalists.drop(['index'], axis=1)
 
+# Add printing the final
+
+print()
+input("Press enter to continue to Match Day: \n")
+
 # Running the Final
 player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, player_data, nation_data, finalists,
                                                               finalists)
@@ -192,5 +246,12 @@ player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, pla
 champion = finalists.iloc[2:3]
 print("The World Cup Winner is", champion.to_string(columns=['Country'], index=False, header=False))
 
+print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
+print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
+
+print("\nIn Developement: A DashApp to display all the data from your World Cup simulation")
+
 ### Temporary set up for the Dash_App
-player_data.to_csv('Data_Set.csv', index=False)
+
+player_data.to_csv('Player_Data_Set.csv')
+nation_data.to_csv('../DashApp/Nation_Data_Set.csv')

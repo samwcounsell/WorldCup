@@ -35,4 +35,6 @@ def conmebol(time_delay, player_data, nation_data):
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
+    input("End of CONMEBOL qualifiers, press enter to continue to the next Confederation: ")
+
     return player_data, nation_data, qualified, ict
