@@ -244,7 +244,29 @@ player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, pla
 
 # Displaying the winner of the World Cup
 champion = finalists.iloc[2:3]
-print("The World Cup Winner is", champion.to_string(columns=['Country'], index=False, header=False))
+champion = champion.reset_index()
+champion = champion.loc[0, 'Country']
+print("The World Cup Winner is", champion)
+
+# The Awards
+player_data = player_data.sort_values(by=['WC_Goals', 'WC_Assists'], ascending=False)
+player_data = player_data.reset_index()
+
+Golden_Boot = player_data.loc[0, 'Name']
+player_data = player_data.set_index('Name')
+print(player_data)
+GBN = player_data.loc[Golden_Boot, 'WC_Goals']
+
+player_data = player_data.sort_values(by=['WC_Assists', 'WC_Goals'], ascending=False)
+player_data = player_data.reset_index()
+
+Golden_Playmaker = player_data.loc[0, 'Name']
+player_data = player_data.set_index('Name')
+print(player_data)
+GPN = player_data.loc[Golden_Playmaker, 'WC_Assists']
+
+print("\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
+print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
 
 print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
 print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")

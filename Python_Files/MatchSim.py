@@ -635,6 +635,10 @@ def WorldCupGroupStage(time_delay, player_data, nation_data, group_names):
                         player_data.Country == team2, 'P'] = \
                         player_data.loc[player_data.Country == team1, 'P'] + 1, \
                         player_data.loc[player_data.Country == team2, 'P'] + 1
+                    player_data.loc[player_data.Country == team1, 'WC_P'], player_data.loc[
+                        player_data.Country == team2, 'WC_P'] = \
+                        player_data.loc[player_data.Country == team1, 'WC_P'] + 1, \
+                        player_data.loc[player_data.Country == team2, 'WC_P'] + 1
 
                     print(team1, goals1, " - ", goals2, team2)
 
@@ -841,6 +845,9 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
         player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
             player_data.loc[player_data.Country == team1, 'P'] + 1, \
             player_data.loc[player_data.Country == team2, 'P'] + 1
+        player_data.loc[player_data.Country == team1, 'WC_P'], player_data.loc[player_data.Country == team2, 'WC_P'] = \
+            player_data.loc[player_data.Country == team1, 'WC_P'] + 1, \
+            player_data.loc[player_data.Country == team2, 'WC_P'] + 1
 
     return player_data, nation_data, section_data
 
@@ -942,5 +949,8 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
         player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
             player_data.loc[player_data.Country == team1, 'P'] + 1, \
             player_data.loc[player_data.Country == team2, 'P'] + 1
+        player_data.loc[player_data.Country == team1, 'WC_P'], player_data.loc[player_data.Country == team2, 'WC_P'] = \
+            player_data.loc[player_data.Country == team1, 'WC_P'] + 1, \
+            player_data.loc[player_data.Country == team2, 'WC_P'] + 1
 
     return player_data, nation_data, section_data

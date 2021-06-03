@@ -190,6 +190,10 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
                                                                                              assister, 'Assists'] + 1
+                player_data.loc[player, 'WC_Goals'], player_data.loc[assister, 'WC_Assists'] = player_data.loc[
+                                                                                                   player, 'WC_Goals'] + 1, \
+                                                                                               player_data.loc[
+                                                                                                   assister, 'WC_Assists'] + 1
                 print(line, "\n")
             if sum(Ber2) == 1:
                 line = goal()
@@ -202,6 +206,10 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
                                                                                              assister, 'Assists'] + 1
+                player_data.loc[player, 'WC_Goals'], player_data.loc[assister, 'WC_Assists'] = player_data.loc[
+                                                                                                   player, 'WC_Goals'] + 1, \
+                                                                                               player_data.loc[
+                                                                                                   assister, 'WC_Assists'] + 1
                 print(line, "\n")
         if i == 44:
             print("HALF TIME", team1, goals1, " - ", goals2, team2, "\n")
@@ -244,6 +252,10 @@ def match_simulation_30_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
                                                                                              assister, 'Assists'] + 1
+                player_data.loc[player, 'WC_Goals'], player_data.loc[assister, 'WC_Assists'] = player_data.loc[
+                                                                                                   player, 'WC_Goals'] + 1, \
+                                                                                               player_data.loc[
+                                                                                                   assister, 'WC_Assists'] + 1
                 print(line, "\n")
             if sum(Ber2) == 1:
                 line = goal()
@@ -255,6 +267,10 @@ def match_simulation_30_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2
                                                                                              player, 'Goals'] + 1, \
                                                                                          player_data.loc[
                                                                                              assister, 'Assists'] + 1
+                player_data.loc[player, 'WC_Goals'], player_data.loc[assister, 'WC_Assists'] = player_data.loc[
+                                                                                             player, 'WC_Goals'] + 1, \
+                                                                                         player_data.loc[
+                                                                                             assister, 'WC_Assists'] + 1
                 print(line, "\n")
         if i == 14:
             print("ET HALF TIME", team1, goals1 + et_goals1, " - ", goals2 + et_goals2, team2, "\n")
