@@ -10,11 +10,15 @@ from GroupDraw import GD4
 
 import pandas as pd
 
-# import plotly.express as px
+# Pre-World Cup data-sets, settings and the Inter-Continental Playoff
 
 # Lists for use in code
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 group_names = ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"]
+
+# Ensuring pandas displays the whole data frame
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
 
 # Welcome to the world cup
 print("\nWelcome to the Python World Cup, produced by Samwcounsell & Githubkeano\n")
@@ -27,14 +31,8 @@ print("For your second run through feel free to answer Y to is this a test, you 
       "of Qualification")
 print("\nWe hope you enjoy a relatively realistic run through of the 2022 World Cup\n")
 
-# Ensuring pandas displays the whole data frame
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
-
 # For developers
 test = input("For Developers: Is this a test Y/N: ")
-
-### Add introduction to the World Cup
 
 # Customise your time delay (each time unit is one minute within a game)
 if test != "Y":
@@ -70,8 +68,15 @@ ict = ict.reset_index()
 ict = ict.drop(['index'], axis=1)
 
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Inter-Continental Playoff (0 - 0.1 recommended): ")
-time_delay = float(td)
+while True:
+    td = input("\nChoose your time delay for the Inter-Continental Playoff (0 - 0.1 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 
 print("\nThe Intercontinental Playoff\n")
 
@@ -84,15 +89,24 @@ teams = pd.concat([teams, ict])
 teams = teams.sort_values(by='World_Rank')
 teams = teams.reset_index()
 teams = teams.drop(['index'], axis=1)
-print(teams.to_string(columns=['Country', 'World_Rank'], index=False))
+
+print("The 32 World Cup Nations\n")
+print(teams.to_string(columns=['Country', 'World_Rank'], index=False), "\n")
 
 # Resetting the data for the group stages
 world_cup_teams = teams
 world_cup_teams[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Group Stage (0 - 0.1 recommended): ")
-time_delay = float(td)
+while True:
+    td = input("\nChoose your time delay for the Group Stages (0 - 0.1 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 
 # The World Cup
 
@@ -123,9 +137,18 @@ for i in range(8):
     print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
           "\n")
 
+input("End of the World Cup Group Stage, press enter to continue to the Intercontinental Playoff: \n")
+
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Round of 16 (0.1 recommended): ")
-time_delay = float(td)
+while True:
+    td = input("\nChoose your time delay for the Round of 16 (0.1 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 
 # Collating the 16 teams qualified for the next round, then displaying them
 for i in range(8):
@@ -134,12 +157,15 @@ for i in range(8):
 
 round_of_16 = world_cup_teams.iloc[32:48, :]
 
-print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False))
+#print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+
+print("THE ROUND OF 16", "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
 round_of_16 = round_of_16.reset_index()
 round_of_16 = round_of_16.drop(['index'], axis=1)
 
+# Printing the round of 16 fixtures
 for a in range(8):
     if (a % 2) == 0:
         x, y = 2 * a, 2 * a + 3
@@ -156,20 +182,27 @@ input("Press enter to continue to Match Day: \n")
 # Running the Round of 16
 player_data, nation_data, round_of_16 = TLKO_simulation_wc_16(8, time_delay, player_data, nation_data, round_of_16,
                                                               round_of_16)
-print("\n", "The Quarter-Finals", "\n")
+print("THE QUARTER_FINALS", "\n")
 
 # Collating the 8 teams qualified for the next round, then displaying them
 quarter_finalists = round_of_16.iloc[16:24]
-print(quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
+#print(quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
 
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Quarter Finals (0.1 recommended): ")
-time_delay = float(td)
-
+while True:
+    td = input("\nChoose your time delay for the Quarter-Finals (0.1 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 # Re-indexing the teams, ensuring the correct teams match up
 quarter_finalists = quarter_finalists.reset_index()
 quarter_finalists = quarter_finalists.drop(['index'], axis=1)
 
+# Printing out the Quarter-Final fixtures
 for a in range(4):
     if a == 0:
         x, y = 0, 2
@@ -186,21 +219,26 @@ for a in range(4):
 print()
 input("Press enter to continue to Match Day: \n")
 
-# Running the Quarter Finals
+# Running the Quarter-Finals
 player_data, nation_data, quarter_finalists = TLKO_simulation_wc_late(4, time_delay, player_data, nation_data,
                                                                       quarter_finalists, quarter_finalists)
 
-### Bugs, need to display extra time goals and match goals together, only an issue in world cup knockout stage
-
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Semi Finals (0.1 recommended): ")
-time_delay = float(td)
+while True:
+    td = input("\nChoose your time delay for the Semi_Finals (0.1 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 
-print("\n", "The Semi-Finals", "\n")
+print("\nTHE SEMI-FINALS", "\n")
 
 # Collating the 4 teams qualified for the next round, then displaying them
 semi_finalists = quarter_finalists.iloc[8:12]
-print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
+#print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
 
 # Re-indexing the teams, ensuring the correct teams match up
 semi_finalists = semi_finalists.reset_index()
@@ -220,14 +258,21 @@ player_data, nation_data, semi_finalists = TLKO_simulation_wc_late(2, time_delay
                                                                    semi_finalists, semi_finalists)
 
 # Customise your time delay (each time unit is one minute within a game)
-td = input("Choose your time delay for the Final (0.2 recommended): ")
-time_delay = float(td)
+while True:
+    td = input("\nChoose your time delay for the Final (0.2 recommended): ")
+    try:
+        val = float(td)
+        time_delay = float(td)
+        break
+    except ValueError:
+        print("\nAren't you cheeky, please enter a number...")
+        continue
 
-print("\n", "The Final", "\n")
+print("\nTHE WORLD CUP FINAL", "\n")
 
 # Collating the 2 teams qualified for the next round, then displaying them
 finalists = semi_finalists.iloc[4:6]
-print(finalists.to_string(columns=['Country', 'World_Rank'], index=False), "\n")
+#print(finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False), "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
 finalists = finalists.reset_index()
@@ -249,25 +294,28 @@ champion = champion.loc[0, 'Country']
 print("The World Cup Winner is", champion)
 
 # The Awards
+
+# Ordering data frame for the Golden Boot winner
 player_data = player_data.sort_values(by=['WC_Goals', 'WC_Assists'], ascending=False)
 player_data = player_data.reset_index()
-
+# Isolating the Golden Boot winner
 Golden_Boot = player_data.loc[0, 'Name']
 player_data = player_data.set_index('Name')
-print(player_data)
 GBN = player_data.loc[Golden_Boot, 'WC_Goals']
 
+# Ordering data frame for the Golden Playmaker winner
 player_data = player_data.sort_values(by=['WC_Assists', 'WC_Goals'], ascending=False)
 player_data = player_data.reset_index()
-
+# Isolating the Golden Playmaker winner
 Golden_Playmaker = player_data.loc[0, 'Name']
 player_data = player_data.set_index('Name')
-print(player_data)
 GPN = player_data.loc[Golden_Playmaker, 'WC_Assists']
 
-print("\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
+# Displaying the Award Winners
+print("\n\n\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
 print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
 
+# Post World Cup Text
 print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
 print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
 

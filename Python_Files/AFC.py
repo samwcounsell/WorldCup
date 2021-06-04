@@ -8,6 +8,7 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
 def afc(time_delay, player_data, nation_data, test):
+
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
 
@@ -84,20 +85,16 @@ def afc(time_delay, player_data, nation_data, test):
         if test != "Y":
             input("Press enter to continue: ")
 
-        print()
-
     # Removing the 40 teams that went into the previous stage, leaving us with only the top 2 from each group
     afc_data = afc_data.iloc[40:, :]
 
     # Separating the group winners
     groupwinner = afc_data.loc[0, :]
-    print(groupwinner)
 
     # Selecting then sorting the runners up and then rejoining them to the winners
     runnerup = afc_data.loc[1, :]
     runnerup = runnerup.sort_values(by=['Pts'], ascending=False)
     hostcheck = pd.concat([groupwinner, runnerup])
-    print(hostcheck)
 
     # Making sure the host doesn't qualify by removing them if they're in the dataset, then selecting the winners and
     # 4 best runners up to move onto round 3
@@ -139,14 +136,12 @@ def afc(time_delay, player_data, nation_data, test):
     # Making a dummy one row data frame to attach winners to
     qualified = afc_data.iloc[:1, :]
 
-    print(groupA, groupB)
-
-    print("\nROUND 3\n")
+    print("ROUND 3\n")
 
     # Running round 3, function not used to draw groups as it is only 2 groups
     for group_data in [groupA, groupB]:
         print(group_data.name, "\n")
-        print(group_data)
+        print(group_data.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
         time.sleep(time_delay * 5)
 
         # Running the matches for the current group_data, as seen in round 2
@@ -186,35 +181,17 @@ def afc(time_delay, player_data, nation_data, test):
     qualified = qualified.iloc[1:, :]
 
     # Printing all the qualified teams, checks for host and displays them if they're in AFC
-    print("\nQUALIFIED FOR WORLD CUP\n")
-    print(qualified.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR WORLD CUP FROM ASIA\n")
+    print(qualified.to_string(columns=['Country'], index=False, header=False))
+
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country'], index=False))
+    print(ict.to_string(columns=['Country'], index=False, header=False))
+
     if host in AFChosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
-    # Returns the team data for the qualified and ict team to the main world cup
-
-    # AFC Plotly Test
-
-    # player_data = player_data.sort_values(by=['Goals'], ascending=False)
-    # player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
-    # player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
-    # player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
-    # print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
-
-    # nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
-    # nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
-    # nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
-    # nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
-    # print(nation_data)
-
-    # afc_player_data = player_data[player_data['Confederation'] == 'AFC']
-    # afc_player_table_data = afc_player_data.reset_index()
-    # afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
-    # print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
-
     input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
 
+    # Returns the team data for the qualified and ict team to the main world cup
     return player_data, nation_data, qualified, ict

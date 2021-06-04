@@ -69,7 +69,7 @@ def ofc(time_delay, player_data, nation_data, test):
     player_data, nation_data, ict = TLKO_simulation(1, time_delay, player_data, nation_data, ict, ict)
     ict = ict.iloc[2:, :]
     print("QUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country'], index=False))
+    print(ict.to_string(columns=['Country'], index=False, header=False))
 
     #print(nation_data[nation_data['Confederation'] == 'OFC'])
 

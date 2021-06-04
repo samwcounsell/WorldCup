@@ -156,8 +156,8 @@ def uefa(time_delay, player_data, nation_data, test):
     print("\n")
 
     player_data, nation_data, qualified = TLKO_simulation(1, time_delay, player_data, nation_data, playoff, qualified)
-    print("QUALIFIED FOR THE WORLD CUP FROM UEFA\n")
-    print(qualified.to_string(columns=['Country'], index=False), "\n")
+    print("QUALIFIED FOR THE WORLD CUP FROM EUROPE\n")
+    print(qualified.to_string(columns=['Country'], index=False, header=False), "\n")
     if host in UEFAhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)

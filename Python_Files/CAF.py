@@ -88,8 +88,8 @@ def caf(time_delay, player_data, nation_data, test):
     player_data, nation_data, pot_data = TLKO_simulation(a, time_delay, player_data, nation_data, pot_data, pot_data)  # number of games, dataframe x2, time delay
     pot_data = pot_data.iloc[10:, :]
 
-    print("QUALIFIED FOR THE WORLD CUP\n")
-    print(pot_data.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR THE WORLD CUP FROM AFRICA\n")
+    print(pot_data.to_string(columns=['Country'], index=False, header=False))
     if host in CAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)

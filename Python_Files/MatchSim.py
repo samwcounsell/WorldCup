@@ -593,7 +593,7 @@ def WorldCupGroupStage(time_delay, player_data, nation_data, group_names):
     for round in range(3):
         for part in range(4):
 
-            print("\n", "World Cup Group Stage Day", (round + 1) * (part + 1), "\n")
+            print("\n", "WORLD CUP DAY", (round + 1) * (part + 1))
             for ind_grp in range(2):
 
                 group = group_names[(part * 2) + ind_grp]

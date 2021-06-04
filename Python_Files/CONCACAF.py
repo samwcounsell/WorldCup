@@ -86,11 +86,11 @@ def concacaf(time_delay, player_data, nation_data, test):
         group = group[group.Country != host]
 
     qualified = group.iloc[:3, :]
-    print("\nQUALIFIED FOR THE WORLD CUP")
-    print("\n", qualified.to_string(columns=['Country'], index=False))
+    print("\nQUALIFIED FOR THE WORLD CUP NORTH AND CENTRAL AMERICA")
+    print("\n", qualified.to_string(columns=['Country'], index=False, header=False))
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF")
     ict = group.iloc[3:4, :]
-    print("\n", ict.to_string(columns=['Country'], index=False))
+    print("\n", ict.to_string(columns=['Country'], index=False, header=False))
     if host in CONCACAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
