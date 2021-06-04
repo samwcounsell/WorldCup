@@ -1,6 +1,6 @@
 import pandas as pd
-from MatchSim import TLKO_simulation, GRP5, GRP8HA
-from GroupDraw import GD5
+from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
+from Group_Draws import GD5
 
 
 def concacaf(time_delay, player_data, nation_data, test):

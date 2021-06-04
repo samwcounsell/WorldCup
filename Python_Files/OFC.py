@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import GRP5, GRP6HA, TLKO_simulation
+from Round_Simulation import GRP5, GRP6HA, TLKO_simulation
 
 def ofc(time_delay, player_data, nation_data, test):
     pot_data = pd.read_csv("OFC.csv")

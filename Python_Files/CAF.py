@@ -4,8 +4,8 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO_simulation, GRP4HA
-from GroupDraw import GD4
+from Round_Simulation import TLKO_simulation, GRP4HA
+from Group_Draws import GD4
 
 
 def caf(time_delay, player_data, nation_data, test):

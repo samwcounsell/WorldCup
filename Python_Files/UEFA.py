@@ -1,6 +1,6 @@
 import pandas as pd
-from MatchSim import TLKO_simulation, GRP5, GRP6HA
-from GroupDraw import GD5, GD6
+from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
+from Group_Draws import GD5, GD6
 
 
 def uefa(time_delay, player_data, nation_data, test):

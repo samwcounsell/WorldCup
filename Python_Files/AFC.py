@@ -1,7 +1,7 @@
 import pandas as pd
 import time
-from MatchSim import TLKO_simulation, GRP5, GRP6HA
-from GroupDraw import GD5
+from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
+from Group_Draws import GD5
 
 # Start of alphabet is defined to name groups within the function
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]

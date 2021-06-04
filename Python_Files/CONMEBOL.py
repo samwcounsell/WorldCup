@@ -1,5 +1,5 @@
 import pandas as pd
-from MatchSim import CONMEBOL
+from Round_Simulation import CONMEBOL
 
 
 def conmebol(time_delay, player_data, nation_data):
