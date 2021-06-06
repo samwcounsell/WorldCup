@@ -48,16 +48,21 @@ player_data = player_data.set_index('Name')
 nation_data = pd.read_csv("nation_data.csv")
 nation_data = nation_data.set_index('Country')
 
+awards_data = pd.read_csv("awards.csv")
+print(awards_data)
+awards_data = awards_data.set_index('Award')
+print(awards_data)
+
 # Randomising the host of the World Cup
 host, host_df = host_selector()
 
 # Running all the World Cup Qualifiers from their respecitve functions
-player_data, nation_data, afc, ict1 = afc(time_delay, player_data, nation_data, test)
-player_data, nation_data, caf = caf(time_delay, player_data, nation_data, test)
-player_data, nation_data, concacaf, ict2 = concacaf(time_delay, player_data, nation_data, test)
-player_data, nation_data, conmebol, ict3 = conmebol(time_delay, player_data, nation_data)
-player_data, nation_data, ict4 = ofc(time_delay, player_data, nation_data, test)
-player_data, nation_data, uefa = uefa(time_delay, player_data, nation_data, test)
+player_data, nation_data, afc, ict1, awards_data = afc(time_delay, player_data, nation_data, awards_data, test)
+player_data, nation_data, caf, awards_data = caf(time_delay, player_data, nation_data,awards_data, test)
+player_data, nation_data, concacaf, ict2, awards_data = concacaf(time_delay, player_data, nation_data, awards_data, test)
+player_data, nation_data, conmebol, ict3, awards_data = conmebol(time_delay, player_data, nation_data, awards_data)
+player_data, nation_data, ict4, awards_data = ofc(time_delay, player_data, nation_data, awards_data, test)
+player_data, nation_data, uefa, awards_data = uefa(time_delay, player_data, nation_data, awards_data, test)
 
 # Joining all the qualified teams
 teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
@@ -315,6 +320,12 @@ GPN = player_data.loc[Golden_Playmaker, 'WC_Assists']
 print("\n\n\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
 print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
 
+# Updating the Award Winners database
+WC_award_1 = Golden_Boot + " with " + str(GBN) + " Goals"
+WC_award_2 = Golden_Playmaker + " with " + str(GPN) + " Assists"
+awards_data.at['Golden Boot'] = WC_award_1
+awards_data.at['Golden Playmaker'] = WC_award_2
+
 # Post World Cup Text
 print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
 print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
@@ -325,3 +336,4 @@ print("\nIn Developement: A DashApp to display all the data from your World Cup 
 
 player_data.to_csv('Player_Data_Set.csv')
 nation_data.to_csv('../DashApp/Nation_Data_Set.csv')
+awards_data.to_csv('../DashApp/Award_Data_Set.csv')

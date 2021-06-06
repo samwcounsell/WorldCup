@@ -7,7 +7,7 @@ from Group_Draws import GD5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc(time_delay, player_data, nation_data, test):
+def afc(time_delay, player_data, nation_data, awards_data, test):
 
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
@@ -191,7 +191,37 @@ def afc(time_delay, player_data, nation_data, test):
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
+    # The Awards
+    afc_player_data = player_data.loc[player_data['Confederation'] == 'AFC']
+
+    # Ordering data frame for the Golden Boot winner
+    afc_player_data = afc_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    afc_player_data = afc_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    AFC_Golden_Boot = afc_player_data.loc[0, 'Name']
+    afc_player_data = afc_player_data.set_index('Name')
+    AFC_GBN = afc_player_data.loc[AFC_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    afc_player_data = afc_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    afc_player_data = afc_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    AFC_Golden_Playmaker = afc_player_data.loc[0, 'Name']
+    afc_player_data = afc_player_data.set_index('Name')
+    AFC_GPN = afc_player_data.loc[AFC_Golden_Playmaker, 'Assists']
+
+    # Updating the Award Winners database
+    afc_award_1 = AFC_Golden_Boot + " with " + str(AFC_GBN) + " Goals"
+    afc_award_2 = AFC_Golden_Playmaker + " with " + str(AFC_GPN) + " Assists"
+    awards_data.at['AFC Golden Boot'] = afc_award_1
+    awards_data.at['AFC Golden Playmaker'] = afc_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe AFC Golden Boot Winner is", AFC_Golden_Boot, "with", AFC_GBN, "Goals")
+    print("\nThe AFC Golden Playmaker Winner is", AFC_Golden_Playmaker, "with", AFC_GPN, "Assists")
+
     input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
 
     # Returns the team data for the qualified and ict team to the main world cup
-    return player_data, nation_data, qualified, ict
+    return player_data, nation_data, qualified, ict, awards_data

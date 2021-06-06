@@ -239,8 +239,8 @@ def match_simulation_30_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2
         time.sleep(time_delay)
         Ber1 = bernoulli.rvs(p1, size=1)
         Ber2 = bernoulli.rvs(p2, size=1)
-        goals1 = goals1 + Ber1
-        goals2 = goals2 + Ber2
+        et_goals1 = et_goals1 + Ber1
+        et_goals2 = et_goals2 + Ber2
         if (sum(Ber1) + sum(Ber2)) != 0:
             if sum(Ber1) == 1:
                 line = goal()

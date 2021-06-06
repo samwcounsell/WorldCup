@@ -6,7 +6,7 @@ import random
 import sys
 from Round_Simulation import GRP5, GRP6HA, TLKO_simulation
 
-def ofc(time_delay, player_data, nation_data, test):
+def ofc(time_delay, player_data, nation_data, awards_data, test):
     pot_data = pd.read_csv("OFC.csv")
 
     print("\nWELCOME TO OFC WORLD CUP QUALIFYING\n")
@@ -71,8 +71,36 @@ def ofc(time_delay, player_data, nation_data, test):
     print("QUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
     print(ict.to_string(columns=['Country'], index=False, header=False))
 
-    #print(nation_data[nation_data['Confederation'] == 'OFC'])
+    # The Awards
+    ofc_player_data = player_data.loc[player_data['Confederation'] == 'OFC']
+
+    # Ordering data frame for the Golden Boot winner
+    ofc_player_data = ofc_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    ofc_player_data = ofc_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    ofc_Golden_Boot = ofc_player_data.loc[0, 'Name']
+    ofc_player_data = ofc_player_data.set_index('Name')
+    ofc_GBN = ofc_player_data.loc[ofc_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    ofc_player_data = ofc_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    ofc_player_data = ofc_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    ofc_Golden_Playmaker = ofc_player_data.loc[0, 'Name']
+    ofc_player_data = ofc_player_data.set_index('Name')
+    ofc_GPN = ofc_player_data.loc[ofc_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    ofc_award_1 = ofc_Golden_Boot + " with " + str(ofc_GBN) + " Goals"
+    ofc_award_2 = ofc_Golden_Playmaker + " with " + str(ofc_GPN) + " Assists"
+    awards_data.at['OFC Golden Boot'] = ofc_award_1
+    awards_data.at['OFC Golden Playmaker'] = ofc_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe OFC Golden Boot Winner is", ofc_Golden_Boot, "with", ofc_GBN, "Goals")
+    print("\nThe OFC Golden Playmaker Winner is", ofc_Golden_Playmaker, "with", ofc_GPN, "Assists")
 
     input("\nEnd of OFC qualifiers, press enter to continue to the next Confederation: ")
 
-    return player_data, nation_data, ict
+    return player_data, nation_data, ict, awards_data

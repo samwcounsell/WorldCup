@@ -3,7 +3,7 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
 from Group_Draws import GD5
 
 
-def concacaf(time_delay, player_data, nation_data, test):
+def concacaf(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
@@ -95,6 +95,36 @@ def concacaf(time_delay, player_data, nation_data, test):
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
+    # The Awards
+    concacaf_player_data = player_data.loc[player_data['Confederation'] == 'CONCACAF']
+
+    # Ordering data frame for the Golden Boot winner
+    concacaf_player_data = concacaf_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    concacaf_player_data = concacaf_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    concacaf_Golden_Boot = concacaf_player_data.loc[0, 'Name']
+    concacaf_player_data = concacaf_player_data.set_index('Name')
+    concacaf_GBN = concacaf_player_data.loc[concacaf_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    concacaf_player_data = concacaf_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    concacaf_player_data = concacaf_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    concacaf_Golden_Playmaker = concacaf_player_data.loc[0, 'Name']
+    concacaf_player_data = concacaf_player_data.set_index('Name')
+    concacaf_GPN = concacaf_player_data.loc[concacaf_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    concacaf_award_1 = concacaf_Golden_Boot + " with " + str(concacaf_GBN) + " Goals"
+    concacaf_award_2 = concacaf_Golden_Playmaker + " with " + str(concacaf_GPN) + " Assists"
+    awards_data.at['CONCACAF Golden Boot'] = concacaf_award_1
+    awards_data.at['CONCACAF Golden Playmaker'] = concacaf_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe CONCACAF Golden Boot Winner is", concacaf_Golden_Boot, "with", concacaf_GBN, "Goals")
+    print("\nThe CONCACAF Golden Playmaker Winner is", concacaf_Golden_Playmaker, "with", concacaf_GPN, "Assists")
+
     input("\nEnd of CONCACAF qualifiers, press enter to continue to the next Confederation: ")
 
-    return player_data, nation_data, qualified, ict
+    return player_data, nation_data, qualified, ict, awards_data

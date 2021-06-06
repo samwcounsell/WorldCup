@@ -3,7 +3,7 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
 from Group_Draws import GD5, GD6
 
 
-def uefa(time_delay, player_data, nation_data, test):
+def uefa(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -162,6 +162,36 @@ def uefa(time_delay, player_data, nation_data, test):
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
-    input("End of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
+    # The Awards
+    uefa_player_data = player_data.loc[player_data['Confederation'] == 'UEFA']
 
-    return player_data, nation_data, qualified
+    # Ordering data frame for the Golden Boot winner
+    uefa_player_data = uefa_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    uefa_player_data = uefa_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    uefa_Golden_Boot = uefa_player_data.loc[0, 'Name']
+    uefa_player_data = uefa_player_data.set_index('Name')
+    uefa_GBN = uefa_player_data.loc[uefa_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    uefa_player_data = uefa_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    uefa_player_data = uefa_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    uefa_Golden_Playmaker = uefa_player_data.loc[0, 'Name']
+    uefa_player_data = uefa_player_data.set_index('Name')
+    uefa_GPN = uefa_player_data.loc[uefa_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    uefa_award_1 = uefa_Golden_Boot + " with " + str(uefa_GBN) + " Goals"
+    uefa_award_2 = uefa_Golden_Playmaker + " with " + str(uefa_GPN) + " Assists"
+    awards_data.at['UEFA Golden Boot'] = uefa_award_1
+    awards_data.at['UEFA Golden Playmaker'] = uefa_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe UEFA Golden Boot Winner is", uefa_Golden_Boot, "with", uefa_GBN, "Goals")
+    print("\nThe UEFA Golden Playmaker Winner is", uefa_Golden_Playmaker, "with", uefa_GPN, "Assists")
+
+    input("\nEnd of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
+
+    return player_data, nation_data, qualified, awards_data
