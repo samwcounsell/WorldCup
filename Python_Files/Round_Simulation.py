@@ -196,16 +196,17 @@ def GRP5(time_delay, player_data, nation_data, group_data):
             time.sleep(time_delay * 3)
     return player_data, nation_data, group_data
 
-
+# Commented
 def CONMEBOL(time_delay, player_data, nation_data, group_data):
     for leg in (1, 2):
 
         for m in range(9):
 
-
-
             print("\n", "MATCHDAY", m + ((leg - 1) * 9) + 1)
+
             if leg == 1:
+
+                # Actual fixture order for the 2022 Conmebol qualifiers
                 if m == 0:
                     a, b, c, d, e, f, g, h, i, j = 0, 8, 1, 4, 3, 5, 6, 2, 7, 9
                 if m == 1:
@@ -244,6 +245,7 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                 if m == 8:
                     a, b, c, d, e, f, g, h, i, j = 2, 6, 4, 1, 5, 3, 8, 0, 9, 7
 
+            # Attaching the teams for the 5 fixtures on the specific match day
             for l in range(5):
                 if l == 0:
                     t1 = a
@@ -261,26 +263,31 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                     t1 = i
                     t2 = j
 
+                # Pulling the current fixtures teams data from the pandas data frama
                 team1 = group_data.loc[t1, 'Country']
                 team2 = group_data.loc[t2, 'Country']
                 a1, d1 = group_data.loc[t1, 'Attack'], group_data.loc[t1, 'Defence']
                 a2, d2 = group_data.loc[t2, 'Attack'], group_data.loc[t2, 'Defence']
 
+                # Running the actual match simulation
                 player_data, goals1, goals2 = match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2,
                                                                d2)
+
+                # Updating the nations data frame
                 nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                     nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
                 nation_data.loc[team2, 'total_GF'], nation_data.loc[team2, 'total_GA'] = \
                     nation_data.loc[team2, 'total_GF'] + goals2, nation_data.loc[team2, 'total_GA'] + goals1
                 nation_data.loc[team1, 'total_P'], nation_data.loc[team2, 'total_P'] = \
                     nation_data.loc[team1, 'total_P'] + 1, nation_data.loc[team2, 'total_P'] + 1
-
+                # Updating the players data frame
                 player_data.loc[player_data.Country == team1, 'P'], player_data.loc[player_data.Country == team2, 'P'] = \
                     player_data.loc[player_data.Country == team1, 'P'] + 1, \
                     player_data.loc[player_data.Country == team2, 'P'] + 1
 
                 print(team1, goals1, " - ", goals2, team2)
 
+                # Updating the group stage data frame
                 group_data.loc[t1, 'P'], group_data.loc[t2, 'P'] = group_data.loc[t1, 'P'] + 1, group_data.loc[
                     t2, 'P'] + 1
                 group_data.loc[t1, 'GF'], group_data.loc[t1, 'GA'] = group_data.loc[t1, 'GF'] + goals1, \
@@ -289,27 +296,26 @@ def CONMEBOL(time_delay, player_data, nation_data, group_data):
                                                                      group_data.loc[t2, 'GA'] + goals1
                 group_data.loc[t1, 'GD'] = group_data.loc[t1, 'GF'] - group_data.loc[t1, 'GA']
                 group_data.loc[t2, 'GD'] = group_data.loc[t2, 'GF'] - group_data.loc[t2, 'GA']
-
+                # Giving out points to teams based on results
                 if goals1 > goals2:
                     group_data.loc[t1, 'Pts'] = group_data.loc[t1, 'Pts'] + 3
                     group_data.loc[t1, 'W'], group_data.loc[t2, 'L'] = group_data.loc[t1, 'W'] + 1, \
                                                                        group_data.loc[t2, 'L'] + 1
-
                 if goals1 < goals2:
                     group_data.loc[t2, 'Pts'] = group_data.loc[t2, 'Pts'] + 3
                     group_data.loc[t2, 'W'], group_data.loc[t1, 'L'] = group_data.loc[t2, 'W'] + 1, \
                                                                        group_data.loc[t1, 'L'] + 1
-
                 if goals1 == goals2:
                     group_data.loc[t1, 'Pts'] = group_data.loc[t1, 'Pts'] + 1
                     group_data.loc[t2, 'Pts'] = group_data.loc[t2, 'Pts'] + 1
                     group_data.loc[t1, 'D'], group_data.loc[t2, 'D'] = group_data.loc[t1, 'D'] + 1, \
                                                                        group_data.loc[t2, 'D'] + 1
 
-                time.sleep(time_delay * 3)
+                time.sleep(time_delay)
 
-        time.sleep(time_delay * 3)
+        time.sleep(time_delay)
 
+    # Returning the updated data frames to the World_Cup_Simulation
     return player_data, nation_data, group_data
 
 

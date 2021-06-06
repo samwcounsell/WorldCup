@@ -10,10 +10,11 @@ import plotly.io as pio
 import dash_bootstrap_components as dbc
 import math
 
-bs = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'
-
-World_Cup_Player_Data = pd.read_csv('../Python_Files/Player_Data_Set.csv')
+# Reading in the data frames from the World_Cup_Simulation
+World_Cup_Player_Data = pd.read_csv('Player_Data_Set.csv')
+World_Cup_Player_Data = World_Cup_Player_Data.round(2)
 World_Cup_Nation_Data = pd.read_csv('Nation_Data_Set.csv')
+World_Cup_Nation_Data = World_Cup_Nation_Data.round(2)
 World_Cup_Award_Data = pd.read_csv('Award_Data_Set.csv')
 
 # Ensuring pandas displays the whole data frame
@@ -30,31 +31,15 @@ World_Cup_Nation_Data['GF_Per_Game'] = World_Cup_Nation_Data['total_GF'] / World
 World_Cup_Nation_Data['GA_Per_Game'] = World_Cup_Nation_Data['total_GA'] / World_Cup_Nation_Data['total_P']
 World_Cup_Nation_Data = World_Cup_Nation_Data.sort_values(by=['Confederation', 'Country'])
 
-# Picking the award winners
-
-Award_Data = World_Cup_Player_Data.sort_values(by=['WC_Goals', 'WC_Assists'], ascending=False)
-Award_Data = Award_Data.reset_index()
-
-Golden_Boot = Award_Data.loc[0, 'Name']
-Award_Data = Award_Data.set_index('Name')
-GBN = Award_Data.loc[Golden_Boot, 'WC_Goals']
-
-Award_Data = Award_Data.sort_values(by=['WC_Assists', 'WC_Goals'], ascending=False)
-Award_Data = Award_Data.reset_index()
-
-Golden_Playmaker = Award_Data.loc[0, 'Name']
-Award_Data = Award_Data.set_index('Name')
-GPN = Award_Data.loc[Golden_Playmaker, 'WC_Assists']
-
-print("\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
-print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
-
 # Extracting World Cup Finals Data
 Finals_Player_Data = World_Cup_Player_Data[World_Cup_Player_Data.WC_P > 0]
 Finals_Player_Data = Finals_Player_Data[["Name", "Country", "Position", "WC_P", "WC_Goals", "WC_Assists"]]
 
 Goal_Data = Finals_Player_Data.sort_values(by=['WC_Goals', "WC_P"], ascending=False)
 Assist_Data = Finals_Player_Data.sort_values(by=['WC_Assists', "WC_P"], ascending=False)
+
+World_Cup_Player_Data = World_Cup_Player_Data.round(2)
+World_Cup_Nation_Data = World_Cup_Nation_Data.round(2)
 
 # Getting into the Plotly
 
@@ -65,28 +50,24 @@ tgfvtga = px.scatter(World_Cup_Nation_Data, x="total_GA", y="total_GF",
                        hover_name="Country", size_max=60)
 
 nd_table = go.Figure(data=[go.Table(
-    header=dict(values=list(World_Cup_Nation_Data.columns),
-                # fill_color='paleturquoise',
+    header=dict(values=["Country", "Confederation", "P", "Total GF", "Total GA", "GF/G", "GA/G"],
                 align='left'),
     cells=dict(
         values=[World_Cup_Nation_Data.Country, World_Cup_Nation_Data.Confederation, World_Cup_Nation_Data.total_P,
                 World_Cup_Nation_Data.total_GF, World_Cup_Nation_Data.total_GA, World_Cup_Nation_Data.GF_Per_Game,
                 World_Cup_Nation_Data.GA_Per_Game],
-        # fill_color='lavender',
         align='left'))
 ])
 
 pd_table = go.Figure(data=[go.Table(
-    header=dict(values=["Name", "Country", "Position", "Games Played", "Goals", "Assists", "Goals Per Game",
-                        "Assists Per Game"],
-                # fill_color='paleturquoise',
+    header=dict(values=["Name", "Country", "Position", "Games Played", "Goals", "Assists", "Goals/G",
+                        "Assists/G"],
                 align='left'),
     cells=dict(
         values=[World_Cup_Player_Data.Name, World_Cup_Player_Data.Country, World_Cup_Player_Data.Position,
                 World_Cup_Player_Data.P,
                 World_Cup_Player_Data.Goals, World_Cup_Player_Data.Assists, World_Cup_Player_Data.Goals_Per_Game,
                 World_Cup_Player_Data.Assists_Per_Game],
-        # fill_color='lavender',
         align='left'))
 ])
 
@@ -138,7 +119,7 @@ award_table = go.Figure(data=[go.Table(
 
 external_stylesheets = ['https://codepen.io/anon/pen/mardKv.css']
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUMEN])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SANDSTONE])
 
 PAGE_SIZE = 10
 
@@ -160,7 +141,7 @@ app.layout = html.Div([
 
     dbc.Row([
         dbc.Col(html.P("Games Played:"),
-                width=2,
+                width=1,
                 ),
         dbc.Col(dcc.RangeSlider(id='range-slider',
                                 min=0, max=30, step=1,
@@ -194,9 +175,10 @@ app.layout = html.Div([
                     ),
             ),
 
-    html.P(
-        children="This table shows the data for players in the World Cup Finals only"
-    ),
+    dbc.Row(dbc.Col(html.P("The complete data frames for all players and nations, these tables are huge!"),
+                    width={'size': 6, 'offset': 4},
+                    ),
+            ),
 
     dbc.Row([
         dbc.Col(dcc.Graph(figure=nd_table, style={'display': 'inline-block'}),

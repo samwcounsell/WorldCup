@@ -142,7 +142,7 @@ for i in range(8):
     print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
           "\n")
 
-input("End of the World Cup Group Stage, press enter to continue to the Intercontinental Playoff: \n")
+input("End of the World Cup Group Stage, press enter to continue to the Round of 16: \n")
 
 # Customise your time delay (each time unit is one minute within a game)
 while True:
@@ -332,8 +332,7 @@ print("\nFeel free to send us any feature requests, or tell us about any issues 
 
 print("\nIn Developement: A DashApp to display all the data from your World Cup simulation")
 
-### Temporary set up for the Dash_App
-
-player_data.to_csv('Player_Data_Set.csv')
+# Exporting data sets for the Dash App
+player_data.to_csv('../DashApp/Player_Data_Set.csv')
 nation_data.to_csv('../DashApp/Nation_Data_Set.csv')
 awards_data.to_csv('../DashApp/Award_Data_Set.csv')
