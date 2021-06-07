@@ -49,14 +49,16 @@ nation_data = pd.read_csv("nation_data.csv")
 nation_data = nation_data.set_index('Country')
 
 awards_data = pd.read_csv("awards.csv")
-print(awards_data)
 awards_data = awards_data.set_index('Award')
-print(awards_data)
 
 # Randomising the host of the World Cup
 host, host_df = host_selector()
 
-# Running all the World Cup Qualifiers from their respecitve functions
+print("\nThe 2022 World Cup will be hosted by", host)
+
+input("\nPress enter to continue to the World Cup Qualifiers: \n")
+
+# Running all the World Cup Qualifiers from their respective functions
 player_data, nation_data, afc, ict1, awards_data = afc(time_delay, player_data, nation_data, awards_data, test)
 player_data, nation_data, caf, awards_data = caf(time_delay, player_data, nation_data,awards_data, test)
 player_data, nation_data, concacaf, ict2, awards_data = concacaf(time_delay, player_data, nation_data, awards_data, test)
@@ -83,7 +85,14 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-print("\nThe Intercontinental Playoff\n")
+print("\nThe Inter-continental Playoff")
+
+# Displaying the Inter-continental Playoff fixtures
+for a in range(2):
+    team1, team2 = ict.loc[2 * a, 'Country'], ict.loc[2 * a + 1, 'Country']
+    print("\nIntercontinental Playoff Match ", a + 1, ":", team1, "v", team2)
+
+input("\nPress enter to continue to Match Day: \n")
 
 # Running the intercontinental playoff
 player_data, nation_data, ict = TLKO_simulation(2, time_delay, player_data, nation_data, ict, ict)
@@ -162,7 +171,7 @@ for i in range(8):
 
 round_of_16 = world_cup_teams.iloc[32:48, :]
 
-#print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
 
 print("THE ROUND OF 16", "\n")
 
@@ -181,17 +190,17 @@ for a in range(8):
 
     print("\nRound of 16 Match ", a + 1, ":", team1, "v", team2)
 
-print()
-input("Press enter to continue to Match Day: \n")
+input("\nPress enter to continue to Match Day: \n")
 
 # Running the Round of 16
 player_data, nation_data, round_of_16 = TLKO_simulation_wc_16(8, time_delay, player_data, nation_data, round_of_16,
                                                               round_of_16)
-print("THE QUARTER_FINALS", "\n")
 
 # Collating the 8 teams qualified for the next round, then displaying them
 quarter_finalists = round_of_16.iloc[16:24]
-#print(quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+print(quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+
+print("THE QUARTER_FINALS", "\n")
 
 # Customise your time delay (each time unit is one minute within a game)
 while True:
@@ -239,11 +248,11 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-print("\nTHE SEMI-FINALS", "\n")
-
 # Collating the 4 teams qualified for the next round, then displaying them
 semi_finalists = quarter_finalists.iloc[8:12]
-#print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
+
+print("\nTHE SEMI-FINALS", "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
 semi_finalists = semi_finalists.reset_index()
@@ -273,11 +282,11 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-print("\nTHE WORLD CUP FINAL", "\n")
-
 # Collating the 2 teams qualified for the next round, then displaying them
 finalists = semi_finalists.iloc[4:6]
-#print(finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False), "\n")
+print(finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False), "\n")
+
+print("\nTHE WORLD CUP FINAL", "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
 finalists = finalists.reset_index()
@@ -285,7 +294,6 @@ finalists = finalists.drop(['index'], axis=1)
 
 # Add printing the final
 
-print()
 input("Press enter to continue to Match Day: \n")
 
 # Running the Final
