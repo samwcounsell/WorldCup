@@ -56,7 +56,7 @@ host, host_df = host_selector()
 
 print("\nThe 2022 World Cup will be hosted by", host)
 
-input("\nPress enter to continue to the World Cup Qualifiers: \n")
+input("\nPress enter to continue to the World Cup Qualifiers: ")
 
 # Running all the World Cup Qualifiers from their respective functions
 player_data, nation_data, afc, ict1, awards_data = afc(time_delay, player_data, nation_data, awards_data, test)
@@ -151,7 +151,17 @@ for i in range(8):
     print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
           "\n")
 
-input("End of the World Cup Group Stage, press enter to continue to the Round of 16: \n")
+# Collating the 16 teams qualified for the next round, then displaying them
+for i in range(8):
+    qualified = group_names[i].iloc[0:2, :]
+    world_cup_teams = pd.concat([world_cup_teams, qualified])
+
+round_of_16 = world_cup_teams.iloc[32:48, :]
+
+print("\nQUALIFIED FOR THE ROUND OF 16")
+print("\n", round_of_16.to_string(columns=['Country', 'World_Rank'], index=False))
+
+input("\nEnd of the World Cup Group Stage, press enter to continue to the Round of 16: ")
 
 # Customise your time delay (each time unit is one minute within a game)
 while True:
@@ -164,16 +174,7 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-# Collating the 16 teams qualified for the next round, then displaying them
-for i in range(8):
-    qualified = group_names[i].iloc[0:2, :]
-    world_cup_teams = pd.concat([world_cup_teams, qualified])
-
-round_of_16 = world_cup_teams.iloc[32:48, :]
-
-print(round_of_16.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
-
-print("THE ROUND OF 16", "\n")
+print("\nTHE ROUND OF 16", "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
 round_of_16 = round_of_16.reset_index()
@@ -196,11 +197,11 @@ input("\nPress enter to continue to Match Day: \n")
 player_data, nation_data, round_of_16 = TLKO_simulation_wc_16(8, time_delay, player_data, nation_data, round_of_16,
                                                               round_of_16)
 
+print("QUALIFIED FOR THE QUARTER-FINALS")
+
 # Collating the 8 teams qualified for the next round, then displaying them
 quarter_finalists = round_of_16.iloc[16:24]
-print(quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
-
-print("THE QUARTER_FINALS", "\n")
+print("\n", quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
 # Customise your time delay (each time unit is one minute within a game)
 while True:
@@ -212,6 +213,9 @@ while True:
     except ValueError:
         print("\nAren't you cheeky, please enter a number...")
         continue
+
+print("\nTHE QUARTER-FINALS")
+
 # Re-indexing the teams, ensuring the correct teams match up
 quarter_finalists = quarter_finalists.reset_index()
 quarter_finalists = quarter_finalists.drop(['index'], axis=1)
@@ -237,6 +241,12 @@ input("Press enter to continue to Match Day: \n")
 player_data, nation_data, quarter_finalists = TLKO_simulation_wc_late(4, time_delay, player_data, nation_data,
                                                                       quarter_finalists, quarter_finalists)
 
+print("QUALIFIED FOR THE SEMI-FINALS")
+
+# Collating the 4 teams qualified for the next round, then displaying them
+semi_finalists = quarter_finalists.iloc[8:12]
+print("\n", semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
+
 # Customise your time delay (each time unit is one minute within a game)
 while True:
     td = input("\nChoose your time delay for the Semi_Finals (0.1 recommended): ")
@@ -248,11 +258,7 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-# Collating the 4 teams qualified for the next round, then displaying them
-semi_finalists = quarter_finalists.iloc[8:12]
-print(semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False))
-
-print("\nTHE SEMI-FINALS", "\n")
+print("\nTHE SEMI-FINALS")
 
 # Re-indexing the teams, ensuring the correct teams match up
 semi_finalists = semi_finalists.reset_index()
@@ -265,11 +271,17 @@ for a in range(2):
     print("\nSemi-Final ", a + 1, ":", team1, "v", team2)
 
 print()
-input("Press enter to continue to Match Day: \n")
+input("Press enter to continue to Match Day: ")
 
 # Running the Semi-Finals
 player_data, nation_data, semi_finalists = TLKO_simulation_wc_late(2, time_delay, player_data, nation_data,
                                                                    semi_finalists, semi_finalists)
+
+print("\nQUALIFIED FOR THE FINAL")
+
+# Collating the 2 teams qualified for the next round, then displaying them
+finalists = semi_finalists.iloc[4:6]
+print("\n", finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
 # Customise your time delay (each time unit is one minute within a game)
 while True:
@@ -282,10 +294,6 @@ while True:
         print("\nAren't you cheeky, please enter a number...")
         continue
 
-# Collating the 2 teams qualified for the next round, then displaying them
-finalists = semi_finalists.iloc[4:6]
-print(finalists.to_string(columns=['Country', 'World_Rank'], index=False, header=False), "\n")
-
 print("\nTHE WORLD CUP FINAL", "\n")
 
 # Re-indexing the teams, ensuring the correct teams match up
@@ -294,7 +302,7 @@ finalists = finalists.drop(['index'], axis=1)
 
 # Add printing the final
 
-input("Press enter to continue to Match Day: \n")
+input("Press enter to continue to Match Day: ")
 
 # Running the Final
 player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, player_data, nation_data, finalists,
@@ -325,7 +333,8 @@ player_data = player_data.set_index('Name')
 GPN = player_data.loc[Golden_Playmaker, 'WC_Assists']
 
 # Displaying the Award Winners
-print("\n\n\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
+input("\n\n\nPress enter to continue the Awards: ")
+print("\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
 print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
 
 # Updating the Award Winners database
@@ -338,7 +347,8 @@ awards_data.at['Golden Playmaker'] = WC_award_2
 print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
 print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
 
-print("\nIn Developement: A DashApp to display all the data from your World Cup simulation")
+print("\nIn Development: A DashApp to display all the data from your World Cup simulation")
+print("If you select the Dash_App file in the DashApp folder it will generate a link to the application")
 
 # Exporting data sets for the Dash App
 player_data.to_csv('../DashApp/Player_Data_Set.csv')

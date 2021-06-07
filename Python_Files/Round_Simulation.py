@@ -698,7 +698,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
     for a in range(number_of_matches):
         et_goals1, et_goals2 = 0, 0
         time.sleep(time_delay)
-        print("MATCH", a + 1, "\n")
+        print("MATCH", a + 1)
 
         if (a % 2) == 0:
             team1 = active_data.loc[(2 * a), 'Country']
@@ -862,7 +862,7 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
     for a in range(number_of_matches):
         et_goals1, et_goals2 = 0, 0
         time.sleep(time_delay)
-        print("MATCH", a + 1, "\n")
+        print("MATCH", a + 1)
 
         if number_of_matches > 1:
             if a == 0:
