@@ -30,7 +30,7 @@ def conmebol(time_delay, player_data, nation_data, awards_data):
     print("QUALIFIED FOR THE WORLD CUP FROM SOUTH AMERICA\n")
     print(qualified.to_string(columns=['Country'], index=False, header=False))
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country'], index=False, header=False), "\n")
+    print(ict.to_string(columns=['Country'], index=False, header=False))
     if host in conmebol_hosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
