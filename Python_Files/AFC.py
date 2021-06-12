@@ -1,13 +1,14 @@
 import pandas as pd
 import time
-from MatchSim import TLKO_simulation, GRP5, GRP6HA
-from GroupDraw import GD5
+from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
+from Group_Draws import GD5
 
 # Start of alphabet is defined to name groups within the function
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc(time_delay, player_data, nation_data):
+def afc(time_delay, player_data, nation_data, awards_data, test):
+
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
 
@@ -33,7 +34,8 @@ def afc(time_delay, player_data, nation_data):
     player_data, nation_data, afc_data = TLKO_simulation(6, time_delay, player_data, nation_data, round1, afc_data)
 
     # Checking the user wants to continue
-    input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     # Resorting the teams by world rank, the reindexing
     afc_data = afc_data.sort_values(by=['World_Rank'])
@@ -80,22 +82,19 @@ def afc(time_delay, player_data, nation_data):
         round3 = group.iloc[0:2, :]
         afc_data = pd.concat([afc_data, round3])
 
-        input("Press enter to continue: ")  # uc = user continue
-
-        print()
+        if test != "Y":
+            input("Press enter to continue: ")
 
     # Removing the 40 teams that went into the previous stage, leaving us with only the top 2 from each group
     afc_data = afc_data.iloc[40:, :]
 
     # Separating the group winners
     groupwinner = afc_data.loc[0, :]
-    print(groupwinner)
 
     # Selecting then sorting the runners up and then rejoining them to the winners
     runnerup = afc_data.loc[1, :]
     runnerup = runnerup.sort_values(by=['Pts'], ascending=False)
     hostcheck = pd.concat([groupwinner, runnerup])
-    print(hostcheck)
 
     # Making sure the host doesn't qualify by removing them if they're in the dataset, then selecting the winners and
     # 4 best runners up to move onto round 3
@@ -137,14 +136,12 @@ def afc(time_delay, player_data, nation_data):
     # Making a dummy one row data frame to attach winners to
     qualified = afc_data.iloc[:1, :]
 
-    print(groupA, groupB)
-
-    print("\nROUND 3\n")
+    print("ROUND 3\n")
 
     # Running round 3, function not used to draw groups as it is only 2 groups
     for group_data in [groupA, groupB]:
         print(group_data.name, "\n")
-        print(group_data)
+        print(group_data.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
         time.sleep(time_delay * 5)
 
         # Running the matches for the current group_data, as seen in round 2
@@ -165,7 +162,9 @@ def afc(time_delay, player_data, nation_data):
         # 3rd place teams get reattached to main data frame for round 4
         round4 = group_data.iloc[2:3, :]
         afc_data = pd.concat([afc_data, round4])
-        input("Press enter to continue: ")
+
+        if test != "Y":
+            input("Press enter to continue: ")
 
     # Cutting main data frame down to only round 4 teams and reindexing
     afc_data = afc_data.iloc[12:, :]
@@ -182,33 +181,47 @@ def afc(time_delay, player_data, nation_data):
     qualified = qualified.iloc[1:, :]
 
     # Printing all the qualified teams, checks for host and displays them if they're in AFC
-    print("\nQUALIFIED FOR WORLD CUP\n")
-    print(qualified.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR WORLD CUP FROM ASIA\n")
+    print(qualified.to_string(columns=['Country'], index=False, header=False))
+
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF\n")
-    print(ict.to_string(columns=['Country'], index=False), "\n")
+    print(ict.to_string(columns=['Country'], index=False, header=False))
+
     if host in AFChosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
+    # The Awards
+    afc_player_data = player_data.loc[player_data['Confederation'] == 'AFC']
+
+    # Ordering data frame for the Golden Boot winner
+    afc_player_data = afc_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    afc_player_data = afc_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    AFC_Golden_Boot = afc_player_data.loc[0, 'Name']
+    afc_player_data = afc_player_data.set_index('Name')
+    AFC_GBN = afc_player_data.loc[AFC_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    afc_player_data = afc_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    afc_player_data = afc_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    AFC_Golden_Playmaker = afc_player_data.loc[0, 'Name']
+    afc_player_data = afc_player_data.set_index('Name')
+    AFC_GPN = afc_player_data.loc[AFC_Golden_Playmaker, 'Assists']
+
+    # Updating the Award Winners database
+    afc_award_1 = AFC_Golden_Boot + " with " + str(AFC_GBN) + " Goals"
+    afc_award_2 = AFC_Golden_Playmaker + " with " + str(AFC_GPN) + " Assists"
+    awards_data.at['AFC Golden Boot'] = afc_award_1
+    awards_data.at['AFC Golden Playmaker'] = afc_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe AFC Golden Boot Winner is", AFC_Golden_Boot, "with", AFC_GBN, "Goals")
+    print("\nThe AFC Golden Playmaker Winner is", AFC_Golden_Playmaker, "with", AFC_GPN, "Assists")
+
+    input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
+
     # Returns the team data for the qualified and ict team to the main world cup
-
-    # AFC Plotly Test
-
-    #player_data = player_data.sort_values(by=['Goals'], ascending=False)
-    #player_data['Goals_Per_Game'] = player_data['Goals'] / player_data['P']
-    #player_data['Assists_Per_Game'] = player_data['Assists'] / player_data['P']
-    #player_data = player_data.sort_values(by=['Goals_Per_Game'], ascending=False)
-    # print(player_data.to_string(columns=['P', 'Goals', 'Goals_Per_Game']))
-
-    #nation_data = nation_data.sort_values(by=['total_GF'], ascending=False)
-    #nation_data['GF_Per_Game'] = nation_data['total_GF'] / nation_data['total_P']
-    #nation_data['GA_Per_Game'] = nation_data['total_GA'] / nation_data['total_P']
-    #nation_data = nation_data.sort_values(by=['GF_Per_Game'], ascending=False)
-    # print(nation_data)
-
-    #afc_player_data = player_data[player_data['Confederation'] == 'AFC']
-    #afc_player_table_data = afc_player_data.reset_index()
-    #afc_nation_data = nation_data[nation_data['Confederation'] == 'AFC']
-    #print(afc_player_data.to_string(columns=['P', 'Goals', 'Assists', 'Goals_Per_Game', 'Assists_Per_Game']))
-
-    return player_data, nation_data, qualified, ict
+    return player_data, nation_data, qualified, ict, awards_data

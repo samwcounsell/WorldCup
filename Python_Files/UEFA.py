@@ -1,9 +1,9 @@
 import pandas as pd
-from MatchSim import TLKO_simulation, GRP5, GRP6HA
-from GroupDraw import GD5, GD6
+from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
+from Group_Draws import GD5, GD6
 
 
-def uefa(time_delay, player_data, nation_data):
+def uefa(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -49,7 +49,9 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
 
         for i in range(6):
             group5 = GD5(i + 4, 10, pot)
@@ -67,7 +69,10 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
+
         pot = pot.iloc[54:, :]
 
     if host not in UEFAhosts:
@@ -87,7 +92,9 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group6.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
 
         for i in range(5):
             group5 = GD5(i + 5, 10, pot)
@@ -105,7 +112,10 @@ def uefa(time_delay, player_data, nation_data):
             print("\n", group5.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
                   "\n")
 
-            uc = input("Press enter to continue: ")  # uc = user continue
+            # Checking the user wants to continue
+            if test != "Y":
+                input("Press enter to continue: ")
+
         pot = pot.iloc[55:, :]
 
     print(pot[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']])
@@ -132,7 +142,9 @@ def uefa(time_delay, player_data, nation_data):
         print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
               "\n")
 
-        uc = input("Press enter to continue: ")  # uc = user continue
+        # Checking the user wants to continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     # print(potbig[['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']], "\n")
     qualified = potbig.loc[0, :]
@@ -144,10 +156,42 @@ def uefa(time_delay, player_data, nation_data):
     print("\n")
 
     player_data, nation_data, qualified = TLKO_simulation(1, time_delay, player_data, nation_data, playoff, qualified)
-    print("QUALIFIED FOR THE WORLD CUP\n")
-    print(qualified.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR THE WORLD CUP FROM EUROPE\n")
+    print(qualified.to_string(columns=['Country'], index=False, header=False))
     if host in UEFAhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
-    return player_data, nation_data, qualified
+    # The Awards
+    uefa_player_data = player_data.loc[player_data['Confederation'] == 'UEFA']
+
+    # Ordering data frame for the Golden Boot winner
+    uefa_player_data = uefa_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    uefa_player_data = uefa_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    uefa_Golden_Boot = uefa_player_data.loc[0, 'Name']
+    uefa_player_data = uefa_player_data.set_index('Name')
+    uefa_GBN = uefa_player_data.loc[uefa_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    uefa_player_data = uefa_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    uefa_player_data = uefa_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    uefa_Golden_Playmaker = uefa_player_data.loc[0, 'Name']
+    uefa_player_data = uefa_player_data.set_index('Name')
+    uefa_GPN = uefa_player_data.loc[uefa_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    uefa_award_1 = uefa_Golden_Boot + " with " + str(uefa_GBN) + " Goals"
+    uefa_award_2 = uefa_Golden_Playmaker + " with " + str(uefa_GPN) + " Assists"
+    awards_data.at['UEFA Golden Boot'] = uefa_award_1
+    awards_data.at['UEFA Golden Playmaker'] = uefa_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe UEFA Golden Boot Winner is", uefa_Golden_Boot, "with", uefa_GBN, "Goals")
+    print("\nThe UEFA Golden Playmaker Winner is", uefa_Golden_Playmaker, "with", uefa_GPN, "Assists")
+
+    input("\nEnd of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
+
+    return player_data, nation_data, qualified, awards_data

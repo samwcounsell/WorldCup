@@ -1,9 +1,9 @@
 import pandas as pd
-from MatchSim import TLKO_simulation, GRP5, GRP8HA
-from GroupDraw import GD5
+from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
+from Group_Draws import GD5
 
 
-def concacaf(time_delay, player_data, nation_data):
+def concacaf(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
@@ -48,7 +48,8 @@ def concacaf(time_delay, player_data, nation_data):
         print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
               "\n")
 
-        # uc = input("Press enter to continue: ")  # uc = user continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     pot = pot.iloc[30:, :]
     # print(pot)
@@ -67,7 +68,8 @@ def concacaf(time_delay, player_data, nation_data):
     round3 = round3.drop(['index'], axis=1)
     round3[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
-    # uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     print("\nROUND 3\n")
 
@@ -84,13 +86,45 @@ def concacaf(time_delay, player_data, nation_data):
         group = group[group.Country != host]
 
     qualified = group.iloc[:3, :]
-    print("\nQUALIFIED FOR THE WORLD CUP")
-    print("\n", qualified.to_string(columns=['Country'], index=False))
+    print("\nQUALIFIED FOR THE WORLD CUP NORTH AND CENTRAL AMERICA")
+    print("\n", qualified.to_string(columns=['Country'], index=False, header=False))
     print("\nQUALIFIED FOR INTERCONTINENTAL PLAYOFF")
     ict = group.iloc[3:4, :]
-    print("\n", ict.to_string(columns=['Country'], index=False))
+    print("\n", ict.to_string(columns=['Country'], index=False, header=False))
     if host in CONCACAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
-    return player_data, nation_data, qualified, ict
+    # The Awards
+    concacaf_player_data = player_data.loc[player_data['Confederation'] == 'CONCACAF']
+
+    # Ordering data frame for the Golden Boot winner
+    concacaf_player_data = concacaf_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    concacaf_player_data = concacaf_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    concacaf_Golden_Boot = concacaf_player_data.loc[0, 'Name']
+    concacaf_player_data = concacaf_player_data.set_index('Name')
+    concacaf_GBN = concacaf_player_data.loc[concacaf_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    concacaf_player_data = concacaf_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    concacaf_player_data = concacaf_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    concacaf_Golden_Playmaker = concacaf_player_data.loc[0, 'Name']
+    concacaf_player_data = concacaf_player_data.set_index('Name')
+    concacaf_GPN = concacaf_player_data.loc[concacaf_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    concacaf_award_1 = concacaf_Golden_Boot + " with " + str(concacaf_GBN) + " Goals"
+    concacaf_award_2 = concacaf_Golden_Playmaker + " with " + str(concacaf_GPN) + " Assists"
+    awards_data.at['CONCACAF Golden Boot'] = concacaf_award_1
+    awards_data.at['CONCACAF Golden Playmaker'] = concacaf_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe CONCACAF Golden Boot Winner is", concacaf_Golden_Boot, "with", concacaf_GBN, "Goals")
+    print("\nThe CONCACAF Golden Playmaker Winner is", concacaf_Golden_Playmaker, "with", concacaf_GPN, "Assists")
+
+    input("\nEnd of CONCACAF qualifiers, press enter to continue to the next Confederation: ")
+
+    return player_data, nation_data, qualified, ict, awards_data

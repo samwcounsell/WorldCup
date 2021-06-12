@@ -4,11 +4,11 @@ import pandas as pd
 import time
 import random
 import sys
-from MatchSim import TLKO_simulation, GRP4HA
-from GroupDraw import GD4
+from Round_Simulation import TLKO_simulation, GRP4HA
+from Group_Draws import GD4
 
 
-def caf(time_delay, player_data, nation_data):
+def caf(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
 
     CAFhosts = ["South Africa", "Egypt", "Morocco"]
@@ -32,7 +32,8 @@ def caf(time_delay, player_data, nation_data):
     a = 14
     player_data, nation_data, pot_data = TLKO_simulation(a, time_delay, player_data, nation_data, round1, pot_data)
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     pot_data = pot_data.sort_values(by=['World_Rank'])
     pot_data = pot_data.reset_index()
@@ -68,7 +69,8 @@ def caf(time_delay, player_data, nation_data):
         round3 = group.iloc[0:1, :]
         pot_data = pd.concat([pot_data, round3])
 
-        uc = input("Press enter to continue: ")  # uc = user continue
+        if test != "Y":
+            input("Press enter to continue: ")
 
     pot_data = pot_data.iloc[40:, :]
     print(pot_data.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
@@ -79,16 +81,49 @@ def caf(time_delay, player_data, nation_data):
     pot_data = pot_data.reset_index()
     pot_data = pot_data.drop(['index'], axis=1)
 
-    uc = input("Press enter to continue: ")  # uc = user continue
+    if test != "Y":
+        input("Press enter to continue: ")
 
     a = 5
     player_data, nation_data, pot_data = TLKO_simulation(a, time_delay, player_data, nation_data, pot_data, pot_data)  # number of games, dataframe x2, time delay
     pot_data = pot_data.iloc[10:, :]
 
-    print("QUALIFIED FOR THE WORLD CUP\n")
-    print(pot_data.to_string(columns=['Country'], index=False))
+    print("QUALIFIED FOR THE WORLD CUP FROM AFRICA\n")
+    print(pot_data.to_string(columns=['Country'], index=False, header=False))
     if host in CAFhosts:
         print("\nQUALIFIED AS HOST\n")
         print(host)
 
-    return player_data, nation_data, pot_data
+    # The Awards
+    caf_player_data = player_data.loc[player_data['Confederation'] == 'CAF']
+
+    # Ordering data frame for the Golden Boot winner
+    caf_player_data = caf_player_data.sort_values(by=['Goals', 'Assists'], ascending=False)
+    caf_player_data = caf_player_data.reset_index()
+    # Isolating the Golden Boot winner
+    caf_Golden_Boot = caf_player_data.loc[0, 'Name']
+    caf_player_data = caf_player_data.set_index('Name')
+    caf_GBN = caf_player_data.loc[caf_Golden_Boot, 'Goals']
+
+    # Ordering data frame for the Golden Playmaker winner
+    caf_player_data = caf_player_data.sort_values(by=['Assists', 'Goals'], ascending=False)
+    caf_player_data = caf_player_data.reset_index()
+    # Isolating the Golden Playmaker winner
+    caf_Golden_Playmaker = caf_player_data.loc[0, 'Name']
+    caf_player_data = caf_player_data.set_index('Name')
+    caf_GPN = caf_player_data.loc[caf_Golden_Playmaker, 'Assists']
+    
+    # Updating the Award Winners database
+    caf_award_1 = caf_Golden_Boot + " with " + str(caf_GBN) + " Goals"
+    caf_award_2 = caf_Golden_Playmaker + " with " + str(caf_GPN) + " Assists"
+    awards_data.at['CAF Golden Boot'] = caf_award_1
+    awards_data.at['CAF Golden Playmaker'] = caf_award_2
+
+    # Displaying the Award Winners
+    print("\nAWARDS")
+    print("\nThe CAF Golden Boot Winner is", caf_Golden_Boot, "with", caf_GBN, "Goals")
+    print("\nThe CAF Golden Playmaker Winner is", caf_Golden_Playmaker, "with", caf_GPN, "Assists")
+
+    input("\nEnd of CAF qualifiers, press enter to continue to the next Confederation: ")
+
+    return player_data, nation_data, pot_data, awards_data
