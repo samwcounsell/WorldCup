@@ -6,6 +6,8 @@ n = random.randint(0, 20)
 
 host = possible_hosts.loc[n, 'Country']
 
+host = 'Japan'
+
 host_df = possible_hosts.iloc[n:n + 1, :]
 
 def host_selector():

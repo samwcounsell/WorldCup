@@ -4,7 +4,8 @@ import pandas as pd
 import time
 import random
 import sys
-from Commentary import goal, prematch
+from Commentary import goal, prematch, prefinal
+from playsound import playsound
 
 # Commented
 def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2):
@@ -58,6 +59,8 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
 
                 # Randomises goal scorer/assister based on their attack rating relative to the rest of their team
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
 
                 # Printing out the updated score
@@ -76,6 +79,8 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
                 if leg == 1:
                     print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1, " - ", goals2, team2)
@@ -133,6 +138,8 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
             if sum(Ber1) == 1:
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
                 if leg == 1:
                     print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1, " - ", goals2, team2)
@@ -146,6 +153,8 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
                 if leg == 1:
                     print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1, " - ", goals2, team2)
@@ -170,7 +179,7 @@ def match_simulation_30(leg, time_delay, player_data, team1, team2, a1, d1, a2, 
     return player_data, goals1, goals2
 
 
-def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
+def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage):
     p1 = 0.014 * (a1 / d2)
     p2 = 0.014 * (a2 / d1)
 
@@ -188,8 +197,10 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
     goals1 = 0
     goals2 = 0
 
-    # print("\n")
-    prematch()
+    if final_stage == 'Y':
+        prefinal()
+    else:
+        prematch()
 
     print(team1, "v", team2, "\n")
 
@@ -204,6 +215,8 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
             if sum(Ber1) == 1:
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
 
                 print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1, " - ", goals2, team2)
@@ -220,6 +233,8 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2):
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
 
                 print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1, " - ", goals2, team2)
@@ -267,6 +282,8 @@ def match_simulation_30_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2
             if sum(Ber1) == 1:
                 line = goal()
                 player = (random.choices(player_list1, weights=attack_list1, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list1, weights=assist_list1, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1 + et_goals1, " - ",
                       goals2 + et_goals2, team2)
@@ -282,6 +299,8 @@ def match_simulation_30_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2
             if sum(Ber2) == 1:
                 line = goal()
                 player = (random.choices(player_list2, weights=attack_list2, k=1))
+                if player == 'Sebastian Giovinco':
+                    playsound('giovinco.mp3')
                 assister = (random.choices(player_list2, weights=assist_list2, k=1))
                 print("GOAL!", ','.join(player), i, "'", "Score: ", team1, goals1 + et_goals1, " - ",
                       goals2 + et_goals2, team2)
