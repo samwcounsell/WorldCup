@@ -7,7 +7,6 @@ from OFC import ofc
 from UEFA import uefa
 from Round_Simulation import TLKO_simulation, TLKO_simulation_wc_16, TLKO_simulation_wc_late, WorldCupGroupStage
 from Group_Draws import GD4
-from playsound import playsound
 
 import pandas as pd
 import time
