@@ -9,6 +9,7 @@ from Round_Simulation import TLKO_simulation, TLKO_simulation_wc_16, TLKO_simula
 from Group_Draws import GD4
 
 import pandas as pd
+import time
 
 # Pre-World Cup data-sets, settings and the Inter-Continental Playoff
 
@@ -303,6 +304,13 @@ finalists = finalists.drop(['index'], axis=1)
 # Add printing the final
 
 input("Press enter to continue to Match Day: ")
+
+finalist1, finalist2 = finalists.loc[0, 'Country'], finalists.loc[1, 'Country']
+finalist_nations = [finalist1, finalist2]
+line_up1 = player_data[(player_data.Country == finalist1)]
+line_up2 = player_data[(player_data.Country == finalist2)]
+print("\n", line_up1.to_string(columns=['Position', 'ShirtNumber']), "\n\n", line_up2.to_string(columns=['Position', 'ShirtNumber']), "\n")
+time.sleep(time_delay * 5)
 
 # Running the Final
 player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, player_data, nation_data, finalists,

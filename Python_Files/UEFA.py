@@ -180,7 +180,7 @@ def uefa(time_delay, player_data, nation_data, awards_data, test):
     uefa_Golden_Playmaker = uefa_player_data.loc[0, 'Name']
     uefa_player_data = uefa_player_data.set_index('Name')
     uefa_GPN = uefa_player_data.loc[uefa_Golden_Playmaker, 'Assists']
-    
+
     # Updating the Award Winners database
     uefa_award_1 = uefa_Golden_Boot + " with " + str(uefa_GBN) + " Goals"
     uefa_award_2 = uefa_Golden_Playmaker + " with " + str(uefa_GPN) + " Assists"
