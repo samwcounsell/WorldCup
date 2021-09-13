@@ -1,3 +1,8 @@
 Keane:
+Sergio Ramos too many goals
+Two leg knockout not printing final score accurately - only spits out
+Add group letter above table when output tables
+Nerf NZ?
+One leg game output result after full time wrong way round?
 
 Sam:
