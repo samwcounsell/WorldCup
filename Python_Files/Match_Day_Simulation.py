@@ -5,7 +5,7 @@ import time
 import random
 import sys
 from Commentary import goal, prematch, prefinal, celebration
-from playsound import playsound
+# from playsound import playsound
 from pygame import mixer  # Load the popular external library
 
 # Commented
