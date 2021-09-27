@@ -23,5 +23,5 @@ Chapter 3: Mathematics behind the World Cup
   Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the proability that Estonia pulls off an incredible upset in this scenario (Win or Draw)?
   
   We can use that P{E >= I} = P{E - I >= 0), now given n = 90 is large we can apply the central limit theorem. 
-  In our example this leads to Z = -2.14, and using the tables we see that P{E >= I) = 0.162 or roughly a 1 in 60 chance of Estonia pulling off this miracle. 
+  In our example this leads to Z = -2.14, and using the tables we see that P{E >= I) = 0.0162 or roughly a 1 in 60 chance of Estonia pulling off this miracle. 
   Note: Currently Italy and Estonia have played 7 matches (Italy won all 7), which is too small a sample size to compare to the expected result in our simulation.
