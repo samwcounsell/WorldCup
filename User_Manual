@@ -14,7 +14,7 @@ Chapter 3: Mathematics behind the World Cup
   For a perfectly average team this gives an xGp90 of 1.26 goals.
   
   However every team is not equally talented, so this distribution has to be biased to favour better teams and vice versa, this is done by giving each team and attack and defense rating, these are both centred around 1.00 and range beween ~0.10 and ~1.90.
-  Team 1's attack rating is then divided by team 2's defense rating to give a multiplier on p, hence is one team has an attack of 1.50 and the other a defense of 0.50 we have p * (a1/d2) = 0.014 * (1.50/0.50) = 0.042.
+  Team 1's attack rating is then divided by team 2's defense rating to give a multiplier on p, hence if one team has an attack of 1.50 and the other a defense of 0.50 we have p * (a1/d2) = 0.014 * (1.50/0.50) = 0.042.
   This leads to team 1 having an xGp90 of 3.78 (0.042 * 90), which is what we might more realistically expect if a team such as Italy played a nation like Estonia.
   Choosing to use a statistical distribution rather than pure calculation adds a standard deviation and therefore simulated randomness to each match, making it far more exciting to simulate multiple World Cups.
   
