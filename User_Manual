@@ -20,7 +20,7 @@ Chapter 3: Mathematics behind the World Cup
   
   Taking our example further let us give d1 = 1.50 and a2 = 0.75, now we have the xGp90 of team 2 = 90 * 0.014 * (0.75/1.50) = 0.63. 
   
-  Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the proability that North Macedonia pulls off an incredible upset in this scenario (Win or Draw)?
+  Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the proability that Estonia pulls off an incredible upset in this scenario (Win or Draw)?
   
   We can use that P{E >= I} = P{E - I >= 0), now given n = 90 is large we can apply the central limit theorem. 
   In our example this leads to Z = -2.14, and using the tables we see that P{E >= I) = 0.162 or roughly a 1 in 60 chance of Estonia pulling off this miracle. 
