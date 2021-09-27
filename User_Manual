@@ -1,1 +1,27 @@
+Welcome to the Python World Cup User Manual
 
+Chapter 1: World_Cup_Simulation
+Chapter 2: Dash_App
+Chapter 3: Mathematics behind the World Cup
+
+Chapter 3: Mathematics behind the World Cup
+
+3.0 The Binomial Distribution:
+  
+  The binomial distributoin is made up of n individual Bernoulli trials (imagine a coin toss but where the proability, denoted p, of a heads can be anything you choose). 
+  
+  This produces an expected value of n*p, in our case we set n = 90 (one Bernoulli trial each minute), and give a standard p = 0.014, this value comes from the average goals scored in a match divided by 2 (for each team), then by 90 (for each minute).
+  For a perfectly average team this gives an xGp90 of 1.26 goals.
+  
+  However every team is not equally talented, so this distribution has to be biased to favour better teams and vice versa, this is done by giving each team and attack and defense rating, these are both centred around 1.00 and range beween ~0.10 and ~1.90.
+  Team 1's attack rating is then divided by team 2's defense rating to give a multiplier on p, hence is one team has an attack of 1.50 and the other a defense of 0.50 we have p * (a1/d2) = 0.014 * (1.50/0.50) = 0.042.
+  This leads to team 1 having an xGp90 of 3.78 (0.042 * 90), which is what we might more realistically expect if a team such as Italy played a nation like Estonia.
+  Choosing to use a statistical distribution rather than pure calculation adds a standard deviation and therefore simulated randomness to each match, making it far more exciting to simulate multiple World Cups.
+  
+  Taking our example further let us give d1 = 1.50 and a2 = 0.75, now we have the xGp90 of team 2 = 90 * 0.014 * (0.75/1.50) = 0.63. 
+  
+  Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the proability that North Macedonia pulls off an incredible upset in this scenario (Win or Draw)?
+  
+  We can use that P{E >= I} = P{E - I >= 0), now given n = 90 is large we can apply the central limit theorem. 
+  In our example this leads to Z = -2.14, and using the tables we see that P{E >= I) = 0.162 or roughly a 1 in 60 chance of Estonia pulling off this miracle. 
+  Note: Currently Italy and Estonia have played 7 matches (Italy won all 7), which is too small a sample size to compare to the expected result in our simulation.
