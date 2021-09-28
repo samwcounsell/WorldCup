@@ -149,6 +149,7 @@ player_data, nation_data, group_names = WorldCupGroupStage(time_delay, player_da
 
 # Displaying the final group standings
 for i in range(8):
+    print("Group", alphabet[i])
     print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
           "\n")
 
