@@ -1,9 +1,13 @@
 Keane Ideas:
 Sergio Ramos too many goals (N)
 Two leg knockout not printing final score accurately - only spits out (Y)
-Add group letter above table when output tables (Y)
+Add group name above table when output tables (Y)
 Nerf NZ? (N)
 One leg game output result after full time wrong way round? (No idea)
+Add head to head record to sort groups
+Add loop and add results to data frame to please Samuel
+Remove result after full time - seems uneccessary - has errors when ET occurs
+Ensure only 2 UEFA in each group and no more than one of any other confederation
 
 Sam Ideas:
 
