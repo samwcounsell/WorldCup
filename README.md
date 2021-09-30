@@ -14,7 +14,7 @@
  #2.0 The Dash App: After running the World Cup, run the Dash_App file in the other folder, you should see your three custom csv's that have saved and you will be able to use this app to do a deep dive into the intricacies of your personal simulation.
 
 # Known Issues:
-  # UEFA qualifying uses the nations league, this has not been added yet so we use a second round of group stages to select the final two teams to qualify from UEFA.
+  #1.0 UEFA qualifying uses the nations league, this has not been added yet so we use a second round of group stages to select the final two teams to qualify from UEFA.
   
 # Please let us know of any more issues you find, we really appreciate any feedback.
   
