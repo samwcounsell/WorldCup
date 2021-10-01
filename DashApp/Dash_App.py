@@ -43,11 +43,11 @@ World_Cup_Nation_Data = World_Cup_Nation_Data.round(2)
 
 # Getting into the Plotly
 
-pio.templates.default = "ggplot2"
+ConfederationColours = ["plum", "slateblue", "magenta", "mediumorchid", "indigo", "darkturquoise"]
 
-tgfvtga = px.scatter(World_Cup_Nation_Data, x="total_GA", y="total_GF",
-                       color="Confederation",
-                       hover_name="Country", size_max=60)
+GFvGA = px.scatter(World_Cup_Nation_Data, x="total_GA", y="total_GF",
+                   color="Confederation", color_discrete_sequence=ConfederationColours,
+                   hover_name="Country", size_max=60)
 
 nd_table = go.Figure(data=[go.Table(
     header=dict(values=["Country", "Confederation", "P", "Total GF", "Total GA", "GF/G", "GA/G"],
@@ -119,9 +119,9 @@ award_table = go.Figure(data=[go.Table(
 
 external_stylesheets = ['https://codepen.io/anon/pen/mardKv.css']
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SANDSTONE])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 
-PAGE_SIZE = 10
+# PAGE_SIZE = 10
 
 app.layout = html.Div([
     dbc.Row(dbc.Col(html.H1("Python World Cup Analytics"),
@@ -130,9 +130,9 @@ app.layout = html.Div([
             ),
     dbc.Row(dbc.Col(html.P(
         "A Dashboard for you to explore the data produced in your World Cup Simulation, produced with Plotly Dash"),
-                    width={'size': 8, 'offset': 3},
-                    ),
-            ),
+        width={'size': 8, 'offset': 3},
+    ),
+    ),
 
     dbc.Row(dbc.Col(dcc.Graph(id="gva"),
                     width={'size': 12, 'offset': 0},
@@ -159,18 +159,18 @@ app.layout = html.Div([
 
     dbc.Row([
         dbc.Col(dcc.Graph(figure=wcgs_table, style={'display': 'inline-block'}),
-                width={'size': 6, 'offset': 0},
+                width=4,
                 ),
         dbc.Col(dcc.Graph(figure=wcas_table, style={'display': 'inline-block'}),
-                width=6,
+                width=4,
                 ),
         dbc.Col(dcc.Graph(figure=award_table, style={'display': 'inline-block'}),
-                width={'size': 6, 'offset': 0},
+                width=4,
                 ),
-        #need to add a fourth table for looks
+        # need to add a fourth table for looks
     ]),
 
-    dbc.Row(dbc.Col(dcc.Graph(figure=tgfvtga),
+    dbc.Row(dbc.Col(dcc.Graph(figure=GFvGA),
                     width={'size': 12, 'offset': 0},
                     ),
             ),
@@ -181,15 +181,12 @@ app.layout = html.Div([
             ),
 
     dbc.Row([
-        dbc.Col(dcc.Graph(figure=nd_table, style={'display': 'inline-block'}),
-                width={'size': 6, 'offset': 0},
+        dbc.Col(dcc.Graph(figure=nd_table, style={'width': '85vh', 'height': '100vh'}),
+                # style={'width': '220vh', 'height': '5000vh'},
                 ),
-        dbc.Col(dcc.Graph(figure=pd_table, style={'display': 'inline-block'}),
-                width=6,
+        dbc.Col(dcc.Graph(figure=pd_table, style={'width': '85vh', 'height': '100vh'}),
                 ),
     ]),
-
-    #dcc.Graph(figure=wcpd_table),
 
 ])
 
@@ -201,8 +198,9 @@ def update_bubble(slider_range):
     low, high = slider_range
     mask = (World_Cup_Player_Data['P'] > low) & (World_Cup_Player_Data['P'] < high)
     gva = px.scatter(World_Cup_Player_Data[mask], x="Assists_Per_Game", y="Goals_Per_Game",
-                     color="Confederation",
+                     color="Confederation", color_discrete_sequence=ConfederationColours,
                      hover_name="Name", size_max=60)
     return gva
+
 
 app.run_server(debug=True)
