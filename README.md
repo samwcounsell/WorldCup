@@ -1,6 +1,6 @@
 # WorldCup ReadMe
 
-Welcome to the Python World Cup made by samwcounsell and githubkeano.
+Welcome to the Python World Cup made by [samwcounsell](https://github.com/samwcounsell/) and [githubkeano](https://github.com/githubkeano/).
 
 This programme uses a binomial simulation to predict the outcome of the World Cup Qualifiers and tournament. 
 Every nations ratings and squads are our choices, so expect some weird outcomes, we don't know as much as we wish we did...
