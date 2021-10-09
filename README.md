@@ -36,7 +36,7 @@ Run the `World_Cup_Simulation.py` file, when asked if this is a test we reccomen
 
 ```bash
 cd Python_Files
-python World_Cup_Cimulation.py
+python World_Cup_Simulation.py
 ```
 
 ## 2.0 The Dash App:
