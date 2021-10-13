@@ -1,13 +1,5 @@
-Welcome to the Python World Cup User Manual
+1.0 The Binomial Distribution (The Match Engine)
 
-Chapter 1: World_Cup_Simulation
-Chapter 2: Dash_App
-Chapter 3: Mathematics behind the World Cup
-
-Chapter 3: Mathematics behind the World Cup
-
-3.0 The Binomial Distribution:
-  
   The binomial distributoin is made up of n individual Bernoulli trials (imagine a coin toss but where the proability, denoted p, of a heads can be anything you choose). 
   
   This produces an expected value of n*p, in our case we set n = 90 (one Bernoulli trial each minute), and give a standard p = 0.014, this value comes from the average goals scored in a match divided by 2 (for each team), then by 90 (for each minute).
