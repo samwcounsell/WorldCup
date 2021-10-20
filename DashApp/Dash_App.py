@@ -1,14 +1,11 @@
 import pandas as pd
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import dash_table
+from dash import dcc
+from dash import html
 import plotly.graph_objects as go
 import plotly.express as px
 from dash.dependencies import Input, Output
-import plotly.io as pio
 import dash_bootstrap_components as dbc
-import math
 
 # Reading in the data frames from the World_Cup_Simulation
 World_Cup_Player_Data = pd.read_csv('Player_Data_Set.csv')
