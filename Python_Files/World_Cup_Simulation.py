@@ -6,7 +6,7 @@ from CONMEBOL import conmebol
 from OFC import ofc
 from UEFA import uefa
 from Round_Simulation import TLKO_simulation, TLKO_simulation_wc_16, TLKO_simulation_wc_late, WorldCupGroupStage
-from Group_Draws import GD4
+from Group_Draws import GD4, WorldCupDraw
 
 import pandas as pd
 import time
@@ -138,11 +138,19 @@ pot4 = pot4.sample(frac=1)
 world_cup_teams = pd.concat([pot1, pot2, pot3, pot4])
 
 # Drawing the groups, and displaying them
+#for i in range(8):
+    #group_names[i] = GD4(i, 8, world_cup_teams)
+    #print("\nGroup", alphabet[i])
+    #print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
+    #      "\n")
+
+# New Group Draw
+print(world_cup_teams)
+group_names = WorldCupDraw(world_cup_teams)
 for i in range(8):
-    group_names[i] = GD4(i, 8, world_cup_teams)
     print("\nGroup", alphabet[i])
     print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
-          "\n")
+    "\n")
 
 # Running the group stage
 player_data, nation_data, group_names = WorldCupGroupStage(time_delay, player_data, nation_data, group_names)
