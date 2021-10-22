@@ -7,6 +7,7 @@ def conmebol(time_delay, player_data, nation_data, awards_data):
 
     pot_data = pd.read_csv("CONMEBOL.csv")
     pot_data = pot_data.sort_values(by=['World_Rank'])
+    print(pot_data)
 
     conmebol_hosts = ["Brazil", "Argentina"]
     host, host_df = host_selector()
