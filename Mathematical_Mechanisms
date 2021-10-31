@@ -1,6 +1,6 @@
 1.0 The Binomial Distribution (The Match Engine)
 
-  The binomial distributoin is made up of n individual Bernoulli trials (imagine a coin toss but where the proability, denoted p, of a heads can be anything you choose). 
+  The binomial distribution is made up of n individual Bernoulli trials (imagine a coin toss but where the probability, denoted p, of a heads can be anything you choose). 
   
   This produces an expected value of n*p, in our case we set n = 90 (one Bernoulli trial each minute), and give a standard p = 0.014, this value comes from the average goals scored in a match divided by 2 (for each team), then by 90 (for each minute).
   For a perfectly average team this gives an xGp90 of 1.26 goals.
@@ -12,7 +12,7 @@
   
   Taking our example further let us give d1 = 1.50 and a2 = 0.75, now we have the xGp90 of team 2 = 90 * 0.014 * (0.75/1.50) = 0.63. 
   
-  Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the proability that Estonia pulls off an incredible upset in this scenario (Win or Draw)?
+  Now imagine again team 1 is Italy (denoted I), team 2 is Estonia (denoted E), what is the probability that Estonia pulls off an incredible upset in this scenario (Win or Draw)?
   
   We can use that P{E >= I} = P{E - I >= 0), now given n = 90 is large we can apply the central limit theorem. 
   In our example this leads to Z = -2.14, and using the tables we see that P{E >= I) = 0.0162 or roughly a 1 in 60 chance of Estonia pulling off this miracle. 
