@@ -7,7 +7,7 @@ from Group_Draws import GD5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc_f(time_delay, player_data, nation_data, awards_data, test, runs):
+def afc_f(time_delay, player_data, nation_data, awards_data, test, runs, host):
 
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
@@ -18,7 +18,7 @@ def afc_f(time_delay, player_data, nation_data, awards_data, test, runs):
 
     # Listing possible AFC hosts, then calling the host nation
     AFChosts = ["China", "India", "Japan", "Qatar", "South Korea", "Saudi Arabia", "Australia"]
-    host, hostdf = host_selector()
+    #host, hostdf = host_selector()
 
     # Pulling last 12 teams to play in round 1, then removing them from the main data set
     round1 = afc_data.iloc[34:46]

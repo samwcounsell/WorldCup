@@ -8,11 +8,11 @@ from Round_Simulation import TLKO_simulation, GRP4HA
 from Group_Draws import GD4
 
 
-def caf_f(time_delay, player_data, nation_data, awards_data, test, runs):
+def caf_f(time_delay, player_data, nation_data, awards_data, test, runs, host):
     from Host import host_selector
 
     CAFhosts = ["South Africa", "Egypt", "Morocco"]
-    host, hostdf = host_selector()
+    #host, hostdf = host_selector()
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 

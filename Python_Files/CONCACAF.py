@@ -3,14 +3,14 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
 from Group_Draws import GD5
 
 
-def concacaf_f(time_delay, player_data, nation_data, awards_data, test, runs):
+def concacaf_f(time_delay, player_data, nation_data, awards_data, test, runs, host):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
     pot_data = pd.read_csv("CONCACAF.csv")
     CONCACAFhosts = ["Mexico", "USA"]
-    host, hostdf = host_selector()
+    #host, hostdf = host_selector()
 
     round1 = pot_data.iloc[5:36]
     top5 = pot_data.iloc[:5, :]

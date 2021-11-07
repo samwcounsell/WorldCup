@@ -2,7 +2,7 @@ import pandas as pd
 from Round_Simulation import CONMEBOL
 
 
-def conmebol_f(time_delay, player_data, nation_data, awards_data, runs):
+def conmebol_f(time_delay, player_data, nation_data, awards_data, runs, host):
     from Host import host_selector
 
     pot_data = pd.read_csv("CONMEBOL.csv")
@@ -10,7 +10,7 @@ def conmebol_f(time_delay, player_data, nation_data, awards_data, runs):
     print(pot_data)
 
     conmebol_hosts = ["Brazil", "Argentina"]
-    host, host_df = host_selector()
+    #host, host_df = host_selector()
 
     group = pot_data
     print("\n", group.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False), "\n")

@@ -3,15 +3,14 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
 from Group_Draws import GD5, GD6
 
 
-def uefa_f(time_delay, player_data, nation_data, awards_data, test, runs):
+def uefa_f(time_delay, player_data, nation_data, awards_data, test, runs, host):
     from Host import host_selector
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
     pot = pd.read_csv("UEFA.csv")
 
     UEFAhosts = ["France", "England", "Spain", "Italy", "Germany", "Russia"]
-    host, hostdf = host_selector()
-    print(host)
+    #host, hostdf = host_selector()
 
     if host in UEFAhosts:
         pot = pot[pot.Country != host]

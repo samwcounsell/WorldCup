@@ -22,8 +22,10 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 # Importing data collecting datasets
-complete_player_data = pd.read_csv("empty_player_data.csv")
-complete_nation_data = pd.read_csv("empty_nation_data.csv")
+complete_player_data = pd.read_csv("Empty_Player_Data.csv")
+complete_nation_data = pd.read_csv("Empty_Nation_Data.csv")
+
+complete_nation_data = complete_nation_data.set_index("Country")
 
 # Welcome to the world cup
 print("\nWelcome to the Python World Cup, produced by Samwcounsell & Githubkeano\n")
@@ -75,16 +77,17 @@ for i in range(runs):
         input("\nPress enter to continue to the World Cup Qualifiers: ")
 
     # Running all the World Cup Qualifiers from their respective functions
-    player_data, nation_data, afc, ict1, awards_data = afc_f(time_delay, player_data, nation_data, awards_data, test, runs)
-    player_data, nation_data, caf, awards_data = caf_f(time_delay, player_data, nation_data, awards_data, test, runs)
+    player_data, nation_data, afc, ict1, awards_data = afc_f(time_delay, player_data, nation_data, awards_data, test, runs, host)
+    player_data, nation_data, caf, awards_data = caf_f(time_delay, player_data, nation_data, awards_data, test, runs, host)
     player_data, nation_data, concacaf, ict2, awards_data = concacaf_f(time_delay, player_data, nation_data, awards_data,
-                                                                     test, runs)
-    player_data, nation_data, conmebol, ict3, awards_data = conmebol_f(time_delay, player_data, nation_data, awards_data, runs)
+                                                                     test, runs, host)
+    player_data, nation_data, conmebol, ict3, awards_data = conmebol_f(time_delay, player_data, nation_data, awards_data, runs, host)
     player_data, nation_data, ict4, awards_data = ofc_f(time_delay, player_data, nation_data, awards_data, test, runs)
-    player_data, nation_data, uefa, awards_data = uefa_f(time_delay, player_data, nation_data, awards_data, test, runs)
+    player_data, nation_data, uefa, awards_data = uefa_f(time_delay, player_data, nation_data, awards_data, test, runs, host)
 
     # Joining all the qualified teams
     teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
+    print(teams)
 
     # Joining all the teams for the intercontinental playoffs
     ict = pd.concat([ict1, ict2, ict3, ict4])
@@ -129,6 +132,13 @@ for i in range(runs):
     # Resetting the data for the group stages
     world_cup_teams = teams
     world_cup_teams[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
+
+    # Adding data
+    wct = world_cup_teams['Country'].to_numpy()
+    print(wct)
+    l = len(wct)
+    for i in range(l):
+        complete_nation_data.loc[wct[i], "World_Cup_Apps"] = complete_nation_data.loc[wct[i], "World_Cup_Apps"] + 1
 
     # Customise your time delay (each time unit is one minute within a game)
     if runs == 1:
@@ -181,6 +191,12 @@ for i in range(runs):
 
     round_of_16 = world_cup_teams.iloc[32:48, :]
 
+    # Adding data
+    ro16t = round_of_16['Country'].to_numpy()
+    l = len(ro16t)
+    for i in range(l):
+        complete_nation_data.loc[ro16t[i], "RO16_Apps"] = complete_nation_data.loc[ro16t[i], "RO16_Apps"] + 1
+
     print("\nQUALIFIED FOR THE ROUND OF 16")
     print("\n", round_of_16.to_string(columns=['Country', 'World_Rank'], index=False))
 
@@ -229,6 +245,12 @@ for i in range(runs):
     quarter_finalists = round_of_16.iloc[16:24]
     print("\n", quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
+    # Adding data
+    qft = quarter_finalists['Country'].to_numpy()
+    l = len(qft)
+    for i in range(l):
+        complete_nation_data.loc[qft[i], "QF_Apps"] = complete_nation_data.loc[qft[i], "QF_Apps"] + 1
+
     # Customise your time delay (each time unit is one minute within a game)
     if runs == 1:
         while True:
@@ -274,6 +296,11 @@ for i in range(runs):
     semi_finalists = quarter_finalists.iloc[8:12]
     print("\n", semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
+    sft = semi_finalists['Country'].to_numpy()
+    l = len(sft)
+    for i in range(l):
+        complete_nation_data.loc[sft[i], "SF_Apps"] = complete_nation_data.loc[sft[i], "SF_Apps"] + 1
+
     # Customise your time delay (each time unit is one minute within a game)
     if runs == 1:
         while True:
@@ -310,6 +337,11 @@ for i in range(runs):
     # Collating the 2 teams qualified for the next round, then displaying them
     finalists = semi_finalists.iloc[4:6]
     print("\n", finalists.to_string(columns=['Country', 'World_Rank'], index=False))
+
+    ft = finalists['Country'].to_numpy()
+    l = len(ft)
+    for i in range(l):
+        complete_nation_data.loc[ft[i], "Finals_Apps"] = complete_nation_data.loc[ft[i], "Finals_Apps"] + 1
 
     # Customise your time delay (each time unit is one minute within a game)
     if runs == 1:
@@ -352,11 +384,20 @@ for i in range(runs):
     champion = champion.loc[0, 'Country']
     print("The World Cup Winner is", champion)
 
-    print(nation_data)
-    print(player_data)
+    complete_nation_data.loc[champion, "World_Cup_Wins"] = complete_nation_data.loc[champion, "World_Cup_Wins"] + 1
+
+    player_data = player_data.reset_index()
+    nation_data = nation_data.reset_index()
 
     # Adding data to complete datasets
-    complete_player_data['Total_P'], complete_player_data['Total_Goals'], complete_player_data['Total_Assists'] = complete_player_data['Total_P'] + player_data['P'], complete_player_data['Total_Goals'] + player_data['Goals'], complete_player_data['Total_Assists'] + player_data['Assists']
+    complete_player_data['Total_P'] = complete_player_data['Total_P'].add(player_data['P'], fill_value=0)
+    complete_player_data['Total_Goals'] = complete_player_data['Total_Goals'].add(player_data['Goals'], fill_value=0)
+    complete_player_data['Total_Assists'] = complete_player_data['Total_Assists'].add(player_data['Assists'], fill_value=0)
+
+    complete_player_data['Total_WC_P'] = complete_player_data['Total_WC_P'].add(player_data['WC_P'], fill_value=0)
+    complete_player_data['Total_WC_Goals'] = complete_player_data['Total_WC_Goals'].add(player_data['WC_Goals'], fill_value=0)
+    complete_player_data['Total_WC_Assists'] = complete_player_data['Total_WC_Assists'].add(player_data['WC_Assists'],
+                                                                                      fill_value=0)
 
     # The Awards
 
@@ -392,10 +433,11 @@ for i in range(runs):
     print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
     print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
 
-    # Adding data to complete datasets
-    complete_player_data['']
+
 
 # Exporting data sets for the Dash App
 player_data.to_csv('../DashApp/Player_Data_Set.csv')
 nation_data.to_csv('../DashApp/Nation_Data_Set.csv')
 awards_data.to_csv('../DashApp/Award_Data_Set.csv')
+
+complete_nation_data.to_csv('../DashApp/CND_Data_Set.csv')
