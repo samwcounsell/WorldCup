@@ -73,7 +73,9 @@ def caf(time_delay, player_data, nation_data, awards_data, test):
             input("Press enter to continue: ")
 
     pot_data = pot_data.iloc[40:, :]
-    print(pot_data.to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False))
+
+    print("\nNATIONS QUALIFIED FOR FINAL ROUND OF CAF QUALIFYING")
+    print("\n", pot_data.to_string(columns=['Country'], index=False, header=False), "\n")
 
     print("ROUND 3\n")
 

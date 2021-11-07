@@ -39,9 +39,9 @@ def match_simulation(leg, time_delay, player_data, team1, team2, a1, d1, a2, d2)
     prematch()
 
     if leg == 1:
-        print(team1, "v", team2, "\n")
+        print("KICK OFF", team1, "v", team2, "\n")
     if leg == 2:
-        print(team2, "v", team1, "\n")
+        print("KICK OFF", team2, "v", team1, "\n")
 
     for i in range(90):
         time.sleep(time_delay)
@@ -176,7 +176,7 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, f
     p1 = 0.014 * (a1 / d2)
     p2 = 0.014 * (a2 / d1)
 
-    print("\nKICK OFF\n")
+    # print("\nKICK OFF\n")
 
     team1player_data = player_data[(player_data.Country == team1)]
     team2player_data = player_data[(player_data.Country == team2)]
@@ -195,7 +195,7 @@ def match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, f
     else:
         prematch()
 
-    print(team1, "v", team2, "\n")
+    print("KICK OFF", team1, "v", team2, "\n")
 
     for i in range(90):
         time.sleep(time_delay)

@@ -18,6 +18,7 @@ World_Cup_Award_Data = pd.read_csv('Award_Data_Set.csv')
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
+# Calculating statistics from the World Cup
 World_Cup_Player_Data = World_Cup_Player_Data.sort_values(by=['Goals'], ascending=False)
 World_Cup_Player_Data['Goals_Per_Game'] = World_Cup_Player_Data['Goals'] / World_Cup_Player_Data['P']
 World_Cup_Player_Data['Assists_Per_Game'] = World_Cup_Player_Data['Assists'] / World_Cup_Player_Data['P']
@@ -39,7 +40,6 @@ World_Cup_Player_Data = World_Cup_Player_Data.round(2)
 World_Cup_Nation_Data = World_Cup_Nation_Data.round(2)
 
 # Getting into the Plotly
-
 ConfederationColours = ["plum", "slateblue", "magenta", "mediumorchid", "indigo", "darkturquoise"]
 
 GFvGA = px.scatter(World_Cup_Nation_Data, x="total_GA", y="total_GF",
@@ -70,25 +70,21 @@ pd_table = go.Figure(data=[go.Table(
 
 wcpd_table = go.Figure(data=[go.Table(
     header=dict(values=["Name", "Country", "Position", "Games Played", "Goals", "Assists"],
-                # fill_color='paleturquoise',
                 align='left'),
     cells=dict(
         values=[Finals_Player_Data.Name, Finals_Player_Data.Country, Finals_Player_Data.Position,
                 Finals_Player_Data.WC_P,
                 Finals_Player_Data.WC_Goals, Finals_Player_Data.WC_Assists],
-        # fill_color='lavender',
         align='left'))
 ])
 
 wcgs_table = go.Figure(data=[go.Table(
     header=dict(values=["Name", "Country", "Position", "Games Played", "Goals"],
-                # fill_color='paleturquoise',
                 align='left'),
     cells=dict(
         values=[Goal_Data.Name, Goal_Data.Country, Goal_Data.Position,
                 Goal_Data.WC_P,
                 Goal_Data.WC_Goals],
-        # fill_color='lavender',
         align='left'))
 ])
 
@@ -114,12 +110,12 @@ award_table = go.Figure(data=[go.Table(
 
 #######
 
+# Downloading the styles for the app and defining the app
 external_stylesheets = ['https://codepen.io/anon/pen/mardKv.css']
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 
-# PAGE_SIZE = 10
-
+# Layout for the Dash App
 app.layout = html.Div([
     dbc.Row(dbc.Col(html.H1("Python World Cup Analytics"),
                     width={'size': 6, 'offset': 4},
@@ -164,7 +160,6 @@ app.layout = html.Div([
         dbc.Col(dcc.Graph(figure=award_table, style={'display': 'inline-block'}),
                 width=4,
                 ),
-        # need to add a fourth table for looks
     ]),
 
     dbc.Row(dbc.Col(dcc.Graph(figure=GFvGA),
@@ -179,7 +174,6 @@ app.layout = html.Div([
 
     dbc.Row([
         dbc.Col(dcc.Graph(figure=nd_table, style={'width': '85vh', 'height': '100vh'}),
-                # style={'width': '220vh', 'height': '5000vh'},
                 ),
         dbc.Col(dcc.Graph(figure=pd_table, style={'width': '85vh', 'height': '100vh'}),
                 ),
@@ -187,7 +181,7 @@ app.layout = html.Div([
 
 ])
 
-
+# App callback, updates the app when user changes graph settings
 @app.callback(
     Output("gva", "figure"),
     [Input("range-slider", "value")])

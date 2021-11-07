@@ -33,11 +33,11 @@ print("For your second run through feel free to answer Y to is this a test, you 
 print("\nWe hope you enjoy a relatively realistic run through of the 2022 World Cup\n")
 
 # For developers
-test = input("For Developers: Is this a test Y/N: ")
+test = input("Would you like a quick run through (only stops at end of each confederation)? Y/N: ")
 
 # Customise your time delay (each time unit is one minute within a game)
 if test != "Y":
-    td = input("\nChoose your time delay for the Qualifiers (0 - 0.1 recommended): ")
+    td = input("\nChoose your time delay for the Qualifiers (0 recommended): ")
     time_delay = float(td)
 else:
     time_delay = 0
@@ -91,7 +91,7 @@ print("\nThe Inter-continental Playoff")
 # Displaying the Inter-continental Playoff fixtures
 for a in range(2):
     team1, team2 = ict.loc[2 * a, 'Country'], ict.loc[2 * a + 1, 'Country']
-    print("\nIntercontinental Playoff Match ", a + 1, ":", team1, "v", team2)
+    print("\nIntercontinental Playoff Match", a + 1, ":", team1, "v", team2)
 
 input("\nPress enter to continue to Match Day: \n")
 
@@ -136,13 +136,6 @@ pot3 = pot3.sample(frac=1)
 pot4 = pot4.sample(frac=1)
 
 world_cup_teams = pd.concat([pot1, pot2, pot3, pot4])
-
-# Drawing the groups, and displaying them
-#for i in range(8):
-    #group_names[i] = GD4(i, 8, world_cup_teams)
-    #print("\nGroup", alphabet[i])
-    #print("\n", group_names[i].to_string(columns=['Country', 'P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts'], index=False),
-    #      "\n")
 
 # New Group Draw
 print(world_cup_teams)
@@ -311,13 +304,13 @@ finalists = finalists.drop(['index'], axis=1)
 
 # Add printing the final
 
-input("Press enter to continue to Match Day: ")
+input("Press enter to continue to Match Day, lets see the line ups for the World Cup Final: ")
 
 finalist1, finalist2 = finalists.loc[0, 'Country'], finalists.loc[1, 'Country']
 finalist_nations = [finalist1, finalist2]
 line_up1 = player_data[(player_data.Country == finalist1)]
 line_up2 = player_data[(player_data.Country == finalist2)]
-print("\n", line_up1.to_string(columns=['Position', 'ShirtNumber']), "\n\n", line_up2.to_string(columns=['Position', 'ShirtNumber']), "\n")
+print("\n", line_up1.to_string(columns=['Position', 'ShirtNumber'], header=False), "\n\n", line_up2.to_string(columns=['Position', 'ShirtNumber'], header=False), "\n")
 time.sleep(time_delay * 5)
 
 # Running the Final
@@ -362,9 +355,6 @@ awards_data.at['Golden Playmaker'] = WC_award_2
 # Post World Cup Text
 print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
 print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
-
-print("\nIn Development: A DashApp to display all the data from your World Cup simulation")
-print("If you select the Dash_App file in the DashApp folder it will generate a link to the application")
 
 # Exporting data sets for the Dash App
 player_data.to_csv('../DashApp/Player_Data_Set.csv')

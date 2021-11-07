@@ -1,8 +1,9 @@
 import pandas as pd
 import random
 
-
+# Function for simple group draws
 def GD4(i, n, df):
+    # Since pot shuffling is done before function we can just draw one team from each pot straight into the n groups
     a = df.iloc[[i, i + n, i + (2 * n), i + (3 * n)], :]
     a = a.set_index([pd.Index([0, 1, 2, 3]), ])
     return a
@@ -20,6 +21,7 @@ def GD6(i, n, df):
     return a
 
 
+# Function for correctly drawing the World Cup groups
 def WorldCupDraw(df):
     complete1, complete2, complete3 = 0, 0, 0
 
@@ -44,8 +46,7 @@ def WorldCupDraw(df):
 
             print(complete1)
 
-            # This loop tries to draw all the teams without breaking the constraints
-            # While loop keeps trying until it has been successful
+            # This loop tries to draw all the teams without breaking the constraints until it has been successful
             while complete1 == 0:
 
                 try:
@@ -68,7 +69,7 @@ def WorldCupDraw(df):
                         while s1 == 0:
 
                             # Setting n equal to the jth element of r2. This means each time j increases we try to
-                            # draw the team into the next group available that hasn't been tried before
+                            # draw the team into the next group available
                             n = r2[j]
 
                             # Checking list of confederations already in the group
