@@ -2,7 +2,7 @@ import pandas as pd
 from Round_Simulation import CONMEBOL
 
 
-def conmebol(time_delay, player_data, nation_data, awards_data):
+def conmebol_f(time_delay, player_data, nation_data, awards_data):
     from Host import host_selector
 
     pot_data = pd.read_csv("CONMEBOL.csv")

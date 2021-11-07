@@ -3,7 +3,7 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
 from Group_Draws import GD5
 
 
-def concacaf(time_delay, player_data, nation_data, awards_data, test):
+def concacaf_f(time_delay, player_data, nation_data, awards_data, test):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]

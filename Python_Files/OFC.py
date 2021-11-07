@@ -6,7 +6,7 @@ import random
 import sys
 from Round_Simulation import GRP5, GRP6HA, TLKO_simulation
 
-def ofc(time_delay, player_data, nation_data, awards_data, test):
+def ofc_f(time_delay, player_data, nation_data, awards_data, test):
     pot_data = pd.read_csv("OFC.csv")
 
     print("\nWELCOME TO OFC WORLD CUP QUALIFYING\n")

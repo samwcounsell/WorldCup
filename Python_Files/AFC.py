@@ -7,7 +7,7 @@ from Group_Draws import GD5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc(time_delay, player_data, nation_data, awards_data, test):
+def afc_f(time_delay, player_data, nation_data, awards_data, test):
 
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
