@@ -2,7 +2,7 @@ import pandas as pd
 from Round_Simulation import CONMEBOL
 
 
-def conmebol_f(time_delay, player_data, nation_data, awards_data):
+def conmebol_f(time_delay, player_data, nation_data, awards_data, runs):
     from Host import host_selector
 
     pot_data = pd.read_csv("CONMEBOL.csv")
@@ -66,6 +66,7 @@ def conmebol_f(time_delay, player_data, nation_data, awards_data):
     print("\nThe CONMEBOL Golden Boot Winner is", conmebol_Golden_Boot, "with", conmebol_GBN, "Goals")
     print("\nThe CONMEBOL Golden Playmaker Winner is", conmebol_Golden_Playmaker, "with", conmebol_GPN, "Assists")
 
-    input("\nEnd of CONMEBOL qualifiers, press enter to continue to the next Confederation: ")
+    if runs == 1:
+        input("\nEnd of CONMEBOL qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, qualified, ict, awards_data

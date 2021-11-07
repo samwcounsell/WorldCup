@@ -18,7 +18,7 @@ def prematch():
     print("Today's attendance is", att, "\n")
 
 
-def prefinal():
+def prefinal(runs):
     from Host import host_selector
     host, hostdf = host_selector()
     a, b, c, link = stadium(host)
@@ -26,10 +26,10 @@ def prefinal():
     x = random.uniform(0.85, 1)
     att = round(b * x)
     print("Welcome to today's game here at the", a, "in", c, "\n")
-    input("Press enter to take a tour of the stadium: \n")
-    time.sleep(1)
-    webbrowser.open(link)
-    input("Now you have taken a tour of the stadium, press enter to continue: ")
+    if runs == 1:
+        input("Press enter to take a tour of the stadium: \n")
+        webbrowser.open(link)
+        input("Now you have taken a tour of the stadium, press enter to continue: ")
     print("Today's attendance is", att, "\n")
 
 
@@ -39,16 +39,18 @@ def goal():
     return line
 
 
-def celebration(player):
+def celebration(player, runs):
     # Easter Egg 1
-    if ''.join(player) == 'Sebastian Giovinco':
-        mixer.init()
-        mixer.music.load('AudioFiles/giovinco.mp3')
-        mixer.music.play()
-        time.sleep(12)
+    if runs == 1:
+        if ''.join(player) == 'Sebastian Giovinco':
+            mixer.init()
+            mixer.music.load('AudioFiles/giovinco.mp3')
+            mixer.music.play()
+            time.sleep(12)
 
-    if ''.join(player) == 'Krzystof Piatek':
-        mixer.init()
-        mixer.music.load('AudioFiles/piatek.mp3')
-        mixer.music.play()
-        time.sleep(2)
+    if runs == 1:
+        if ''.join(player) == 'Krzystof Piatek':
+            mixer.init()
+            mixer.music.load('AudioFiles/piatek.mp3')
+            mixer.music.play()
+            time.sleep(2)

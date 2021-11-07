@@ -7,7 +7,7 @@ from Group_Draws import GD5
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 
-def afc_f(time_delay, player_data, nation_data, awards_data, test):
+def afc_f(time_delay, player_data, nation_data, awards_data, test, runs):
 
     # Importing host inside function so as to not generate a new host
     from Host import host_selector
@@ -221,7 +221,8 @@ def afc_f(time_delay, player_data, nation_data, awards_data, test):
     print("\nThe AFC Golden Boot Winner is", AFC_Golden_Boot, "with", AFC_GBN, "Goals")
     print("\nThe AFC Golden Playmaker Winner is", AFC_Golden_Playmaker, "with", AFC_GPN, "Assists")
 
-    input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
+    if runs == 1:
+        input("\nEnd of AFC qualifiers, press enter to continue to the next Confederation: ")
 
     # Returns the team data for the qualified and ict team to the main world cup
     return player_data, nation_data, qualified, ict, awards_data

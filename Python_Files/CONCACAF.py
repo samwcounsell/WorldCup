@@ -3,7 +3,7 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP8HA
 from Group_Draws import GD5
 
 
-def concacaf_f(time_delay, player_data, nation_data, awards_data, test):
+def concacaf_f(time_delay, player_data, nation_data, awards_data, test, runs):
     from Host import host_selector
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
@@ -125,6 +125,7 @@ def concacaf_f(time_delay, player_data, nation_data, awards_data, test):
     print("\nThe CONCACAF Golden Boot Winner is", concacaf_Golden_Boot, "with", concacaf_GBN, "Goals")
     print("\nThe CONCACAF Golden Playmaker Winner is", concacaf_Golden_Playmaker, "with", concacaf_GPN, "Assists")
 
-    input("\nEnd of CONCACAF qualifiers, press enter to continue to the next Confederation: ")
+    if runs == 1:
+        input("\nEnd of CONCACAF qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, qualified, ict, awards_data

@@ -3,7 +3,7 @@ from Round_Simulation import TLKO_simulation, GRP5, GRP6HA
 from Group_Draws import GD5, GD6
 
 
-def uefa_f(time_delay, player_data, nation_data, awards_data, test):
+def uefa_f(time_delay, player_data, nation_data, awards_data, test, runs):
     from Host import host_selector
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -192,6 +192,7 @@ def uefa_f(time_delay, player_data, nation_data, awards_data, test):
     print("\nThe UEFA Golden Boot Winner is", uefa_Golden_Boot, "with", uefa_GBN, "Goals")
     print("\nThe UEFA Golden Playmaker Winner is", uefa_Golden_Playmaker, "with", uefa_GPN, "Assists")
 
-    input("\nEnd of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
+    if runs == 1:
+        input("\nEnd of UEFA qualifiers, press enter to continue to the Intercontinental Playoff: ")
 
     return player_data, nation_data, qualified, awards_data

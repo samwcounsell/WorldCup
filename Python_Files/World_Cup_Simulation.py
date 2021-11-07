@@ -37,15 +37,20 @@ runs = int(runs)
 
 for i in range(runs):
 
-    # For developers
-    test = input("Would you like a quick run through (only stops at end of each confederation)? Y/N: ")
+    if runs != 1:
+        time_delay = 0
+        test = "Y"
+
+    if runs == 1:
+        test = input("Would you like a quick run through (only stops at end of each confederation)? Y/N: ")
 
     # Customise your time delay (each time unit is one minute within a game)
-    if test != "Y":
-        td = input("\nChoose your time delay for the Qualifiers (0 recommended): ")
-        time_delay = float(td)
-    else:
-        time_delay = 0
+    if runs == 1:
+        if test != "Y":
+            td = input("\nChoose your time delay for the Qualifiers (0 recommended): ")
+            time_delay = float(td)
+        else:
+            time_delay = 0
 
     # Reading in the player and nation data, this is where data is also recorded
     player_data = pd.read_csv("player_data.csv")
@@ -62,16 +67,17 @@ for i in range(runs):
 
     print("\nThe 2022 World Cup will be hosted by", host)
 
-    input("\nPress enter to continue to the World Cup Qualifiers: ")
+    if runs == 1:
+        input("\nPress enter to continue to the World Cup Qualifiers: ")
 
     # Running all the World Cup Qualifiers from their respective functions
-    player_data, nation_data, afc, ict1, awards_data = afc_f(time_delay, player_data, nation_data, awards_data, test)
-    player_data, nation_data, caf, awards_data = caf_f(time_delay, player_data, nation_data, awards_data, test)
+    player_data, nation_data, afc, ict1, awards_data = afc_f(time_delay, player_data, nation_data, awards_data, test, runs)
+    player_data, nation_data, caf, awards_data = caf_f(time_delay, player_data, nation_data, awards_data, test, runs)
     player_data, nation_data, concacaf, ict2, awards_data = concacaf_f(time_delay, player_data, nation_data, awards_data,
-                                                                     test)
-    player_data, nation_data, conmebol, ict3, awards_data = conmebol_f(time_delay, player_data, nation_data, awards_data)
-    player_data, nation_data, ict4, awards_data = ofc_f(time_delay, player_data, nation_data, awards_data, test)
-    player_data, nation_data, uefa, awards_data = uefa_f(time_delay, player_data, nation_data, awards_data, test)
+                                                                     test, runs)
+    player_data, nation_data, conmebol, ict3, awards_data = conmebol_f(time_delay, player_data, nation_data, awards_data, runs)
+    player_data, nation_data, ict4, awards_data = ofc_f(time_delay, player_data, nation_data, awards_data, test, runs)
+    player_data, nation_data, uefa, awards_data = uefa_f(time_delay, player_data, nation_data, awards_data, test, runs)
 
     # Joining all the qualified teams
     teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
@@ -82,15 +88,16 @@ for i in range(runs):
     ict = ict.drop(['index'], axis=1)
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Inter-Continental Playoff (0 - 0.1 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Inter-Continental Playoff (0 - 0.1 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     print("\nThe Inter-continental Playoff")
 
@@ -99,7 +106,8 @@ for i in range(runs):
         team1, team2 = ict.loc[2 * a, 'Country'], ict.loc[2 * a + 1, 'Country']
         print("\nIntercontinental Playoff Match", a + 1, ":", team1, "v", team2)
 
-    input("\nPress enter to continue to Match Day: \n")
+    if runs == 1:
+        input("\nPress enter to continue to Match Day: \n")
 
     # Running the intercontinental playoff
     player_data, nation_data, ict = TLKO_simulation(2, time_delay, player_data, nation_data, ict, ict)
@@ -119,15 +127,16 @@ for i in range(runs):
     world_cup_teams[['P', 'W', 'D', 'L', 'GF', 'GA', 'GD', 'Pts']] = 0
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Group Stages (0 - 0.1 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Group Stages (0 - 0.1 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     # The World Cup
 
@@ -153,7 +162,7 @@ for i in range(runs):
               "\n")
 
     # Running the group stage
-    player_data, nation_data, group_names = WorldCupGroupStage(time_delay, player_data, nation_data, group_names)
+    player_data, nation_data, group_names = WorldCupGroupStage(time_delay, player_data, nation_data, group_names, runs)
 
     # Displaying the final group standings
     for i in range(8):
@@ -171,18 +180,20 @@ for i in range(runs):
     print("\nQUALIFIED FOR THE ROUND OF 16")
     print("\n", round_of_16.to_string(columns=['Country', 'World_Rank'], index=False))
 
-    input("\nEnd of the World Cup Group Stage, press enter to continue to the Round of 16: ")
+    if runs == 1:
+        input("\nEnd of the World Cup Group Stage, press enter to continue to the Round of 16: ")
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Round of 16 (0.1 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Round of 16 (0.1 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     print("\nTHE ROUND OF 16", "\n")
 
@@ -201,11 +212,12 @@ for i in range(runs):
 
         print("\nRound of 16 Match ", a + 1, ":", team1, "v", team2)
 
-    input("\nPress enter to continue to Match Day: \n")
+    if runs == 1:
+        input("\nPress enter to continue to Match Day: \n")
 
     # Running the Round of 16
     player_data, nation_data, round_of_16 = TLKO_simulation_wc_16(8, time_delay, player_data, nation_data, round_of_16,
-                                                                  round_of_16)
+                                                                  round_of_16, runs)
 
     print("QUALIFIED FOR THE QUARTER-FINALS")
 
@@ -214,15 +226,16 @@ for i in range(runs):
     print("\n", quarter_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Quarter-Finals (0.1 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Quarter-Finals (0.1 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     print("\nTHE QUARTER-FINALS")
 
@@ -244,12 +257,12 @@ for i in range(runs):
 
         print("\nQuarter-Final ", a + 1, ":", team1, "v", team2)
 
-    print()
-    input("Press enter to continue to Match Day: \n")
+    if runs == 1:
+        input("\nPress enter to continue to Match Day: \n")
 
     # Running the Quarter-Finals
     player_data, nation_data, quarter_finalists = TLKO_simulation_wc_late(4, time_delay, player_data, nation_data,
-                                                                          quarter_finalists, quarter_finalists)
+                                                                          quarter_finalists, quarter_finalists, runs)
 
     print("QUALIFIED FOR THE SEMI-FINALS")
 
@@ -258,15 +271,16 @@ for i in range(runs):
     print("\n", semi_finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Semi_Finals (0.1 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Semi_Finals (0.1 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     print("\nTHE SEMI-FINALS")
 
@@ -280,12 +294,12 @@ for i in range(runs):
         team1, team2 = semi_finalists.loc[x, 'Country'], semi_finalists.loc[y, 'Country']
         print("\nSemi-Final ", a + 1, ":", team1, "v", team2)
 
-    print()
-    input("Press enter to continue to Match Day: ")
+    if runs == 1:
+        input("\nPress enter to continue to Match Day: ")
 
     # Running the Semi-Finals
     player_data, nation_data, semi_finalists = TLKO_simulation_wc_late(2, time_delay, player_data, nation_data,
-                                                                       semi_finalists, semi_finalists)
+                                                                       semi_finalists, semi_finalists, runs)
 
     print("\nQUALIFIED FOR THE FINAL")
 
@@ -294,15 +308,16 @@ for i in range(runs):
     print("\n", finalists.to_string(columns=['Country', 'World_Rank'], index=False))
 
     # Customise your time delay (each time unit is one minute within a game)
-    while True:
-        td = input("\nChoose your time delay for the Final (0.2 recommended): ")
-        try:
-            val = float(td)
-            time_delay = float(td)
-            break
-        except ValueError:
-            print("\nAren't you cheeky, please enter a number...")
-            continue
+    if runs == 1:
+        while True:
+            td = input("\nChoose your time delay for the Final (0.2 recommended): ")
+            try:
+                val = float(td)
+                time_delay = float(td)
+                break
+            except ValueError:
+                print("\nAren't you cheeky, please enter a number...")
+                continue
 
     print("\nTHE WORLD CUP FINAL", "\n")
 
@@ -312,7 +327,8 @@ for i in range(runs):
 
     # Add printing the final
 
-    input("Press enter to continue to Match Day, lets see the line ups for the World Cup Final: ")
+    if runs == 1:
+        input("Press enter to continue to Match Day, lets see the line ups for the World Cup Final: ")
 
     finalist1, finalist2 = finalists.loc[0, 'Country'], finalists.loc[1, 'Country']
     finalist_nations = [finalist1, finalist2]
@@ -324,7 +340,7 @@ for i in range(runs):
 
     # Running the Final
     player_data, nation_data, finalists = TLKO_simulation_wc_late(1, time_delay, player_data, nation_data, finalists,
-                                                                  finalists)
+                                                                  finalists, runs)
 
     # Displaying the winner of the World Cup
     champion = finalists.iloc[2:3]
@@ -351,7 +367,8 @@ for i in range(runs):
     GPN = player_data.loc[Golden_Playmaker, 'WC_Assists']
 
     # Displaying the Award Winners
-    input("\n\n\nPress enter to continue the Awards: ")
+    if runs == 1:
+        input("\n\n\nPress enter to continue the Awards: ")
     print("\nThe Golden Boot Winner is", Golden_Boot, "with", GBN, "Goals")
     print("\nThe Golden Playmaker Winner is", Golden_Playmaker, "with", GPN, "Assists")
 
