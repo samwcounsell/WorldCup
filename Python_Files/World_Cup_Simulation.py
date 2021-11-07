@@ -21,6 +21,10 @@ group_names = ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F",
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
+# Importing data collecting datasets
+complete_player_data = pd.read_csv("empty_player_data.csv")
+complete_nation_data = pd.read_csv("empty_nation_data.csv")
+
 # Welcome to the world cup
 print("\nWelcome to the Python World Cup, produced by Samwcounsell & Githubkeano\n")
 print("This programme uses a binomial simulation to predict the outcome of the World Cup Qualifiers and Tournament")
@@ -348,6 +352,12 @@ for i in range(runs):
     champion = champion.loc[0, 'Country']
     print("The World Cup Winner is", champion)
 
+    print(nation_data)
+    print(player_data)
+
+    # Adding data to complete datasets
+    complete_player_data['Total_P'], complete_player_data['Total_Goals'], complete_player_data['Total_Assists'] = complete_player_data['Total_P'] + player_data['P'], complete_player_data['Total_Goals'] + player_data['Goals'], complete_player_data['Total_Assists'] + player_data['Assists']
+
     # The Awards
 
     # Ordering data frame for the Golden Boot winner
@@ -381,6 +391,9 @@ for i in range(runs):
     # Post World Cup Text
     print("\n\n\nWe hope you enjoyed using the Python World Cup, feel free to run it again.")
     print("\nFeel free to send us any feature requests, or tell us about any issues you find on GitHub")
+
+    # Adding data to complete datasets
+    complete_player_data['']
 
 # Exporting data sets for the Dash App
 player_data.to_csv('../DashApp/Player_Data_Set.csv')
