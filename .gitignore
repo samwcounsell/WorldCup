@@ -3,6 +3,8 @@
 DashApp/Player_Data_Set.csv
 DashApp/Nation_Data_Set.csv
 DashApp/Award_Data_Set.csv
+DashApp/CPD_Data_Set.csv
+DashApp/CND_Data_Set.csv
 
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains,pycharm,virtualenv,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains,pycharm,virtualenv,python

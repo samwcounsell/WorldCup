@@ -8,11 +8,11 @@ from Round_Simulation import TLKO_simulation, GRP4HA
 from Group_Draws import GD4
 
 
-def caf(time_delay, player_data, nation_data, awards_data, test):
+def caf_f(time_delay, player_data, nation_data, awards_data, test, runs, host):
     from Host import host_selector
 
     CAFhosts = ["South Africa", "Egypt", "Morocco"]
-    host, hostdf = host_selector()
+    #host, hostdf = host_selector()
 
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -126,6 +126,7 @@ def caf(time_delay, player_data, nation_data, awards_data, test):
     print("\nThe CAF Golden Boot Winner is", caf_Golden_Boot, "with", caf_GBN, "Goals")
     print("\nThe CAF Golden Playmaker Winner is", caf_Golden_Playmaker, "with", caf_GPN, "Assists")
 
-    input("\nEnd of CAF qualifiers, press enter to continue to the next Confederation: ")
+    if runs == 1:
+        input("\nEnd of CAF qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, pot_data, awards_data

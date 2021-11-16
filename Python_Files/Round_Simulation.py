@@ -612,7 +612,7 @@ def GRP8HA(time_delay, player_data, nation_data, group_data):
     return player_data, nation_data, group_data
 
 
-def WorldCupGroupStage(time_delay, player_data, nation_data, group_names):
+def WorldCupGroupStage(time_delay, player_data, nation_data, group_names, runs):
 
     final_stage = 'N'
 
@@ -648,7 +648,7 @@ def WorldCupGroupStage(time_delay, player_data, nation_data, group_names):
 
                     player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1,
                                                                       a2,
-                                                                      d2, final_stage)
+                                                                      d2, final_stage, runs)
 
                     nation_data.loc[team1, 'total_GF'], nation_data.loc[team1, 'total_GA'] = \
                         nation_data.loc[team1, 'total_GF'] + goals1, nation_data.loc[team1, 'total_GA'] + goals2
@@ -714,12 +714,13 @@ def WorldCupGroupStage(time_delay, player_data, nation_data, group_names):
                                             index=False),
                       "\n")
 
-                uc = input("Press enter to continue: ")  # uc = user continue
+                if runs == 1:
+                    input("Press enter to continue: ")  # uc = user continue
 
     return player_data, nation_data, group_names
 
 
-def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_data, active_data, section_data):
+def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_data, active_data, section_data, runs):
 
     final_stage = 'N'
 
@@ -734,7 +735,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
             a1, d1 = active_data.loc[(2 * a), 'Attack'], active_data.loc[(2 * a), 'Defence']
             a2, d2 = active_data.loc[(2 * a + 3), 'Attack'], active_data.loc[(2 * a + 3), 'Defence']
 
-            player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage)
+            player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage, runs)
 
             if goals1 > goals2:
                 df = active_data.iloc[(2 * a):(2 * a) + 1, :]
@@ -746,7 +747,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
 
             if goals1 == goals2:
                 player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                           d1, a2, d2, goals1, goals2)
+                                                                           d1, a2, d2, goals1, goals2, runs)
                 if et_goals1 > et_goals2:
                     df = active_data.iloc[(2 * a):(2 * a) + 1, :]
                     section_data = pd.concat([section_data, df])
@@ -804,7 +805,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
             team2 = active_data.loc[2 * a, 'Country']
             a1, d1 = active_data.loc[(2 * a) - 1, 'Attack'], active_data.loc[(2 * a) - 1, 'Defence']
             a2, d2 = active_data.loc[2 * a, 'Attack'], active_data.loc[2 * a, 'Defence']
-            player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage)
+            player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage, runs)
 
             if goals1 > goals2:
                 df = active_data.iloc[(2 * a) - 1:2 * a, :]
@@ -816,7 +817,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
 
             if goals1 == goals2:
                 player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                           d1, a2, d2, goals1, goals2)
+                                                                           d1, a2, d2, goals1, goals2, runs)
                 if et_goals1 > et_goals2:
                     df = active_data.iloc[(2 * a) - 1:2 * a, :]
                     section_data = pd.concat([section_data, df])
@@ -891,7 +892,7 @@ def TLKO_simulation_wc_16(number_of_matches, time_delay, player_data, nation_dat
     return player_data, nation_data, section_data
 
 
-def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_data, active_data, section_data):
+def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_data, active_data, section_data, runs):
     for a in range(number_of_matches):
         et_goals1, et_goals2 = 0, 0
         time.sleep(time_delay)
@@ -922,7 +923,7 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
         a1, d1 = active_data.loc[x, 'Attack'], active_data.loc[x, 'Defence']
         a2, d2 = active_data.loc[y, 'Attack'], active_data.loc[y, 'Defence']
 
-        player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage)
+        player_data, goals1, goals2 = match_simulation_wc(time_delay, player_data, team1, team2, a1, d1, a2, d2, final_stage, runs)
 
         if goals1 > goals2:
             df = active_data.iloc[x:x + 1, :]
@@ -934,7 +935,7 @@ def TLKO_simulation_wc_late(number_of_matches, time_delay, player_data, nation_d
 
         if goals1 == goals2:
             player_data, et_goals1, et_goals2 = match_simulation_30_wc(time_delay, player_data, team1, team2, a1,
-                                                                       d1, a2, d2, goals1, goals2)
+                                                                       d1, a2, d2, goals1, goals2, runs)
             if et_goals1 > et_goals2:
                 df = active_data.iloc[x:x + 1, :]
                 section_data = pd.concat([section_data, df])

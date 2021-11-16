@@ -6,7 +6,7 @@ import random
 import sys
 from Round_Simulation import GRP5, GRP6HA, TLKO_simulation
 
-def ofc(time_delay, player_data, nation_data, awards_data, test):
+def ofc_f(time_delay, player_data, nation_data, awards_data, test, runs):
     pot_data = pd.read_csv("OFC.csv")
 
     print("\nWELCOME TO OFC WORLD CUP QUALIFYING\n")
@@ -101,6 +101,7 @@ def ofc(time_delay, player_data, nation_data, awards_data, test):
     print("\nThe OFC Golden Boot Winner is", ofc_Golden_Boot, "with", ofc_GBN, "Goals")
     print("\nThe OFC Golden Playmaker Winner is", ofc_Golden_Playmaker, "with", ofc_GPN, "Assists")
 
-    input("\nEnd of OFC qualifiers, press enter to continue to the next Confederation: ")
+    if runs == 1:
+        input("\nEnd of OFC qualifiers, press enter to continue to the next Confederation: ")
 
     return player_data, nation_data, ict, awards_data
