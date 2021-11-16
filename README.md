@@ -7,6 +7,8 @@ Every nations ratings and squads are our choices, so expect some weird outcomes,
 
 We hope you enjoy a relatively realistic run through of the 2022 World Cup
 
+Note: FIFA World Rankings correct as of 16/11/21
+
 ## Setup
 
 Install the requirements. We recommend you do this inside a virtual environment:
