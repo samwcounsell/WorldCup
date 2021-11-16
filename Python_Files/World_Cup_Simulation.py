@@ -89,7 +89,6 @@ for i in range(runs):
 
     # Joining all the qualified teams
     teams = pd.concat([host_df, afc, caf, concacaf, conmebol, uefa])
-    print(teams)
 
     # Joining all the teams for the intercontinental playoffs
     ict = pd.concat([ict1, ict2, ict3, ict4])
@@ -371,8 +370,8 @@ for i in range(runs):
     finalist_nations = [finalist1, finalist2]
     line_up1 = player_data[(player_data.Country == finalist1)]
     line_up2 = player_data[(player_data.Country == finalist2)]
-    print("\n", line_up1.to_string(columns=['Position', 'ShirtNumber'], header=False), "\n\n",
-          line_up2.to_string(columns=['Position', 'ShirtNumber'], header=False), "\n")
+    print("\n", line_up1.to_string(columns=['Position', 'ShirtNumber']), "\n\n",
+          line_up2.to_string(columns=['Position', 'ShirtNumber']), "\n")
     time.sleep(time_delay * 5)
 
     # Running the Final
